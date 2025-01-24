@@ -1,0 +1,1133 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script>function neighbourhoodHighlight(params) {
+  // console.log("in nieghbourhoodhighlight");
+  allNodes = nodes.get({ returnType: "Object" });
+  // originalNodes = JSON.parse(JSON.stringify(allNodes));
+  // if something is selected:
+  if (params.nodes.length > 0) {
+    highlightActive = true;
+    var i, j;
+    var selectedNode = params.nodes[0];
+    var degrees = 2;
+
+    // mark all nodes as hard to read.
+    for (let nodeId in allNodes) {
+      // nodeColors[nodeId] = allNodes[nodeId].color;
+      allNodes[nodeId].color = "rgba(200,200,200,0.5)";
+      if (allNodes[nodeId].hiddenLabel === undefined) {
+        allNodes[nodeId].hiddenLabel = allNodes[nodeId].label;
+        allNodes[nodeId].label = undefined;
+      }
+    }
+    var connectedNodes = network.getConnectedNodes(selectedNode);
+    var allConnectedNodes = [];
+
+    // get the second degree nodes
+    for (i = 1; i < degrees; i++) {
+      for (j = 0; j < connectedNodes.length; j++) {
+        allConnectedNodes = allConnectedNodes.concat(
+          network.getConnectedNodes(connectedNodes[j])
+        );
+      }
+    }
+
+    // all second degree nodes get a different color and their label back
+    for (i = 0; i < allConnectedNodes.length; i++) {
+      // allNodes[allConnectedNodes[i]].color = "pink";
+      allNodes[allConnectedNodes[i]].color = "rgba(150,150,150,0.75)";
+      if (allNodes[allConnectedNodes[i]].hiddenLabel !== undefined) {
+        allNodes[allConnectedNodes[i]].label =
+          allNodes[allConnectedNodes[i]].hiddenLabel;
+        allNodes[allConnectedNodes[i]].hiddenLabel = undefined;
+      }
+    }
+
+    // all first degree nodes get their own color and their label back
+    for (i = 0; i < connectedNodes.length; i++) {
+      // allNodes[connectedNodes[i]].color = undefined;
+      allNodes[connectedNodes[i]].color = nodeColors[connectedNodes[i]];
+      if (allNodes[connectedNodes[i]].hiddenLabel !== undefined) {
+        allNodes[connectedNodes[i]].label =
+          allNodes[connectedNodes[i]].hiddenLabel;
+        allNodes[connectedNodes[i]].hiddenLabel = undefined;
+      }
+    }
+
+    // the main node gets its own color and its label back.
+    // allNodes[selectedNode].color = undefined;
+    allNodes[selectedNode].color = nodeColors[selectedNode];
+    if (allNodes[selectedNode].hiddenLabel !== undefined) {
+      allNodes[selectedNode].label = allNodes[selectedNode].hiddenLabel;
+      allNodes[selectedNode].hiddenLabel = undefined;
+    }
+  } else if (highlightActive === true) {
+    // console.log("highlightActive was true");
+    // reset all nodes
+    for (let nodeId in allNodes) {
+      // allNodes[nodeId].color = "purple";
+      allNodes[nodeId].color = nodeColors[nodeId];
+      // delete allNodes[nodeId].color;
+      if (allNodes[nodeId].hiddenLabel !== undefined) {
+        allNodes[nodeId].label = allNodes[nodeId].hiddenLabel;
+        allNodes[nodeId].hiddenLabel = undefined;
+      }
+    }
+    highlightActive = false;
+  }
+
+  // transform the object into an array
+  var updateArray = [];
+  if (params.nodes.length > 0) {
+    for (let nodeId in allNodes) {
+      if (allNodes.hasOwnProperty(nodeId)) {
+        // console.log(allNodes[nodeId]);
+        updateArray.push(allNodes[nodeId]);
+      }
+    }
+    nodes.update(updateArray);
+  } else {
+    // console.log("Nothing was selected");
+    for (let nodeId in allNodes) {
+      if (allNodes.hasOwnProperty(nodeId)) {
+        // console.log(allNodes[nodeId]);
+        // allNodes[nodeId].color = {};
+        updateArray.push(allNodes[nodeId]);
+      }
+    }
+    nodes.update(updateArray);
+  }
+}
+
+function filterHighlight(params) {
+  allNodes = nodes.get({ returnType: "Object" });
+  // if something is selected:
+  if (params.nodes.length > 0) {
+    filterActive = true;
+    let selectedNodes = params.nodes;
+
+    // hiding all nodes and saving the label
+    for (let nodeId in allNodes) {
+      allNodes[nodeId].hidden = true;
+      if (allNodes[nodeId].savedLabel === undefined) {
+        allNodes[nodeId].savedLabel = allNodes[nodeId].label;
+        allNodes[nodeId].label = undefined;
+      }
+    }
+
+    for (let i=0; i < selectedNodes.length; i++) {
+      allNodes[selectedNodes[i]].hidden = false;
+      if (allNodes[selectedNodes[i]].savedLabel !== undefined) {
+        allNodes[selectedNodes[i]].label = allNodes[selectedNodes[i]].savedLabel;
+        allNodes[selectedNodes[i]].savedLabel = undefined;
+      }
+    }
+
+  } else if (filterActive === true) {
+    // reset all nodes
+    for (let nodeId in allNodes) {
+      allNodes[nodeId].hidden = false;
+      if (allNodes[nodeId].savedLabel !== undefined) {
+        allNodes[nodeId].label = allNodes[nodeId].savedLabel;
+        allNodes[nodeId].savedLabel = undefined;
+      }
+    }
+    filterActive = false;
+  }
+
+  // transform the object into an array
+  var updateArray = [];
+  if (params.nodes.length > 0) {
+    for (let nodeId in allNodes) {
+      if (allNodes.hasOwnProperty(nodeId)) {
+        updateArray.push(allNodes[nodeId]);
+      }
+    }
+    nodes.update(updateArray);
+  } else {
+    for (let nodeId in allNodes) {
+      if (allNodes.hasOwnProperty(nodeId)) {
+        updateArray.push(allNodes[nodeId]);
+      }
+    }
+    nodes.update(updateArray);
+  }
+}
+
+function selectNode(nodes) {
+  network.selectNodes(nodes);
+  neighbourhoodHighlight({ nodes: nodes });
+  return nodes;
+}
+
+function selectNodes(nodes) {
+  network.selectNodes(nodes);
+  filterHighlight({nodes: nodes});
+  return nodes;
+}
+
+function highlightFilter(filter) {
+  let selectedNodes = []
+  let selectedProp = filter['property']
+  if (filter['item'] === 'node') {
+    let allNodes = nodes.get({ returnType: "Object" });
+    for (let nodeId in allNodes) {
+      if (allNodes[nodeId][selectedProp] && filter['value'].includes((allNodes[nodeId][selectedProp]).toString())) {
+        selectedNodes.push(nodeId)
+      }
+    }
+  }
+  else if (filter['item'] === 'edge'){
+    let allEdges = edges.get({returnType: 'object'});
+    // check if the selected property exists for selected edge and select the nodes connected to the edge
+    for (let edge in allEdges) {
+      if (allEdges[edge][selectedProp] && filter['value'].includes((allEdges[edge][selectedProp]).toString())) {
+        selectedNodes.push(allEdges[edge]['from'])
+        selectedNodes.push(allEdges[edge]['to'])
+      }
+    }
+  }
+  selectNodes(selectedNodes)
+}</script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+            
+            
+            
+            
+            
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tom-select/2.0.0-rc.4/css/tom-select.min.css" integrity="sha512-43fHB3GLgZfz8QXl1RPQ8O66oIgv3po9cJ5erMt1c4QISq9dYb195T3vr5ImnJPXuVroKcGBPXBFKETW8jrPNQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/tom-select/2.0.0-rc.4/js/tom-select.complete.js" integrity="sha512-jeF9CfnvzDiw9G9xiksVjxR2lib44Gnovvkv+3CgCG6NXCD4gqlA5nDAVW5WjpA+i+/zKsUWV5xNEbW1X/HH0Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 1000px;
+                 background-color: #ffffff;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+             #loadingBar {
+                 position:absolute;
+                 top:0px;
+                 left:0px;
+                 width: 100%;
+                 height: 1000px;
+                 background-color:rgba(200,200,200,0.8);
+                 -webkit-transition: all 0.5s ease;
+                 -moz-transition: all 0.5s ease;
+                 -ms-transition: all 0.5s ease;
+                 -o-transition: all 0.5s ease;
+                 transition: all 0.5s ease;
+                 opacity:1;
+             }
+
+             #bar {
+                 position:absolute;
+                 top:0px;
+                 left:0px;
+                 width:20px;
+                 height:20px;
+                 margin:auto auto auto auto;
+                 border-radius:11px;
+                 border:2px solid rgba(30,30,30,0.05);
+                 background: rgb(0, 173, 246); /* Old browsers */
+                 box-shadow: 2px 0px 4px rgba(0,0,0,0.4);
+             }
+
+             #border {
+                 position:absolute;
+                 top:10px;
+                 left:10px;
+                 width:500px;
+                 height:23px;
+                 margin:auto auto auto auto;
+                 box-shadow: 0px 0px 4px rgba(0,0,0,0.2);
+                 border-radius:10px;
+             }
+
+             #text {
+                 position:absolute;
+                 top:8px;
+                 left:530px;
+                 width:30px;
+                 height:50px;
+                 margin:auto auto auto auto;
+                 font-size:22px;
+                 color: #000000;
+             }
+
+             div.outerBorder {
+                 position:relative;
+                 top:400px;
+                 width:600px;
+                 height:44px;
+                 margin:auto auto auto auto;
+                 border:8px solid rgba(0,0,0,0.1);
+                 background: rgb(252,252,252); /* Old browsers */
+                 background: -moz-linear-gradient(top,  rgba(252,252,252,1) 0%, rgba(237,237,237,1) 100%); /* FF3.6+ */
+                 background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(252,252,252,1)), color-stop(100%,rgba(237,237,237,1))); /* Chrome,Safari4+ */
+                 background: -webkit-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* Chrome10+,Safari5.1+ */
+                 background: -o-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* Opera 11.10+ */
+                 background: -ms-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* IE10+ */
+                 background: linear-gradient(to bottom,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* W3C */
+                 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfcfc', endColorstr='#ededed',GradientType=0 ); /* IE6-9 */
+                 border-radius:72px;
+                 box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+             }
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+                <div id="select-menu" class="card-header">
+                    <div class="row no-gutters">
+                        <div class="col-10 pb-2">
+                            <select
+                            class="form-select"
+                            aria-label="Default select example"
+                            onchange="selectNode([value]);"
+                            id="select-node"
+                            placeholder="Select node..."
+                            >
+                                <option selected>Select a Node by ID</option>
+                                
+                                    <option value="__main__::(global)">__main__::(global)</option>
+                                
+                                    <option value="__main__::main">__main__::main</option>
+                                
+                                    <option value="__main__::_main">__main__::_main</option>
+                                
+                                    <option value="__main__::filterstr_to_filterfunc">__main__::filterstr_to_filterfunc</option>
+                                
+                                    <option value="__main__::usage_string">__main__::usage_string</option>
+                                
+                                    <option value="instaloader::Instaloader.check_profile_id">instaloader::Instaloader.check_profile_id</option>
+                                
+                                    <option value="instaloader::Instaloader.download_feed_posts">instaloader::Instaloader.download_feed_posts</option>
+                                
+                                    <option value="instaloader::Instaloader.download_hashtag">instaloader::Instaloader.download_hashtag</option>
+                                
+                                    <option value="instaloader::Instaloader.download_location">instaloader::Instaloader.download_location</option>
+                                
+                                    <option value="instaloader::Instaloader.download_post">instaloader::Instaloader.download_post</option>
+                                
+                                    <option value="instaloader::Instaloader.download_profiles">instaloader::Instaloader.download_profiles</option>
+                                
+                                    <option value="instaloader::Instaloader.download_saved_posts">instaloader::Instaloader.download_saved_posts</option>
+                                
+                                    <option value="instaloader::Instaloader.download_stories">instaloader::Instaloader.download_stories</option>
+                                
+                                    <option value="instaloader::Instaloader.download_storyitem">instaloader::Instaloader.download_storyitem</option>
+                                
+                                    <option value="instaloader::Instaloader.interactive_login">instaloader::Instaloader.interactive_login</option>
+                                
+                                    <option value="instaloadercontext::InstaloaderContext.error">instaloadercontext::InstaloaderContext.error</option>
+                                
+                                    <option value="instaloadercontext::InstaloaderContext.error_catcher">instaloadercontext::InstaloaderContext.error_catcher</option>
+                                
+                                    <option value="instaloadercontext::InstaloaderContext.log">instaloadercontext::InstaloaderContext.log</option>
+                                
+                                    <option value="lateststamps::LatestStamps.__init__">lateststamps::LatestStamps.__init__</option>
+                                
+                                    <option value="structures::Profile.get_followees">structures::Profile.get_followees</option>
+                                
+                                    <option value="structures::load_structure_from_file">structures::load_structure_from_file</option>
+                                
+                                    <option value="instaloader::Instaloader.__init__">instaloader::Instaloader.__init__</option>
+                                
+                                    <option value="instaloader::Instaloader.close">instaloader::Instaloader.close</option>
+                                
+                                    <option value="instaloader::get_default_session_filename">instaloader::get_default_session_filename</option>
+                                
+                                    <option value="instaloader::get_default_stamps_filename">instaloader::get_default_stamps_filename</option>
+                                
+                                    <option value="instaloadercontext::default_user_agent">instaloadercontext::default_user_agent</option>
+                                
+                                    <option value="instaloader::Instaloader.__exit__">instaloader::Instaloader.__exit__</option>
+                                
+                                    <option value="instaloader::format_string_contains_key">instaloader::format_string_contains_key</option>
+                                
+                                    <option value="instaloadercontext::InstaloaderContext.__init__">instaloadercontext::InstaloaderContext.__init__</option>
+                                
+                                    <option value="instaloader::Instaloader._get_id_filename">instaloader::Instaloader._get_id_filename</option>
+                                
+                                    <option value="instaloader::Instaloader.anonymous_copy">instaloader::Instaloader.anonymous_copy</option>
+                                
+                                    <option value="instaloader::Instaloader.load_profile_id">instaloader::Instaloader.load_profile_id</option>
+                                
+                                    <option value="instaloader::Instaloader.save_profile_id">instaloader::Instaloader.save_profile_id</option>
+                                
+                                    <option value="lateststamps::LatestStamps.get_profile_id">lateststamps::LatestStamps.get_profile_id</option>
+                                
+                                    <option value="lateststamps::LatestStamps.rename_profile">lateststamps::LatestStamps.rename_profile</option>
+                                
+                                    <option value="structures::Profile.from_id">structures::Profile.from_id</option>
+                                
+                                    <option value="structures::Profile.from_username">structures::Profile.from_username</option>
+                                
+                                    <option value="instaloader::Instaloader.get_feed_posts">instaloader::Instaloader.get_feed_posts</option>
+                                
+                                    <option value="instaloader::Instaloader.posts_download_loop">instaloader::Instaloader.posts_download_loop</option>
+                                
+                                    <option value="instaloader::Instaloader.download_hashtag_profilepic">instaloader::Instaloader.download_hashtag_profilepic</option>
+                                
+                                    <option value="instaloader::Instaloader.save_metadata_json">instaloader::Instaloader.save_metadata_json</option>
+                                
+                                    <option value="structures::Hashtag.from_name">structures::Hashtag.from_name</option>
+                                
+                                    <option value="structures::Hashtag.get_posts_resumable">structures::Hashtag.get_posts_resumable</option>
+                                
+                                    <option value="instaloader::Instaloader.download_title_pic">instaloader::Instaloader.download_title_pic</option>
+                                
+                                    <option value="instaloader::Instaloader.download_highlight_cover">instaloader::Instaloader.download_highlight_cover</option>
+                                
+                                    <option value="instaloader::Instaloader.download_highlights">instaloader::Instaloader.download_highlights</option>
+                                
+                                    <option value="instaloader::Instaloader.get_highlights">instaloader::Instaloader.get_highlights</option>
+                                
+                                    <option value="instaloader::_PostPathFormatter.sanitize_path">instaloader::_PostPathFormatter.sanitize_path</option>
+                                
+                                    <option value="instaloader::Instaloader.download_igtv">instaloader::Instaloader.download_igtv</option>
+                                
+                                    <option value="lateststamps::LatestStamps.get_last_igtv_timestamp">lateststamps::LatestStamps.get_last_igtv_timestamp</option>
+                                
+                                    <option value="lateststamps::LatestStamps.set_last_igtv_timestamp">lateststamps::LatestStamps.set_last_igtv_timestamp</option>
+                                
+                                    <option value="structures::Profile.get_igtv_posts">structures::Profile.get_igtv_posts</option>
+                                
+                                    <option value="instaloader::Instaloader.get_location_posts">instaloader::Instaloader.get_location_posts</option>
+                                
+                                    <option value="instaloader::Instaloader.download_pic">instaloader::Instaloader.download_pic</option>
+                                
+                                    <option value="instaloadercontext::InstaloaderContext.get_raw">instaloadercontext::InstaloaderContext.get_raw</option>
+                                
+                                    <option value="instaloadercontext::InstaloaderContext.write_raw">instaloadercontext::InstaloaderContext.write_raw</option>
+                                
+                                    <option value="instaloader::Instaloader.__prepare_filename">instaloader::Instaloader.__prepare_filename</option>
+                                
+                                    <option value="instaloader::Instaloader.format_filename">instaloader::Instaloader.format_filename</option>
+                                
+                                    <option value="instaloader::Instaloader.save_caption">instaloader::Instaloader.save_caption</option>
+                                
+                                    <option value="instaloader::Instaloader.save_location">instaloader::Instaloader.save_location</option>
+                                
+                                    <option value="instaloader::Instaloader.update_comments">instaloader::Instaloader.update_comments</option>
+                                
+                                    <option value="instaloader::_ArbitraryItemFormatter.__init__">instaloader::_ArbitraryItemFormatter.__init__</option>
+                                
+                                    <option value="instaloader::_PostPathFormatter.__init__">instaloader::_PostPathFormatter.__init__</option>
+                                
+                                    <option value="structures::Post.get_is_videos">structures::Post.get_is_videos</option>
+                                
+                                    <option value="structures::Post.get_sidecar_nodes">structures::Post.get_sidecar_nodes</option>
+                                
+                                    <option value="instaloader::Instaloader.download_profile">instaloader::Instaloader.download_profile</option>
+                                
+                                    <option value="instaloader::Instaloader.download_profilepic">instaloader::Instaloader.download_profilepic</option>
+                                
+                                    <option value="instaloader::Instaloader.download_tagged">instaloader::Instaloader.download_tagged</option>
+                                
+                                    <option value="instaloader::Instaloader.download_profilepic_if_new">instaloader::Instaloader.download_profilepic_if_new</option>
+                                
+                                    <option value="lateststamps::LatestStamps.get_profile_pic">lateststamps::LatestStamps.get_profile_pic</option>
+                                
+                                    <option value="lateststamps::LatestStamps.set_profile_pic">lateststamps::LatestStamps.set_profile_pic</option>
+                                
+                                    <option value="lateststamps::LatestStamps.get_last_post_timestamp">lateststamps::LatestStamps.get_last_post_timestamp</option>
+                                
+                                    <option value="lateststamps::LatestStamps.set_last_post_timestamp">lateststamps::LatestStamps.set_last_post_timestamp</option>
+                                
+                                    <option value="structures::Profile.get_saved_posts">structures::Profile.get_saved_posts</option>
+                                
+                                    <option value="structures::Profile.own_profile">structures::Profile.own_profile</option>
+                                
+                                    <option value="instaloader::Instaloader.get_stories">instaloader::Instaloader.get_stories</option>
+                                
+                                    <option value="lateststamps::LatestStamps.get_last_story_timestamp">lateststamps::LatestStamps.get_last_story_timestamp</option>
+                                
+                                    <option value="lateststamps::LatestStamps.set_last_story_timestamp">lateststamps::LatestStamps.set_last_story_timestamp</option>
+                                
+                                    <option value="lateststamps::LatestStamps.get_last_tagged_timestamp">lateststamps::LatestStamps.get_last_tagged_timestamp</option>
+                                
+                                    <option value="lateststamps::LatestStamps.set_last_tagged_timestamp">lateststamps::LatestStamps.set_last_tagged_timestamp</option>
+                                
+                                    <option value="structures::Profile.get_tagged_posts">structures::Profile.get_tagged_posts</option>
+                                
+                                    <option value="structures::TitlePic.__init__">structures::TitlePic.__init__</option>
+                                
+                                    <option value="instaloader::Instaloader.format_filename_within_target_path">instaloader::Instaloader.format_filename_within_target_path</option>
+                                
+                                    <option value="instaloader::Instaloader.get_explore_posts">instaloader::Instaloader.get_explore_posts</option>
+                                
+                                    <option value="nodeiterator::NodeIterator.__init__">nodeiterator::NodeIterator.__init__</option>
+                                
+                                    <option value="structures::Post.__init__">structures::Post.__init__</option>
+                                
+                                    <option value="instaloadercontext::InstaloaderContext.graphql_query">instaloadercontext::InstaloaderContext.graphql_query</option>
+                                
+                                    <option value="structures::Post.supported_graphql_types">structures::Post.supported_graphql_types</option>
+                                
+                                    <option value="instaloader::Instaloader.get_hashtag_posts">instaloader::Instaloader.get_hashtag_posts</option>
+                                
+                                    <option value="structures::Highlight.__init__">structures::Highlight.__init__</option>
+                                
+                                    <option value="sectioniterator::SectionIterator.__init__">sectioniterator::SectionIterator.__init__</option>
+                                
+                                    <option value="structures::Post.from_iphone_struct">structures::Post.from_iphone_struct</option>
+                                
+                                    <option value="structures::Story.__init__">structures::Story.__init__</option>
+                                
+                                    <option value="instaloader::Instaloader.login">instaloader::Instaloader.login</option>
+                                
+                                    <option value="instaloader::Instaloader.two_factor_login">instaloader::Instaloader.two_factor_login</option>
+                                
+                                    <option value="instaloader::Instaloader.load_session">instaloader::Instaloader.load_session</option>
+                                
+                                    <option value="instaloader::Instaloader.load_session_from_file">instaloader::Instaloader.load_session_from_file</option>
+                                
+                                    <option value="instaloader::get_legacy_session_filename">instaloader::get_legacy_session_filename</option>
+                                
+                                    <option value="nodeiterator::resumable_iteration">nodeiterator::resumable_iteration</option>
+                                
+                                    <option value="structures::save_structure_to_file">structures::save_structure_to_file</option>
+                                
+                                    <option value="instaloader::Instaloader.save_session">instaloader::Instaloader.save_session</option>
+                                
+                                    <option value="instaloader::Instaloader.save_session_to_file">instaloader::Instaloader.save_session_to_file</option>
+                                
+                                    <option value="instaloader::Instaloader.test_login">instaloader::Instaloader.test_login</option>
+                                
+                                    <option value="structures::Post.get_comments">structures::Post.get_comments</option>
+                                
+                                    <option value="instaloader::_ArbitraryItemFormatter.format_field">instaloader::_ArbitraryItemFormatter.format_field</option>
+                                
+                                    <option value="instaloader::_PostPathFormatter.get_value">instaloader::_PostPathFormatter.get_value</option>
+                                
+                                    <option value="instaloader::_retry_on_connection_error">instaloader::_retry_on_connection_error</option>
+                                
+                                    <option value="instaloadercontext::InstaloaderContext.do_sleep">instaloadercontext::InstaloaderContext.do_sleep</option>
+                                
+                                    <option value="instaloader::_get_config_dir">instaloader::_get_config_dir</option>
+                                
+                                    <option value="instaloadercontext::InstaloaderContext.get_anonymous_session">instaloadercontext::InstaloaderContext.get_anonymous_session</option>
+                                
+                                    <option value="instaloadercontext::RateController.__init__">instaloadercontext::RateController.__init__</option>
+                                
+                                    <option value="instaloadercontext::default_iphone_headers">instaloadercontext::default_iphone_headers</option>
+                                
+                                    <option value="instaloadercontext::InstaloaderContext.anonymous_copy">instaloadercontext::InstaloaderContext.anonymous_copy</option>
+                                
+                                    <option value="instaloadercontext::InstaloaderContext.close">instaloadercontext::InstaloaderContext.close</option>
+                                
+                                    <option value="instaloadercontext::InstaloaderContext.get_and_write_raw">instaloadercontext::InstaloaderContext.get_and_write_raw</option>
+                                
+                                    <option value="instaloadercontext::InstaloaderContext._default_http_header">instaloadercontext::InstaloaderContext._default_http_header</option>
+                                
+                                    <option value="instaloadercontext::InstaloaderContext.get_iphone_json">instaloadercontext::InstaloaderContext.get_iphone_json</option>
+                                
+                                    <option value="instaloadercontext::InstaloaderContext.get_json">instaloadercontext::InstaloaderContext.get_json</option>
+                                
+                                    <option value="instaloadercontext::copy_session">instaloadercontext::copy_session</option>
+                                
+                                    <option value="instaloadercontext::RateController.handle_429">instaloadercontext::RateController.handle_429</option>
+                                
+                                    <option value="instaloadercontext::RateController.wait_before_query">instaloadercontext::RateController.wait_before_query</option>
+                                
+                                    <option value="instaloadercontext::InstaloaderContext.graphql_node_list">instaloadercontext::InstaloaderContext.graphql_node_list</option>
+                                
+                                    <option value="instaloadercontext::InstaloaderContext.head">instaloadercontext::InstaloaderContext.head</option>
+                                
+                                    <option value="instaloadercontext::InstaloaderContext.load_session">instaloadercontext::InstaloaderContext.load_session</option>
+                                
+                                    <option value="instaloadercontext::InstaloaderContext.load_session_from_file">instaloadercontext::InstaloaderContext.load_session_from_file</option>
+                                
+                                    <option value="instaloadercontext::InstaloaderContext.login">instaloadercontext::InstaloaderContext.login</option>
+                                
+                                    <option value="instaloadercontext::InstaloaderContext.root_rhx_gis">instaloadercontext::InstaloaderContext.root_rhx_gis</option>
+                                
+                                    <option value="instaloadercontext::InstaloaderContext.save_session_to_file">instaloadercontext::InstaloaderContext.save_session_to_file</option>
+                                
+                                    <option value="instaloadercontext::InstaloaderContext.save_session">instaloadercontext::InstaloaderContext.save_session</option>
+                                
+                                    <option value="instaloadercontext::InstaloaderContext.test_login">instaloadercontext::InstaloaderContext.test_login</option>
+                                
+                                    <option value="instaloadercontext::RateController._dump_query_timestamps">instaloadercontext::RateController._dump_query_timestamps</option>
+                                
+                                    <option value="instaloadercontext::RateController.query_waittime">instaloadercontext::RateController.query_waittime</option>
+                                
+                                    <option value="instaloadercontext::RateController.sleep">instaloadercontext::RateController.sleep</option>
+                                
+                                    <option value="instaloadercontext::RateController._reqs_in_sliding_window">instaloadercontext::RateController._reqs_in_sliding_window</option>
+                                
+                                    <option value="instaloadercontext::RateController.count_per_sliding_window">instaloadercontext::RateController.count_per_sliding_window</option>
+                                
+                                    <option value="lateststamps::LatestStamps._set_timestamp">lateststamps::LatestStamps._set_timestamp</option>
+                                
+                                    <option value="lateststamps::LatestStamps._ensure_section">lateststamps::LatestStamps._ensure_section</option>
+                                
+                                    <option value="lateststamps::LatestStamps._save">lateststamps::LatestStamps._save</option>
+                                
+                                    <option value="lateststamps::LatestStamps._get_timestamp">lateststamps::LatestStamps._get_timestamp</option>
+                                
+                                    <option value="lateststamps::LatestStamps.save_profile_id">lateststamps::LatestStamps.save_profile_id</option>
+                                
+                                    <option value="nodeiterator::NodeIterator._query">nodeiterator::NodeIterator._query</option>
+                                
+                                    <option value="nodeiterator::NodeIterator.__next__">nodeiterator::NodeIterator.__next__</option>
+                                
+                                    <option value="nodeiterator::NodeIterator.freeze">nodeiterator::NodeIterator.freeze</option>
+                                
+                                    <option value="nodeiterator::NodeIterator.thaw">nodeiterator::NodeIterator.thaw</option>
+                                
+                                    <option value="sectioniterator::SectionIterator._query">sectioniterator::SectionIterator._query</option>
+                                
+                                    <option value="sectioniterator::SectionIterator.__next__">sectioniterator::SectionIterator.__next__</option>
+                                
+                                    <option value="structures::Hashtag._metadata">structures::Hashtag._metadata</option>
+                                
+                                    <option value="structures::Hashtag._obtain_metadata">structures::Hashtag._obtain_metadata</option>
+                                
+                                    <option value="structures::Hashtag._query">structures::Hashtag._query</option>
+                                
+                                    <option value="structures::Hashtag.allow_following">structures::Hashtag.allow_following</option>
+                                
+                                    <option value="structures::Hashtag.description">structures::Hashtag.description</option>
+                                
+                                    <option value="structures::Hashtag.get_all_posts">structures::Hashtag.get_all_posts</option>
+                                
+                                    <option value="structures::Hashtag.get_top_posts">structures::Hashtag.get_top_posts</option>
+                                
+                                    <option value="structures::Hashtag.get_posts">structures::Hashtag.get_posts</option>
+                                
+                                    <option value="structures::Hashtag.hashtagid">structures::Hashtag.hashtagid</option>
+                                
+                                    <option value="structures::Hashtag.is_following">structures::Hashtag.is_following</option>
+                                
+                                    <option value="structures::Hashtag.mediacount">structures::Hashtag.mediacount</option>
+                                
+                                    <option value="structures::Hashtag.profile_pic_url">structures::Hashtag.profile_pic_url</option>
+                                
+                                    <option value="structures::Highlight._fetch_iphone_struct">structures::Highlight._fetch_iphone_struct</option>
+                                
+                                    <option value="structures::Highlight._fetch_items">structures::Highlight._fetch_items</option>
+                                
+                                    <option value="structures::Highlight.get_items">structures::Highlight.get_items</option>
+                                
+                                    <option value="structures::StoryItem.__init__">structures::StoryItem.__init__</option>
+                                
+                                    <option value="structures::Highlight.itemcount">structures::Highlight.itemcount</option>
+                                
+                                    <option value="structures::Highlight.owner_profile">structures::Highlight.owner_profile</option>
+                                
+                                    <option value="structures::Profile.__init__">structures::Profile.__init__</option>
+                                
+                                    <option value="structures::Post._asdict">structures::Post._asdict</option>
+                                
+                                    <option value="structures::Post._full_metadata">structures::Post._full_metadata</option>
+                                
+                                    <option value="structures::Post._obtain_metadata">structures::Post._obtain_metadata</option>
+                                
+                                    <option value="structures::Post._iphone_struct">structures::Post._iphone_struct</option>
+                                
+                                    <option value="structures::Post.accessibility_caption">structures::Post.accessibility_caption</option>
+                                
+                                    <option value="structures::Post._field">structures::Post._field</option>
+                                
+                                    <option value="structures::Post.caption">structures::Post.caption</option>
+                                
+                                    <option value="structures::_optional_normalize">structures::_optional_normalize</option>
+                                
+                                    <option value="structures::Post.comments">structures::Post.comments</option>
+                                
+                                    <option value="structures::Post.date_local">structures::Post.date_local</option>
+                                
+                                    <option value="structures::Post._get_timestamp_date_created">structures::Post._get_timestamp_date_created</option>
+                                
+                                    <option value="structures::Post.date_utc">structures::Post.date_utc</option>
+                                
+                                    <option value="structures::Profile.from_iphone_struct">structures::Profile.from_iphone_struct</option>
+                                
+                                    <option value="structures::Post.from_mediaid">structures::Post.from_mediaid</option>
+                                
+                                    <option value="structures::Post.from_shortcode">structures::Post.from_shortcode</option>
+                                
+                                    <option value="structures::Post.mediaid_to_shortcode">structures::Post.mediaid_to_shortcode</option>
+                                
+                                    <option value="structures::Post.get_likes">structures::Post.get_likes</option>
+                                
+                                    <option value="structures::Post.is_sponsored">structures::Post.is_sponsored</option>
+                                
+                                    <option value="structures::Post.likes">structures::Post.likes</option>
+                                
+                                    <option value="structures::Post.location">structures::Post.location</option>
+                                
+                                    <option value="structures::Post.mediacount">structures::Post.mediacount</option>
+                                
+                                    <option value="structures::Post.owner_profile">structures::Post.owner_profile</option>
+                                
+                                    <option value="structures::Post.sponsor_users">structures::Post.sponsor_users</option>
+                                
+                                    <option value="structures::Post.tagged_users">structures::Post.tagged_users</option>
+                                
+                                    <option value="structures::Post.title">structures::Post.title</option>
+                                
+                                    <option value="structures::Post.typename">structures::Post.typename</option>
+                                
+                                    <option value="structures::Post.url">structures::Post.url</option>
+                                
+                                    <option value="structures::Post.video_duration">structures::Post.video_duration</option>
+                                
+                                    <option value="structures::Post.video_url">structures::Post.video_url</option>
+                                
+                                    <option value="structures::Post.video_view_count">structures::Post.video_view_count</option>
+                                
+                                    <option value="structures::Post.viewer_has_liked">structures::Post.viewer_has_liked</option>
+                                
+                                    <option value="structures::Profile._iphone_struct">structures::Profile._iphone_struct</option>
+                                
+                                    <option value="structures::Profile._metadata">structures::Profile._metadata</option>
+                                
+                                    <option value="structures::Profile._obtain_metadata">structures::Profile._obtain_metadata</option>
+                                
+                                    <option value="structures::TopSearchResults.__init__">structures::TopSearchResults.__init__</option>
+                                
+                                    <option value="structures::TopSearchResults.get_profiles">structures::TopSearchResults.get_profiles</option>
+                                
+                                    <option value="structures::Profile.biography">structures::Profile.biography</option>
+                                
+                                    <option value="structures::Profile.blocked_by_viewer">structures::Profile.blocked_by_viewer</option>
+                                
+                                    <option value="structures::Profile.business_category_name">structures::Profile.business_category_name</option>
+                                
+                                    <option value="structures::Profile.external_url">structures::Profile.external_url</option>
+                                
+                                    <option value="structures::Profile.followed_by_viewer">structures::Profile.followed_by_viewer</option>
+                                
+                                    <option value="structures::Profile.followees">structures::Profile.followees</option>
+                                
+                                    <option value="structures::Profile.followers">structures::Profile.followers</option>
+                                
+                                    <option value="structures::Profile.follows_viewer">structures::Profile.follows_viewer</option>
+                                
+                                    <option value="structures::Profile.full_name">structures::Profile.full_name</option>
+                                
+                                    <option value="structures::Profile.get_followed_hashtags">structures::Profile.get_followed_hashtags</option>
+                                
+                                    <option value="structures::Hashtag.__init__">structures::Hashtag.__init__</option>
+                                
+                                    <option value="structures::Profile.get_followers">structures::Profile.get_followers</option>
+                                
+                                    <option value="structures::Profile._make_is_newest_checker">structures::Profile._make_is_newest_checker</option>
+                                
+                                    <option value="structures::Profile.get_posts">structures::Profile.get_posts</option>
+                                
+                                    <option value="structures::Profile.get_similar_accounts">structures::Profile.get_similar_accounts</option>
+                                
+                                    <option value="structures::Profile.has_blocked_viewer">structures::Profile.has_blocked_viewer</option>
+                                
+                                    <option value="structures::Profile.has_public_story">structures::Profile.has_public_story</option>
+                                
+                                    <option value="structures::Profile.has_requested_viewer">structures::Profile.has_requested_viewer</option>
+                                
+                                    <option value="structures::Profile.igtvcount">structures::Profile.igtvcount</option>
+                                
+                                    <option value="structures::Profile.is_business_account">structures::Profile.is_business_account</option>
+                                
+                                    <option value="structures::Profile.is_private">structures::Profile.is_private</option>
+                                
+                                    <option value="structures::Profile.is_verified">structures::Profile.is_verified</option>
+                                
+                                    <option value="structures::Profile.mediacount">structures::Profile.mediacount</option>
+                                
+                                    <option value="structures::Profile.profile_pic_url">structures::Profile.profile_pic_url</option>
+                                
+                                    <option value="structures::Profile.profile_pic_url_no_iphone">structures::Profile.profile_pic_url_no_iphone</option>
+                                
+                                    <option value="structures::Profile.requested_by_viewer">structures::Profile.requested_by_viewer</option>
+                                
+                                    <option value="structures::Profile.userid">structures::Profile.userid</option>
+                                
+                                    <option value="structures::Profile.username">structures::Profile.username</option>
+                                
+                                    <option value="structures::Story._fetch_iphone_struct">structures::Story._fetch_iphone_struct</option>
+                                
+                                    <option value="structures::Story.get_items">structures::Story.get_items</option>
+                                
+                                    <option value="structures::Story.owner_profile">structures::Story.owner_profile</option>
+                                
+                                    <option value="structures::Story.unique_id">structures::Story.unique_id</option>
+                                
+                                    <option value="structures::StoryItem._asdict">structures::StoryItem._asdict</option>
+                                
+                                    <option value="structures::StoryItem._iphone_struct">structures::StoryItem._iphone_struct</option>
+                                
+                                    <option value="structures::StoryItem.caption">structures::StoryItem.caption</option>
+                                
+                                    <option value="structures::StoryItem.from_mediaid">structures::StoryItem.from_mediaid</option>
+                                
+                                    <option value="structures::StoryItem.owner_profile">structures::StoryItem.owner_profile</option>
+                                
+                                    <option value="structures::StoryItem.shortcode">structures::StoryItem.shortcode</option>
+                                
+                                    <option value="structures::StoryItem.url">structures::StoryItem.url</option>
+                                
+                                    <option value="structures::StoryItem.video_url">structures::StoryItem.video_url</option>
+                                
+                                    <option value="structures::TopSearchResults.get_hashtags">structures::TopSearchResults.get_hashtags</option>
+                                
+                                    <option value="structures::load_structure">structures::load_structure</option>
+                                
+                                    <option value="structures::get_json_structure">structures::get_json_structure</option>
+                                
+                            </select>
+                        </div>
+                        <div class="col-2 pb-2">
+                            <button type="button" class="btn btn-primary btn-block" onclick="neighbourhoodHighlight({nodes: []});">Reset Selection</button>
+                        </div>
+                    </div>
+                </div>
+            
+            
+              <div id="filter-menu" class="card-header">
+                <div class="row no-gutters">
+                  <div class="col-3 pb-2">
+                    <select
+                            class="form-select"
+                            aria-label="Default select example"
+                            onchange="updateFilter(value, 'item')"
+                            id="select-item"
+                        >
+                        <option value="">Select a network item</option>
+                        <option value="edge">edge</option>
+                        <option value="node">node</option>
+                    </select>
+                  </div>
+                  <div class="col-3 pb-2">
+                    <select
+                            class="form-select"
+                            aria-label="Default select example"
+                            onchange="updateFilter(value, 'property')"
+                            id="select-property"
+                        >
+                        <option value="">Select a property...</option>
+                    </select>
+                  </div>
+                  <div class="col-3 pb-2">
+                    <select
+                            class="form-select"
+                            aria-label="Default select example"
+                            id="select-value"
+                        >
+                        <option value="">Select value(s)...</option>
+                    </select>
+                  </div>
+                  <div class="col-1 pb-2">
+                    <button type="button" class="btn btn-primary btn-block" onclick="highlightFilter(filter);">Filter</button>
+                  </div>
+                  <div class="col-2 pb-2">
+                    <button type="button" class="btn btn-primary btn-block" onclick="clearFilter(true)">Reset Selection</button>
+                  </div>
+                </div>
+              </div>
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+            <div id="loadingBar">
+              <div class="outerBorder">
+                <div id="text">0%</div>
+                <div id="border">
+                  <div id="bar"></div>
+                </div>
+              </div>
+            </div>
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+                  new TomSelect("#select-node",{
+                      create: false,
+                      sortField: {
+                          field: "text",
+                          direction: "asc"
+                      }
+                  });
+              
+
+              
+                  // explicitly using onItemAdd and this function as we need to save multiple values
+                  let updateValueFilter = function() {
+                      return function () {
+                      filter['value'].push(arguments[0])
+                      }
+                  }
+
+                  let valueControl = new TomSelect("#select-value",{
+                      maxItems: null,
+                      valueField: 'id',
+                      labelField: 'title',
+                      searchField: 'title',
+                      create: false,
+                      sortField: {
+                          field: "text",
+                          direction: "asc"
+                      },
+                      onItemAdd: updateValueFilter()
+                  });
+
+                  let addValues = function() {
+                      return function () {
+                          // clear the current value options and add the selected attribute values
+                          // tom-select handles duplicates
+                          let selectedProperty = arguments[0];
+                          valueControl.clear();
+                          valueControl.clearOptions();
+                          filter['value'] = []
+                          if (filter['item'] === 'node') {
+                              for (let each in allNodes) {
+                                  valueControl.addOption({
+                                      id:allNodes[each][selectedProperty],
+                                      title:allNodes[each][selectedProperty]
+                                  })
+                              }
+                          }
+                          else if (filter['item'] === 'edge') {
+                              for (let each in allEdges) {
+                                  valueControl.addOption({
+                                      id:allEdges[each][selectedProperty],
+                                      title:allEdges[each][selectedProperty]
+                                  })
+                              }
+                          }
+                      }
+                  };
+
+                  let propControl = new TomSelect("#select-property",{
+                      valueField: 'id',
+                      labelField: 'title',
+                      searchField: 'title',
+                      create: false,
+                      sortField: {
+                          field: "text",
+                          direction: "asc"
+                      },
+                      onItemAdd: addValues()
+                  });
+
+                  let addProperties = function() {
+                      return function () {
+                          // loops through the selected network item and adds the attributes to dropdown
+                          // tom-select handles duplicates
+                          clearFilter(false)
+                          if (arguments[0] === 'edge') {
+                              for (let each in allEdges) {
+                                  if (allEdges.hasOwnProperty(each)) {
+                                      for (let eachProp in allEdges[each]) {
+                                          if (allEdges[each].hasOwnProperty(eachProp)) {
+                                              propControl.addOption({id: eachProp, title: eachProp})
+                                          }
+                                      }
+                                  }
+                              }
+                          }
+                          else if (arguments[0] === 'node') {
+                              for (let each in allNodes) {
+                                  if (allNodes.hasOwnProperty(each)) {
+                                      for (let eachProp in allNodes[each]) {
+                                          if (allNodes[each].hasOwnProperty(eachProp)
+                                              && (eachProp !== 'hidden' && eachProp !== 'savedLabel'
+                                                  && eachProp !== 'hiddenLabel')) {
+                                              propControl.addOption({id: eachProp, title: eachProp})
+
+                                          }
+                                      }
+                                  }
+                              }
+                          }
+                      }
+                  };
+
+                  let itemControl = new TomSelect("#select-item",{
+                      create: false,
+                      sortField:{
+                          field: "text",
+                          direction: "asc"
+                      },
+                      onItemAdd: addProperties()
+                  });
+
+                  function clearFilter(reset) {
+                      // utility function to clear all the selected filter options
+                      // if reset is set to true, the existing filter will be removed
+                      // else, only the dropdown options are cleared
+                      propControl.clear();
+                      propControl.clearOptions();
+                      valueControl.clear();
+                      valueControl.clearOptions();
+                      filter = {
+                          item : '',
+                          property : '',
+                          value : []
+                      }
+                      if (reset) {
+                          itemControl.clear();
+                          filterHighlight({nodes: []})
+                      }
+                  }
+
+                  function updateFilter(value, key) {
+                      // key could be 'item' or 'property' and value is as selected in dropdown
+                      filter[key] = value
+                  }
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"color": "#97c2fc", "id": "__main__::(global)", "label": "__main__::(global)", "shape": "dot"}, {"color": "#97c2fc", "id": "__main__::main", "label": "__main__::main", "shape": "dot"}, {"color": "#97c2fc", "id": "__main__::_main", "label": "__main__::_main", "shape": "dot"}, {"color": "#97c2fc", "id": "__main__::filterstr_to_filterfunc", "label": "__main__::filterstr_to_filterfunc", "shape": "dot"}, {"color": "#97c2fc", "id": "__main__::usage_string", "label": "__main__::usage_string", "shape": "dot"}, {"color": "#97c2fc", "id": "instaloader::Instaloader.check_profile_id", "label": "instaloader::Instaloader.check_profile_id", "shape": "dot"}, {"color": "#97c2fc", "id": "instaloader::Instaloader.download_feed_posts", "label": "instaloader::Instaloader.download_feed_posts", "shape": "dot"}, {"color": "#97c2fc", "id": "instaloader::Instaloader.download_hashtag", "label": "instaloader::Instaloader.download_hashtag", "shape": "dot"}, {"color": "#97c2fc", "id": "instaloader::Instaloader.download_location", "label": "instaloader::Instaloader.download_location", "shape": "dot"}, {"color": "#97c2fc", "id": "instaloader::Instaloader.download_post", "label": "instaloader::Instaloader.download_post", "shape": "dot"}, {"color": "#97c2fc", "id": "instaloader::Instaloader.download_profiles", "label": "instaloader::Instaloader.download_profiles", "shape": "dot"}, {"color": "#97c2fc", "id": "instaloader::Instaloader.download_saved_posts", "label": "instaloader::Instaloader.download_saved_posts", "shape": "dot"}, {"color": "#97c2fc", "id": "instaloader::Instaloader.download_stories", "label": "instaloader::Instaloader.download_stories", "shape": "dot"}, {"color": "#97c2fc", "id": "instaloader::Instaloader.download_storyitem", "label": "instaloader::Instaloader.download_storyitem", "shape": "dot"}, {"color": "#97c2fc", "id": "instaloader::Instaloader.interactive_login", "label": "instaloader::Instaloader.interactive_login", "shape": "dot"}, {"color": "#97c2fc", "id": "instaloadercontext::InstaloaderContext.error", "label": "instaloadercontext::InstaloaderContext.error", "shape": "dot"}, {"color": "#97c2fc", "id": "instaloadercontext::InstaloaderContext.error_catcher", "label": "instaloadercontext::InstaloaderContext.error_catcher", "shape": "dot"}, {"color": "#97c2fc", "id": "instaloadercontext::InstaloaderContext.log", "label": "instaloadercontext::InstaloaderContext.log", "shape": "dot"}, {"color": "#97c2fc", "id": "lateststamps::LatestStamps.__init__", "label": "lateststamps::LatestStamps.__init__", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::Profile.get_followees", "label": "structures::Profile.get_followees", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::load_structure_from_file", "label": "structures::load_structure_from_file", "shape": "dot"}, {"color": "#97c2fc", "id": "instaloader::Instaloader.__init__", "label": "instaloader::Instaloader.__init__", "shape": "dot"}, {"color": "#97c2fc", "id": "instaloader::Instaloader.close", "label": "instaloader::Instaloader.close", "shape": "dot"}, {"color": "#97c2fc", "id": "instaloader::get_default_session_filename", "label": "instaloader::get_default_session_filename", "shape": "dot"}, {"color": "#97c2fc", "id": "instaloader::get_default_stamps_filename", "label": "instaloader::get_default_stamps_filename", "shape": "dot"}, {"color": "#97c2fc", "id": "instaloadercontext::default_user_agent", "label": "instaloadercontext::default_user_agent", "shape": "dot"}, {"color": "#97c2fc", "id": "instaloader::Instaloader.__exit__", "label": "instaloader::Instaloader.__exit__", "shape": "dot"}, {"color": "#97c2fc", "id": "instaloader::format_string_contains_key", "label": "instaloader::format_string_contains_key", "shape": "dot"}, {"color": "#97c2fc", "id": "instaloadercontext::InstaloaderContext.__init__", "label": "instaloadercontext::InstaloaderContext.__init__", "shape": "dot"}, {"color": "#97c2fc", "id": "instaloader::Instaloader._get_id_filename", "label": "instaloader::Instaloader._get_id_filename", "shape": "dot"}, {"color": "#97c2fc", "id": "instaloader::Instaloader.anonymous_copy", "label": "instaloader::Instaloader.anonymous_copy", "shape": "dot"}, {"color": "#97c2fc", "id": "instaloader::Instaloader.load_profile_id", "label": "instaloader::Instaloader.load_profile_id", "shape": "dot"}, {"color": "#97c2fc", "id": "instaloader::Instaloader.save_profile_id", "label": "instaloader::Instaloader.save_profile_id", "shape": "dot"}, {"color": "#97c2fc", "id": "lateststamps::LatestStamps.get_profile_id", "label": "lateststamps::LatestStamps.get_profile_id", "shape": "dot"}, {"color": "#97c2fc", "id": "lateststamps::LatestStamps.rename_profile", "label": "lateststamps::LatestStamps.rename_profile", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::Profile.from_id", "label": "structures::Profile.from_id", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::Profile.from_username", "label": "structures::Profile.from_username", "shape": "dot"}, {"color": "#97c2fc", "id": "instaloader::Instaloader.get_feed_posts", "label": "instaloader::Instaloader.get_feed_posts", "shape": "dot"}, {"color": "#97c2fc", "id": "instaloader::Instaloader.posts_download_loop", "label": "instaloader::Instaloader.posts_download_loop", "shape": "dot"}, {"color": "#97c2fc", "id": "instaloader::Instaloader.download_hashtag_profilepic", "label": "instaloader::Instaloader.download_hashtag_profilepic", "shape": "dot"}, {"color": "#97c2fc", "id": "instaloader::Instaloader.save_metadata_json", "label": "instaloader::Instaloader.save_metadata_json", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::Hashtag.from_name", "label": "structures::Hashtag.from_name", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::Hashtag.get_posts_resumable", "label": "structures::Hashtag.get_posts_resumable", "shape": "dot"}, {"color": "#97c2fc", "id": "instaloader::Instaloader.download_title_pic", "label": "instaloader::Instaloader.download_title_pic", "shape": "dot"}, {"color": "#97c2fc", "id": "instaloader::Instaloader.download_highlight_cover", "label": "instaloader::Instaloader.download_highlight_cover", "shape": "dot"}, {"color": "#97c2fc", "id": "instaloader::Instaloader.download_highlights", "label": "instaloader::Instaloader.download_highlights", "shape": "dot"}, {"color": "#97c2fc", "id": "instaloader::Instaloader.get_highlights", "label": "instaloader::Instaloader.get_highlights", "shape": "dot"}, {"color": "#97c2fc", "id": "instaloader::_PostPathFormatter.sanitize_path", "label": "instaloader::_PostPathFormatter.sanitize_path", "shape": "dot"}, {"color": "#97c2fc", "id": "instaloader::Instaloader.download_igtv", "label": "instaloader::Instaloader.download_igtv", "shape": "dot"}, {"color": "#97c2fc", "id": "lateststamps::LatestStamps.get_last_igtv_timestamp", "label": "lateststamps::LatestStamps.get_last_igtv_timestamp", "shape": "dot"}, {"color": "#97c2fc", "id": "lateststamps::LatestStamps.set_last_igtv_timestamp", "label": "lateststamps::LatestStamps.set_last_igtv_timestamp", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::Profile.get_igtv_posts", "label": "structures::Profile.get_igtv_posts", "shape": "dot"}, {"color": "#97c2fc", "id": "instaloader::Instaloader.get_location_posts", "label": "instaloader::Instaloader.get_location_posts", "shape": "dot"}, {"color": "#97c2fc", "id": "instaloader::Instaloader.download_pic", "label": "instaloader::Instaloader.download_pic", "shape": "dot"}, {"color": "#97c2fc", "id": "instaloadercontext::InstaloaderContext.get_raw", "label": "instaloadercontext::InstaloaderContext.get_raw", "shape": "dot"}, {"color": "#97c2fc", "id": "instaloadercontext::InstaloaderContext.write_raw", "label": "instaloadercontext::InstaloaderContext.write_raw", "shape": "dot"}, {"color": "#97c2fc", "id": "instaloader::Instaloader.__prepare_filename", "label": "instaloader::Instaloader.__prepare_filename", "shape": "dot"}, {"color": "#97c2fc", "id": "instaloader::Instaloader.format_filename", "label": "instaloader::Instaloader.format_filename", "shape": "dot"}, {"color": "#97c2fc", "id": "instaloader::Instaloader.save_caption", "label": "instaloader::Instaloader.save_caption", "shape": "dot"}, {"color": "#97c2fc", "id": "instaloader::Instaloader.save_location", "label": "instaloader::Instaloader.save_location", "shape": "dot"}, {"color": "#97c2fc", "id": "instaloader::Instaloader.update_comments", "label": "instaloader::Instaloader.update_comments", "shape": "dot"}, {"color": "#97c2fc", "id": "instaloader::_ArbitraryItemFormatter.__init__", "label": "instaloader::_ArbitraryItemFormatter.__init__", "shape": "dot"}, {"color": "#97c2fc", "id": "instaloader::_PostPathFormatter.__init__", "label": "instaloader::_PostPathFormatter.__init__", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::Post.get_is_videos", "label": "structures::Post.get_is_videos", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::Post.get_sidecar_nodes", "label": "structures::Post.get_sidecar_nodes", "shape": "dot"}, {"color": "#97c2fc", "id": "instaloader::Instaloader.download_profile", "label": "instaloader::Instaloader.download_profile", "shape": "dot"}, {"color": "#97c2fc", "id": "instaloader::Instaloader.download_profilepic", "label": "instaloader::Instaloader.download_profilepic", "shape": "dot"}, {"color": "#97c2fc", "id": "instaloader::Instaloader.download_tagged", "label": "instaloader::Instaloader.download_tagged", "shape": "dot"}, {"color": "#97c2fc", "id": "instaloader::Instaloader.download_profilepic_if_new", "label": "instaloader::Instaloader.download_profilepic_if_new", "shape": "dot"}, {"color": "#97c2fc", "id": "lateststamps::LatestStamps.get_profile_pic", "label": "lateststamps::LatestStamps.get_profile_pic", "shape": "dot"}, {"color": "#97c2fc", "id": "lateststamps::LatestStamps.set_profile_pic", "label": "lateststamps::LatestStamps.set_profile_pic", "shape": "dot"}, {"color": "#97c2fc", "id": "lateststamps::LatestStamps.get_last_post_timestamp", "label": "lateststamps::LatestStamps.get_last_post_timestamp", "shape": "dot"}, {"color": "#97c2fc", "id": "lateststamps::LatestStamps.set_last_post_timestamp", "label": "lateststamps::LatestStamps.set_last_post_timestamp", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::Profile.get_saved_posts", "label": "structures::Profile.get_saved_posts", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::Profile.own_profile", "label": "structures::Profile.own_profile", "shape": "dot"}, {"color": "#97c2fc", "id": "instaloader::Instaloader.get_stories", "label": "instaloader::Instaloader.get_stories", "shape": "dot"}, {"color": "#97c2fc", "id": "lateststamps::LatestStamps.get_last_story_timestamp", "label": "lateststamps::LatestStamps.get_last_story_timestamp", "shape": "dot"}, {"color": "#97c2fc", "id": "lateststamps::LatestStamps.set_last_story_timestamp", "label": "lateststamps::LatestStamps.set_last_story_timestamp", "shape": "dot"}, {"color": "#97c2fc", "id": "lateststamps::LatestStamps.get_last_tagged_timestamp", "label": "lateststamps::LatestStamps.get_last_tagged_timestamp", "shape": "dot"}, {"color": "#97c2fc", "id": "lateststamps::LatestStamps.set_last_tagged_timestamp", "label": "lateststamps::LatestStamps.set_last_tagged_timestamp", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::Profile.get_tagged_posts", "label": "structures::Profile.get_tagged_posts", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::TitlePic.__init__", "label": "structures::TitlePic.__init__", "shape": "dot"}, {"color": "#97c2fc", "id": "instaloader::Instaloader.format_filename_within_target_path", "label": "instaloader::Instaloader.format_filename_within_target_path", "shape": "dot"}, {"color": "#97c2fc", "id": "instaloader::Instaloader.get_explore_posts", "label": "instaloader::Instaloader.get_explore_posts", "shape": "dot"}, {"color": "#97c2fc", "id": "nodeiterator::NodeIterator.__init__", "label": "nodeiterator::NodeIterator.__init__", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::Post.__init__", "label": "structures::Post.__init__", "shape": "dot"}, {"color": "#97c2fc", "id": "instaloadercontext::InstaloaderContext.graphql_query", "label": "instaloadercontext::InstaloaderContext.graphql_query", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::Post.supported_graphql_types", "label": "structures::Post.supported_graphql_types", "shape": "dot"}, {"color": "#97c2fc", "id": "instaloader::Instaloader.get_hashtag_posts", "label": "instaloader::Instaloader.get_hashtag_posts", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::Highlight.__init__", "label": "structures::Highlight.__init__", "shape": "dot"}, {"color": "#97c2fc", "id": "sectioniterator::SectionIterator.__init__", "label": "sectioniterator::SectionIterator.__init__", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::Post.from_iphone_struct", "label": "structures::Post.from_iphone_struct", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::Story.__init__", "label": "structures::Story.__init__", "shape": "dot"}, {"color": "#97c2fc", "id": "instaloader::Instaloader.login", "label": "instaloader::Instaloader.login", "shape": "dot"}, {"color": "#97c2fc", "id": "instaloader::Instaloader.two_factor_login", "label": "instaloader::Instaloader.two_factor_login", "shape": "dot"}, {"color": "#97c2fc", "id": "instaloader::Instaloader.load_session", "label": "instaloader::Instaloader.load_session", "shape": "dot"}, {"color": "#97c2fc", "id": "instaloader::Instaloader.load_session_from_file", "label": "instaloader::Instaloader.load_session_from_file", "shape": "dot"}, {"color": "#97c2fc", "id": "instaloader::get_legacy_session_filename", "label": "instaloader::get_legacy_session_filename", "shape": "dot"}, {"color": "#97c2fc", "id": "nodeiterator::resumable_iteration", "label": "nodeiterator::resumable_iteration", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::save_structure_to_file", "label": "structures::save_structure_to_file", "shape": "dot"}, {"color": "#97c2fc", "id": "instaloader::Instaloader.save_session", "label": "instaloader::Instaloader.save_session", "shape": "dot"}, {"color": "#97c2fc", "id": "instaloader::Instaloader.save_session_to_file", "label": "instaloader::Instaloader.save_session_to_file", "shape": "dot"}, {"color": "#97c2fc", "id": "instaloader::Instaloader.test_login", "label": "instaloader::Instaloader.test_login", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::Post.get_comments", "label": "structures::Post.get_comments", "shape": "dot"}, {"color": "#97c2fc", "id": "instaloader::_ArbitraryItemFormatter.format_field", "label": "instaloader::_ArbitraryItemFormatter.format_field", "shape": "dot"}, {"color": "#97c2fc", "id": "instaloader::_PostPathFormatter.get_value", "label": "instaloader::_PostPathFormatter.get_value", "shape": "dot"}, {"color": "#97c2fc", "id": "instaloader::_retry_on_connection_error", "label": "instaloader::_retry_on_connection_error", "shape": "dot"}, {"color": "#97c2fc", "id": "instaloadercontext::InstaloaderContext.do_sleep", "label": "instaloadercontext::InstaloaderContext.do_sleep", "shape": "dot"}, {"color": "#97c2fc", "id": "instaloader::_get_config_dir", "label": "instaloader::_get_config_dir", "shape": "dot"}, {"color": "#97c2fc", "id": "instaloadercontext::InstaloaderContext.get_anonymous_session", "label": "instaloadercontext::InstaloaderContext.get_anonymous_session", "shape": "dot"}, {"color": "#97c2fc", "id": "instaloadercontext::RateController.__init__", "label": "instaloadercontext::RateController.__init__", "shape": "dot"}, {"color": "#97c2fc", "id": "instaloadercontext::default_iphone_headers", "label": "instaloadercontext::default_iphone_headers", "shape": "dot"}, {"color": "#97c2fc", "id": "instaloadercontext::InstaloaderContext.anonymous_copy", "label": "instaloadercontext::InstaloaderContext.anonymous_copy", "shape": "dot"}, {"color": "#97c2fc", "id": "instaloadercontext::InstaloaderContext.close", "label": "instaloadercontext::InstaloaderContext.close", "shape": "dot"}, {"color": "#97c2fc", "id": "instaloadercontext::InstaloaderContext.get_and_write_raw", "label": "instaloadercontext::InstaloaderContext.get_and_write_raw", "shape": "dot"}, {"color": "#97c2fc", "id": "instaloadercontext::InstaloaderContext._default_http_header", "label": "instaloadercontext::InstaloaderContext._default_http_header", "shape": "dot"}, {"color": "#97c2fc", "id": "instaloadercontext::InstaloaderContext.get_iphone_json", "label": "instaloadercontext::InstaloaderContext.get_iphone_json", "shape": "dot"}, {"color": "#97c2fc", "id": "instaloadercontext::InstaloaderContext.get_json", "label": "instaloadercontext::InstaloaderContext.get_json", "shape": "dot"}, {"color": "#97c2fc", "id": "instaloadercontext::copy_session", "label": "instaloadercontext::copy_session", "shape": "dot"}, {"color": "#97c2fc", "id": "instaloadercontext::RateController.handle_429", "label": "instaloadercontext::RateController.handle_429", "shape": "dot"}, {"color": "#97c2fc", "id": "instaloadercontext::RateController.wait_before_query", "label": "instaloadercontext::RateController.wait_before_query", "shape": "dot"}, {"color": "#97c2fc", "id": "instaloadercontext::InstaloaderContext.graphql_node_list", "label": "instaloadercontext::InstaloaderContext.graphql_node_list", "shape": "dot"}, {"color": "#97c2fc", "id": "instaloadercontext::InstaloaderContext.head", "label": "instaloadercontext::InstaloaderContext.head", "shape": "dot"}, {"color": "#97c2fc", "id": "instaloadercontext::InstaloaderContext.load_session", "label": "instaloadercontext::InstaloaderContext.load_session", "shape": "dot"}, {"color": "#97c2fc", "id": "instaloadercontext::InstaloaderContext.load_session_from_file", "label": "instaloadercontext::InstaloaderContext.load_session_from_file", "shape": "dot"}, {"color": "#97c2fc", "id": "instaloadercontext::InstaloaderContext.login", "label": "instaloadercontext::InstaloaderContext.login", "shape": "dot"}, {"color": "#97c2fc", "id": "instaloadercontext::InstaloaderContext.root_rhx_gis", "label": "instaloadercontext::InstaloaderContext.root_rhx_gis", "shape": "dot"}, {"color": "#97c2fc", "id": "instaloadercontext::InstaloaderContext.save_session_to_file", "label": "instaloadercontext::InstaloaderContext.save_session_to_file", "shape": "dot"}, {"color": "#97c2fc", "id": "instaloadercontext::InstaloaderContext.save_session", "label": "instaloadercontext::InstaloaderContext.save_session", "shape": "dot"}, {"color": "#97c2fc", "id": "instaloadercontext::InstaloaderContext.test_login", "label": "instaloadercontext::InstaloaderContext.test_login", "shape": "dot"}, {"color": "#97c2fc", "id": "instaloadercontext::RateController._dump_query_timestamps", "label": "instaloadercontext::RateController._dump_query_timestamps", "shape": "dot"}, {"color": "#97c2fc", "id": "instaloadercontext::RateController.query_waittime", "label": "instaloadercontext::RateController.query_waittime", "shape": "dot"}, {"color": "#97c2fc", "id": "instaloadercontext::RateController.sleep", "label": "instaloadercontext::RateController.sleep", "shape": "dot"}, {"color": "#97c2fc", "id": "instaloadercontext::RateController._reqs_in_sliding_window", "label": "instaloadercontext::RateController._reqs_in_sliding_window", "shape": "dot"}, {"color": "#97c2fc", "id": "instaloadercontext::RateController.count_per_sliding_window", "label": "instaloadercontext::RateController.count_per_sliding_window", "shape": "dot"}, {"color": "#97c2fc", "id": "lateststamps::LatestStamps._set_timestamp", "label": "lateststamps::LatestStamps._set_timestamp", "shape": "dot"}, {"color": "#97c2fc", "id": "lateststamps::LatestStamps._ensure_section", "label": "lateststamps::LatestStamps._ensure_section", "shape": "dot"}, {"color": "#97c2fc", "id": "lateststamps::LatestStamps._save", "label": "lateststamps::LatestStamps._save", "shape": "dot"}, {"color": "#97c2fc", "id": "lateststamps::LatestStamps._get_timestamp", "label": "lateststamps::LatestStamps._get_timestamp", "shape": "dot"}, {"color": "#97c2fc", "id": "lateststamps::LatestStamps.save_profile_id", "label": "lateststamps::LatestStamps.save_profile_id", "shape": "dot"}, {"color": "#97c2fc", "id": "nodeiterator::NodeIterator._query", "label": "nodeiterator::NodeIterator._query", "shape": "dot"}, {"color": "#97c2fc", "id": "nodeiterator::NodeIterator.__next__", "label": "nodeiterator::NodeIterator.__next__", "shape": "dot"}, {"color": "#97c2fc", "id": "nodeiterator::NodeIterator.freeze", "label": "nodeiterator::NodeIterator.freeze", "shape": "dot"}, {"color": "#97c2fc", "id": "nodeiterator::NodeIterator.thaw", "label": "nodeiterator::NodeIterator.thaw", "shape": "dot"}, {"color": "#97c2fc", "id": "sectioniterator::SectionIterator._query", "label": "sectioniterator::SectionIterator._query", "shape": "dot"}, {"color": "#97c2fc", "id": "sectioniterator::SectionIterator.__next__", "label": "sectioniterator::SectionIterator.__next__", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::Hashtag._metadata", "label": "structures::Hashtag._metadata", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::Hashtag._obtain_metadata", "label": "structures::Hashtag._obtain_metadata", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::Hashtag._query", "label": "structures::Hashtag._query", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::Hashtag.allow_following", "label": "structures::Hashtag.allow_following", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::Hashtag.description", "label": "structures::Hashtag.description", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::Hashtag.get_all_posts", "label": "structures::Hashtag.get_all_posts", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::Hashtag.get_top_posts", "label": "structures::Hashtag.get_top_posts", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::Hashtag.get_posts", "label": "structures::Hashtag.get_posts", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::Hashtag.hashtagid", "label": "structures::Hashtag.hashtagid", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::Hashtag.is_following", "label": "structures::Hashtag.is_following", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::Hashtag.mediacount", "label": "structures::Hashtag.mediacount", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::Hashtag.profile_pic_url", "label": "structures::Hashtag.profile_pic_url", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::Highlight._fetch_iphone_struct", "label": "structures::Highlight._fetch_iphone_struct", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::Highlight._fetch_items", "label": "structures::Highlight._fetch_items", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::Highlight.get_items", "label": "structures::Highlight.get_items", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::StoryItem.__init__", "label": "structures::StoryItem.__init__", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::Highlight.itemcount", "label": "structures::Highlight.itemcount", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::Highlight.owner_profile", "label": "structures::Highlight.owner_profile", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::Profile.__init__", "label": "structures::Profile.__init__", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::Post._asdict", "label": "structures::Post._asdict", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::Post._full_metadata", "label": "structures::Post._full_metadata", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::Post._obtain_metadata", "label": "structures::Post._obtain_metadata", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::Post._iphone_struct", "label": "structures::Post._iphone_struct", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::Post.accessibility_caption", "label": "structures::Post.accessibility_caption", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::Post._field", "label": "structures::Post._field", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::Post.caption", "label": "structures::Post.caption", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::_optional_normalize", "label": "structures::_optional_normalize", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::Post.comments", "label": "structures::Post.comments", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::Post.date_local", "label": "structures::Post.date_local", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::Post._get_timestamp_date_created", "label": "structures::Post._get_timestamp_date_created", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::Post.date_utc", "label": "structures::Post.date_utc", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::Profile.from_iphone_struct", "label": "structures::Profile.from_iphone_struct", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::Post.from_mediaid", "label": "structures::Post.from_mediaid", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::Post.from_shortcode", "label": "structures::Post.from_shortcode", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::Post.mediaid_to_shortcode", "label": "structures::Post.mediaid_to_shortcode", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::Post.get_likes", "label": "structures::Post.get_likes", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::Post.is_sponsored", "label": "structures::Post.is_sponsored", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::Post.likes", "label": "structures::Post.likes", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::Post.location", "label": "structures::Post.location", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::Post.mediacount", "label": "structures::Post.mediacount", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::Post.owner_profile", "label": "structures::Post.owner_profile", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::Post.sponsor_users", "label": "structures::Post.sponsor_users", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::Post.tagged_users", "label": "structures::Post.tagged_users", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::Post.title", "label": "structures::Post.title", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::Post.typename", "label": "structures::Post.typename", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::Post.url", "label": "structures::Post.url", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::Post.video_duration", "label": "structures::Post.video_duration", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::Post.video_url", "label": "structures::Post.video_url", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::Post.video_view_count", "label": "structures::Post.video_view_count", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::Post.viewer_has_liked", "label": "structures::Post.viewer_has_liked", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::Profile._iphone_struct", "label": "structures::Profile._iphone_struct", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::Profile._metadata", "label": "structures::Profile._metadata", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::Profile._obtain_metadata", "label": "structures::Profile._obtain_metadata", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::TopSearchResults.__init__", "label": "structures::TopSearchResults.__init__", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::TopSearchResults.get_profiles", "label": "structures::TopSearchResults.get_profiles", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::Profile.biography", "label": "structures::Profile.biography", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::Profile.blocked_by_viewer", "label": "structures::Profile.blocked_by_viewer", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::Profile.business_category_name", "label": "structures::Profile.business_category_name", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::Profile.external_url", "label": "structures::Profile.external_url", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::Profile.followed_by_viewer", "label": "structures::Profile.followed_by_viewer", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::Profile.followees", "label": "structures::Profile.followees", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::Profile.followers", "label": "structures::Profile.followers", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::Profile.follows_viewer", "label": "structures::Profile.follows_viewer", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::Profile.full_name", "label": "structures::Profile.full_name", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::Profile.get_followed_hashtags", "label": "structures::Profile.get_followed_hashtags", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::Hashtag.__init__", "label": "structures::Hashtag.__init__", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::Profile.get_followers", "label": "structures::Profile.get_followers", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::Profile._make_is_newest_checker", "label": "structures::Profile._make_is_newest_checker", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::Profile.get_posts", "label": "structures::Profile.get_posts", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::Profile.get_similar_accounts", "label": "structures::Profile.get_similar_accounts", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::Profile.has_blocked_viewer", "label": "structures::Profile.has_blocked_viewer", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::Profile.has_public_story", "label": "structures::Profile.has_public_story", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::Profile.has_requested_viewer", "label": "structures::Profile.has_requested_viewer", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::Profile.igtvcount", "label": "structures::Profile.igtvcount", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::Profile.is_business_account", "label": "structures::Profile.is_business_account", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::Profile.is_private", "label": "structures::Profile.is_private", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::Profile.is_verified", "label": "structures::Profile.is_verified", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::Profile.mediacount", "label": "structures::Profile.mediacount", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::Profile.profile_pic_url", "label": "structures::Profile.profile_pic_url", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::Profile.profile_pic_url_no_iphone", "label": "structures::Profile.profile_pic_url_no_iphone", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::Profile.requested_by_viewer", "label": "structures::Profile.requested_by_viewer", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::Profile.userid", "label": "structures::Profile.userid", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::Profile.username", "label": "structures::Profile.username", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::Story._fetch_iphone_struct", "label": "structures::Story._fetch_iphone_struct", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::Story.get_items", "label": "structures::Story.get_items", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::Story.owner_profile", "label": "structures::Story.owner_profile", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::Story.unique_id", "label": "structures::Story.unique_id", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::StoryItem._asdict", "label": "structures::StoryItem._asdict", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::StoryItem._iphone_struct", "label": "structures::StoryItem._iphone_struct", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::StoryItem.caption", "label": "structures::StoryItem.caption", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::StoryItem.from_mediaid", "label": "structures::StoryItem.from_mediaid", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::StoryItem.owner_profile", "label": "structures::StoryItem.owner_profile", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::StoryItem.shortcode", "label": "structures::StoryItem.shortcode", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::StoryItem.url", "label": "structures::StoryItem.url", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::StoryItem.video_url", "label": "structures::StoryItem.video_url", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::TopSearchResults.get_hashtags", "label": "structures::TopSearchResults.get_hashtags", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::load_structure", "label": "structures::load_structure", "shape": "dot"}, {"color": "#97c2fc", "id": "structures::get_json_structure", "label": "structures::get_json_structure", "shape": "dot"}]);
+                  edges = new vis.DataSet([{"arrows": "to", "from": "__main__::(global)", "to": "__main__::main", "width": 1}, {"arrows": "to", "from": "__main__::main", "to": "__main__::_main", "width": 1}, {"arrows": "to", "from": "__main__::main", "to": "__main__::usage_string", "width": 1}, {"arrows": "to", "from": "__main__::main", "to": "instaloader::Instaloader.__init__", "width": 1}, {"arrows": "to", "from": "__main__::main", "to": "instaloader::Instaloader.close", "width": 1}, {"arrows": "to", "from": "__main__::main", "to": "instaloader::get_default_session_filename", "width": 1}, {"arrows": "to", "from": "__main__::main", "to": "instaloader::get_default_stamps_filename", "width": 1}, {"arrows": "to", "from": "__main__::main", "to": "instaloadercontext::default_user_agent", "width": 1}, {"arrows": "to", "from": "__main__::_main", "to": "__main__::filterstr_to_filterfunc", "width": 1}, {"arrows": "to", "from": "__main__::_main", "to": "__main__::usage_string", "width": 1}, {"arrows": "to", "from": "__main__::_main", "to": "instaloader::Instaloader.check_profile_id", "width": 1}, {"arrows": "to", "from": "__main__::_main", "to": "instaloader::Instaloader.download_feed_posts", "width": 1}, {"arrows": "to", "from": "__main__::_main", "to": "instaloader::Instaloader.download_hashtag", "width": 1}, {"arrows": "to", "from": "__main__::_main", "to": "instaloader::Instaloader.download_location", "width": 1}, {"arrows": "to", "from": "__main__::_main", "to": "instaloader::Instaloader.download_post", "width": 1}, {"arrows": "to", "from": "__main__::_main", "to": "instaloader::Instaloader.download_profiles", "width": 1}, {"arrows": "to", "from": "__main__::_main", "to": "instaloader::Instaloader.download_saved_posts", "width": 1}, {"arrows": "to", "from": "__main__::_main", "to": "instaloader::Instaloader.download_stories", "width": 1}, {"arrows": "to", "from": "__main__::_main", "to": "instaloader::Instaloader.download_storyitem", "width": 1}, {"arrows": "to", "from": "__main__::_main", "to": "instaloader::Instaloader.interactive_login", "width": 1}, {"arrows": "to", "from": "__main__::_main", "to": "instaloadercontext::InstaloaderContext.error", "width": 1}, {"arrows": "to", "from": "__main__::_main", "to": "instaloadercontext::InstaloaderContext.error_catcher", "width": 1}, {"arrows": "to", "from": "__main__::_main", "to": "instaloadercontext::InstaloaderContext.log", "width": 1}, {"arrows": "to", "from": "__main__::_main", "to": "lateststamps::LatestStamps.__init__", "width": 1}, {"arrows": "to", "from": "__main__::_main", "to": "structures::Profile.get_followees", "width": 1}, {"arrows": "to", "from": "__main__::_main", "to": "structures::load_structure_from_file", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.check_profile_id", "to": "instaloader::Instaloader.load_profile_id", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.check_profile_id", "to": "instaloader::Instaloader.save_profile_id", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.check_profile_id", "to": "instaloader::format_string_contains_key", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.check_profile_id", "to": "instaloadercontext::InstaloaderContext.error", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.check_profile_id", "to": "instaloadercontext::InstaloaderContext.log", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.check_profile_id", "to": "lateststamps::LatestStamps.get_profile_id", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.check_profile_id", "to": "lateststamps::LatestStamps.rename_profile", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.check_profile_id", "to": "structures::Profile.from_id", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.check_profile_id", "to": "structures::Profile.from_username", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.download_feed_posts", "to": "instaloader::Instaloader.get_feed_posts", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.download_feed_posts", "to": "instaloader::Instaloader.posts_download_loop", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.download_feed_posts", "to": "instaloadercontext::InstaloaderContext.log", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.download_hashtag", "to": "instaloader::Instaloader.download_hashtag_profilepic", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.download_hashtag", "to": "instaloader::Instaloader.posts_download_loop", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.download_hashtag", "to": "instaloader::Instaloader.save_metadata_json", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.download_hashtag", "to": "instaloadercontext::InstaloaderContext.error_catcher", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.download_hashtag", "to": "instaloadercontext::InstaloaderContext.log", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.download_hashtag", "to": "structures::Hashtag.from_name", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.download_hashtag", "to": "structures::Hashtag.get_posts_resumable", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.download_location", "to": "instaloader::Instaloader.get_location_posts", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.download_location", "to": "instaloader::Instaloader.posts_download_loop", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.download_location", "to": "instaloadercontext::InstaloaderContext.log", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.download_post", "to": "instaloader::Instaloader.__prepare_filename", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.download_post", "to": "instaloader::Instaloader.download_pic", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.download_post", "to": "instaloader::Instaloader.format_filename", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.download_post", "to": "instaloader::Instaloader.save_caption", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.download_post", "to": "instaloader::Instaloader.save_location", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.download_post", "to": "instaloader::Instaloader.save_metadata_json", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.download_post", "to": "instaloader::Instaloader.update_comments", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.download_post", "to": "instaloader::_ArbitraryItemFormatter.__init__", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.download_post", "to": "instaloader::_PostPathFormatter.__init__", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.download_post", "to": "instaloadercontext::InstaloaderContext.error", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.download_post", "to": "instaloadercontext::InstaloaderContext.error_catcher", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.download_post", "to": "instaloadercontext::InstaloaderContext.log", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.download_post", "to": "structures::Post.get_is_videos", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.download_post", "to": "structures::Post.get_sidecar_nodes", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.download_profiles", "to": "instaloader::Instaloader.download_highlights", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.download_profiles", "to": "instaloader::Instaloader.download_igtv", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.download_profiles", "to": "instaloader::Instaloader.download_profilepic_if_new", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.download_profiles", "to": "instaloader::Instaloader.download_stories", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.download_profiles", "to": "instaloader::Instaloader.download_tagged", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.download_profiles", "to": "instaloader::Instaloader.posts_download_loop", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.download_profiles", "to": "instaloader::Instaloader.save_metadata_json", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.download_profiles", "to": "instaloadercontext::InstaloaderContext.error_catcher", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.download_profiles", "to": "instaloadercontext::InstaloaderContext.log", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.download_profiles", "to": "lateststamps::LatestStamps.get_last_post_timestamp", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.download_profiles", "to": "lateststamps::LatestStamps.set_last_post_timestamp", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.download_saved_posts", "to": "instaloader::Instaloader.posts_download_loop", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.download_saved_posts", "to": "instaloadercontext::InstaloaderContext.log", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.download_saved_posts", "to": "structures::Profile.get_saved_posts", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.download_saved_posts", "to": "structures::Profile.own_profile", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.download_stories", "to": "instaloader::Instaloader.download_storyitem", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.download_stories", "to": "instaloader::Instaloader.get_stories", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.download_stories", "to": "instaloadercontext::InstaloaderContext.error_catcher", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.download_stories", "to": "instaloadercontext::InstaloaderContext.log", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.download_stories", "to": "lateststamps::LatestStamps.get_last_story_timestamp", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.download_stories", "to": "lateststamps::LatestStamps.set_last_story_timestamp", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.download_storyitem", "to": "instaloader::Instaloader.__prepare_filename", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.download_storyitem", "to": "instaloader::Instaloader.download_pic", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.download_storyitem", "to": "instaloader::Instaloader.format_filename", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.download_storyitem", "to": "instaloader::Instaloader.save_caption", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.download_storyitem", "to": "instaloader::Instaloader.save_metadata_json", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.download_storyitem", "to": "instaloader::_ArbitraryItemFormatter.__init__", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.download_storyitem", "to": "instaloader::_PostPathFormatter.__init__", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.download_storyitem", "to": "instaloadercontext::InstaloaderContext.log", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.interactive_login", "to": "instaloader::Instaloader.login", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.interactive_login", "to": "instaloader::Instaloader.two_factor_login", "width": 1}, {"arrows": "to", "from": "instaloadercontext::InstaloaderContext.error_catcher", "to": "instaloadercontext::InstaloaderContext.error", "width": 1}, {"arrows": "to", "from": "structures::Profile.get_followees", "to": "nodeiterator::NodeIterator.__init__", "width": 1}, {"arrows": "to", "from": "structures::Profile.get_followees", "to": "structures::Profile.__init__", "width": 1}, {"arrows": "to", "from": "structures::Profile.get_followees", "to": "structures::Profile._obtain_metadata", "width": 1}, {"arrows": "to", "from": "structures::load_structure_from_file", "to": "structures::load_structure", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.__init__", "to": "instaloader::format_string_contains_key", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.__init__", "to": "instaloadercontext::InstaloaderContext.__init__", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.close", "to": "instaloader::Instaloader.close", "width": 1}, {"arrows": "to", "from": "instaloader::get_default_session_filename", "to": "instaloader::_get_config_dir", "width": 1}, {"arrows": "to", "from": "instaloader::get_default_stamps_filename", "to": "instaloader::_get_config_dir", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.__exit__", "to": "instaloader::Instaloader.close", "width": 1}, {"arrows": "to", "from": "instaloadercontext::InstaloaderContext.__init__", "to": "instaloadercontext::InstaloaderContext.get_anonymous_session", "width": 1}, {"arrows": "to", "from": "instaloadercontext::InstaloaderContext.__init__", "to": "instaloadercontext::RateController.__init__", "width": 1}, {"arrows": "to", "from": "instaloadercontext::InstaloaderContext.__init__", "to": "instaloadercontext::default_iphone_headers", "width": 1}, {"arrows": "to", "from": "instaloadercontext::InstaloaderContext.__init__", "to": "instaloadercontext::default_user_agent", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader._get_id_filename", "to": "instaloader::format_string_contains_key", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.anonymous_copy", "to": "instaloader::Instaloader.__init__", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.anonymous_copy", "to": "instaloader::Instaloader.close", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.load_profile_id", "to": "instaloader::Instaloader._get_id_filename", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.save_profile_id", "to": "instaloader::Instaloader._get_id_filename", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.save_profile_id", "to": "instaloadercontext::InstaloaderContext.log", "width": 1}, {"arrows": "to", "from": "lateststamps::LatestStamps.rename_profile", "to": "lateststamps::LatestStamps._ensure_section", "width": 1}, {"arrows": "to", "from": "lateststamps::LatestStamps.rename_profile", "to": "lateststamps::LatestStamps._save", "width": 1}, {"arrows": "to", "from": "structures::Profile.from_id", "to": "instaloadercontext::InstaloaderContext.graphql_query", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.get_feed_posts", "to": "instaloadercontext::InstaloaderContext.graphql_query", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.get_feed_posts", "to": "structures::Post.__init__", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.get_feed_posts", "to": "structures::Post.supported_graphql_types", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.posts_download_loop", "to": "instaloader::Instaloader.download_post", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.posts_download_loop", "to": "instaloader::Instaloader.format_filename_within_target_path", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.posts_download_loop", "to": "instaloader::_PostPathFormatter.sanitize_path", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.posts_download_loop", "to": "instaloadercontext::InstaloaderContext.error", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.posts_download_loop", "to": "instaloadercontext::InstaloaderContext.error_catcher", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.posts_download_loop", "to": "instaloadercontext::InstaloaderContext.log", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.posts_download_loop", "to": "nodeiterator::resumable_iteration", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.download_hashtag_profilepic", "to": "instaloader::Instaloader.download_title_pic", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.save_metadata_json", "to": "instaloadercontext::InstaloaderContext.log", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.save_metadata_json", "to": "structures::save_structure_to_file", "width": 1}, {"arrows": "to", "from": "structures::Hashtag.get_posts_resumable", "to": "nodeiterator::NodeIterator.__init__", "width": 1}, {"arrows": "to", "from": "structures::Hashtag.get_posts_resumable", "to": "structures::Post.__init__", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.download_title_pic", "to": "instaloader::Instaloader.__prepare_filename", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.download_title_pic", "to": "instaloader::_PostPathFormatter.__init__", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.download_title_pic", "to": "instaloadercontext::InstaloaderContext.get_raw", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.download_title_pic", "to": "instaloadercontext::InstaloaderContext.log", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.download_title_pic", "to": "instaloadercontext::InstaloaderContext.write_raw", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.download_title_pic", "to": "structures::TitlePic.__init__", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.download_highlight_cover", "to": "instaloader::Instaloader.download_title_pic", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.download_highlights", "to": "instaloader::Instaloader.download_highlight_cover", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.download_highlights", "to": "instaloader::Instaloader.download_storyitem", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.download_highlights", "to": "instaloader::Instaloader.get_highlights", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.download_highlights", "to": "instaloader::_PostPathFormatter.sanitize_path", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.download_highlights", "to": "instaloadercontext::InstaloaderContext.error_catcher", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.download_highlights", "to": "instaloadercontext::InstaloaderContext.log", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.get_highlights", "to": "instaloadercontext::InstaloaderContext.graphql_query", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.get_highlights", "to": "structures::Highlight.__init__", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.download_igtv", "to": "instaloader::Instaloader.posts_download_loop", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.download_igtv", "to": "instaloadercontext::InstaloaderContext.log", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.download_igtv", "to": "lateststamps::LatestStamps.get_last_igtv_timestamp", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.download_igtv", "to": "lateststamps::LatestStamps.set_last_igtv_timestamp", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.download_igtv", "to": "structures::Profile.get_igtv_posts", "width": 1}, {"arrows": "to", "from": "lateststamps::LatestStamps.get_last_igtv_timestamp", "to": "lateststamps::LatestStamps._get_timestamp", "width": 1}, {"arrows": "to", "from": "lateststamps::LatestStamps.set_last_igtv_timestamp", "to": "lateststamps::LatestStamps._set_timestamp", "width": 1}, {"arrows": "to", "from": "structures::Profile.get_igtv_posts", "to": "nodeiterator::NodeIterator.__init__", "width": 1}, {"arrows": "to", "from": "structures::Profile.get_igtv_posts", "to": "structures::Post.__init__", "width": 1}, {"arrows": "to", "from": "structures::Profile.get_igtv_posts", "to": "structures::Profile._make_is_newest_checker", "width": 1}, {"arrows": "to", "from": "structures::Profile.get_igtv_posts", "to": "structures::Profile._metadata", "width": 1}, {"arrows": "to", "from": "structures::Profile.get_igtv_posts", "to": "structures::Profile._obtain_metadata", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.get_location_posts", "to": "sectioniterator::SectionIterator.__init__", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.get_location_posts", "to": "structures::Post.from_iphone_struct", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.download_pic", "to": "instaloadercontext::InstaloaderContext.get_raw", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.download_pic", "to": "instaloadercontext::InstaloaderContext.log", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.download_pic", "to": "instaloadercontext::InstaloaderContext.write_raw", "width": 1}, {"arrows": "to", "from": "instaloadercontext::InstaloaderContext.get_raw", "to": "instaloadercontext::InstaloaderContext.get_anonymous_session", "width": 1}, {"arrows": "to", "from": "instaloadercontext::InstaloaderContext.write_raw", "to": "instaloadercontext::InstaloaderContext.log", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.format_filename", "to": "instaloader::_PostPathFormatter.__init__", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.save_caption", "to": "instaloadercontext::InstaloaderContext.log", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.save_location", "to": "instaloadercontext::InstaloaderContext.log", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.update_comments", "to": "instaloadercontext::InstaloaderContext.log", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.update_comments", "to": "nodeiterator::resumable_iteration", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.update_comments", "to": "structures::Post.get_comments", "width": 1}, {"arrows": "to", "from": "structures::Post.get_is_videos", "to": "structures::Post._field", "width": 1}, {"arrows": "to", "from": "structures::Post.get_sidecar_nodes", "to": "instaloadercontext::InstaloaderContext.error", "width": 1}, {"arrows": "to", "from": "structures::Post.get_sidecar_nodes", "to": "structures::Post._field", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.download_profile", "to": "instaloader::Instaloader.check_profile_id", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.download_profile", "to": "instaloader::Instaloader.download_profilepic", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.download_profile", "to": "instaloader::Instaloader.download_stories", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.download_profile", "to": "instaloader::Instaloader.download_tagged", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.download_profile", "to": "instaloader::Instaloader.posts_download_loop", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.download_profile", "to": "instaloader::Instaloader.save_metadata_json", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.download_profile", "to": "instaloadercontext::InstaloaderContext.error_catcher", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.download_profile", "to": "instaloadercontext::InstaloaderContext.log", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.download_profilepic", "to": "instaloader::Instaloader.download_title_pic", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.download_tagged", "to": "instaloader::Instaloader.posts_download_loop", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.download_tagged", "to": "instaloader::_PostPathFormatter.sanitize_path", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.download_tagged", "to": "instaloadercontext::InstaloaderContext.log", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.download_tagged", "to": "lateststamps::LatestStamps.get_last_tagged_timestamp", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.download_tagged", "to": "lateststamps::LatestStamps.set_last_tagged_timestamp", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.download_tagged", "to": "structures::Profile.get_tagged_posts", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.download_profilepic_if_new", "to": "instaloader::Instaloader.download_profilepic", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.download_profilepic_if_new", "to": "lateststamps::LatestStamps.get_profile_pic", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.download_profilepic_if_new", "to": "lateststamps::LatestStamps.set_profile_pic", "width": 1}, {"arrows": "to", "from": "lateststamps::LatestStamps.set_profile_pic", "to": "lateststamps::LatestStamps._ensure_section", "width": 1}, {"arrows": "to", "from": "lateststamps::LatestStamps.set_profile_pic", "to": "lateststamps::LatestStamps._save", "width": 1}, {"arrows": "to", "from": "lateststamps::LatestStamps.get_last_post_timestamp", "to": "lateststamps::LatestStamps._get_timestamp", "width": 1}, {"arrows": "to", "from": "lateststamps::LatestStamps.set_last_post_timestamp", "to": "lateststamps::LatestStamps._set_timestamp", "width": 1}, {"arrows": "to", "from": "structures::Profile.get_saved_posts", "to": "nodeiterator::NodeIterator.__init__", "width": 1}, {"arrows": "to", "from": "structures::Profile.get_saved_posts", "to": "structures::Post.__init__", "width": 1}, {"arrows": "to", "from": "structures::Profile.own_profile", "to": "instaloadercontext::InstaloaderContext.graphql_query", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.get_stories", "to": "instaloadercontext::InstaloaderContext.graphql_query", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.get_stories", "to": "structures::Story.__init__", "width": 1}, {"arrows": "to", "from": "lateststamps::LatestStamps.get_last_story_timestamp", "to": "lateststamps::LatestStamps._get_timestamp", "width": 1}, {"arrows": "to", "from": "lateststamps::LatestStamps.set_last_story_timestamp", "to": "lateststamps::LatestStamps._set_timestamp", "width": 1}, {"arrows": "to", "from": "lateststamps::LatestStamps.get_last_tagged_timestamp", "to": "lateststamps::LatestStamps._get_timestamp", "width": 1}, {"arrows": "to", "from": "lateststamps::LatestStamps.set_last_tagged_timestamp", "to": "lateststamps::LatestStamps._set_timestamp", "width": 1}, {"arrows": "to", "from": "structures::Profile.get_tagged_posts", "to": "nodeiterator::NodeIterator.__init__", "width": 1}, {"arrows": "to", "from": "structures::Profile.get_tagged_posts", "to": "structures::Post.__init__", "width": 1}, {"arrows": "to", "from": "structures::Profile.get_tagged_posts", "to": "structures::Profile._make_is_newest_checker", "width": 1}, {"arrows": "to", "from": "structures::Profile.get_tagged_posts", "to": "structures::Profile._obtain_metadata", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.format_filename_within_target_path", "to": "instaloader::format_string_contains_key", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.get_explore_posts", "to": "nodeiterator::NodeIterator.__init__", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.get_explore_posts", "to": "structures::Post.__init__", "width": 1}, {"arrows": "to", "from": "nodeiterator::NodeIterator.__init__", "to": "nodeiterator::NodeIterator._query", "width": 1}, {"arrows": "to", "from": "instaloadercontext::InstaloaderContext.graphql_query", "to": "instaloadercontext::InstaloaderContext._default_http_header", "width": 1}, {"arrows": "to", "from": "instaloadercontext::InstaloaderContext.graphql_query", "to": "instaloadercontext::InstaloaderContext.error", "width": 1}, {"arrows": "to", "from": "instaloadercontext::InstaloaderContext.graphql_query", "to": "instaloadercontext::InstaloaderContext.get_json", "width": 1}, {"arrows": "to", "from": "instaloadercontext::InstaloaderContext.graphql_query", "to": "instaloadercontext::copy_session", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.get_hashtag_posts", "to": "structures::Hashtag.from_name", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.get_hashtag_posts", "to": "structures::Hashtag.get_posts_resumable", "width": 1}, {"arrows": "to", "from": "sectioniterator::SectionIterator.__init__", "to": "sectioniterator::SectionIterator._query", "width": 1}, {"arrows": "to", "from": "structures::Post.from_iphone_struct", "to": "structures::Profile.from_iphone_struct", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.login", "to": "instaloader::Instaloader.login", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.two_factor_login", "to": "instaloader::Instaloader.two_factor_login", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.load_session", "to": "instaloader::Instaloader.load_session", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.load_session_from_file", "to": "instaloader::Instaloader.load_session_from_file", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.load_session_from_file", "to": "instaloader::get_default_session_filename", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.load_session_from_file", "to": "instaloader::get_legacy_session_filename", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.load_session_from_file", "to": "instaloadercontext::InstaloaderContext.log", "width": 1}, {"arrows": "to", "from": "nodeiterator::resumable_iteration", "to": "instaloadercontext::InstaloaderContext.error", "width": 1}, {"arrows": "to", "from": "nodeiterator::resumable_iteration", "to": "instaloadercontext::InstaloaderContext.log", "width": 1}, {"arrows": "to", "from": "nodeiterator::resumable_iteration", "to": "nodeiterator::NodeIterator.freeze", "width": 1}, {"arrows": "to", "from": "nodeiterator::resumable_iteration", "to": "nodeiterator::NodeIterator.thaw", "width": 1}, {"arrows": "to", "from": "structures::save_structure_to_file", "to": "structures::get_json_structure", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.save_session", "to": "instaloader::Instaloader.save_session", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.save_session_to_file", "to": "instaloader::Instaloader.save_session_to_file", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.save_session_to_file", "to": "instaloader::get_default_session_filename", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.save_session_to_file", "to": "instaloadercontext::InstaloaderContext.log", "width": 1}, {"arrows": "to", "from": "instaloader::Instaloader.test_login", "to": "instaloader::Instaloader.test_login", "width": 1}, {"arrows": "to", "from": "structures::Post.get_comments", "to": "nodeiterator::NodeIterator.__init__", "width": 1}, {"arrows": "to", "from": "structures::Post.get_comments", "to": "structures::Post._field", "width": 1}, {"arrows": "to", "from": "structures::Post.get_comments", "to": "structures::Profile.__init__", "width": 1}, {"arrows": "to", "from": "instaloader::_ArbitraryItemFormatter.format_field", "to": "instaloader::_ArbitraryItemFormatter.format_field", "width": 1}, {"arrows": "to", "from": "instaloader::_PostPathFormatter.get_value", "to": "instaloader::_PostPathFormatter.sanitize_path", "width": 1}, {"arrows": "to", "from": "instaloader::_retry_on_connection_error", "to": "instaloadercontext::InstaloaderContext.do_sleep", "width": 1}, {"arrows": "to", "from": "instaloader::_retry_on_connection_error", "to": "instaloadercontext::InstaloaderContext.error", "width": 1}, {"arrows": "to", "from": "instaloadercontext::InstaloaderContext.get_anonymous_session", "to": "instaloadercontext::InstaloaderContext._default_http_header", "width": 1}, {"arrows": "to", "from": "instaloadercontext::InstaloaderContext.anonymous_copy", "to": "instaloadercontext::InstaloaderContext.close", "width": 1}, {"arrows": "to", "from": "instaloadercontext::InstaloaderContext.anonymous_copy", "to": "instaloadercontext::InstaloaderContext.get_anonymous_session", "width": 1}, {"arrows": "to", "from": "instaloadercontext::InstaloaderContext.anonymous_copy", "to": "instaloadercontext::default_iphone_headers", "width": 1}, {"arrows": "to", "from": "instaloadercontext::InstaloaderContext.close", "to": "instaloadercontext::InstaloaderContext.close", "width": 1}, {"arrows": "to", "from": "instaloadercontext::InstaloaderContext.get_and_write_raw", "to": "instaloadercontext::InstaloaderContext.get_raw", "width": 1}, {"arrows": "to", "from": "instaloadercontext::InstaloaderContext.get_and_write_raw", "to": "instaloadercontext::InstaloaderContext.write_raw", "width": 1}, {"arrows": "to", "from": "instaloadercontext::InstaloaderContext.get_iphone_json", "to": "instaloadercontext::InstaloaderContext.get_json", "width": 1}, {"arrows": "to", "from": "instaloadercontext::InstaloaderContext.get_iphone_json", "to": "instaloadercontext::copy_session", "width": 1}, {"arrows": "to", "from": "instaloadercontext::InstaloaderContext.get_json", "to": "instaloadercontext::InstaloaderContext.do_sleep", "width": 1}, {"arrows": "to", "from": "instaloadercontext::InstaloaderContext.get_json", "to": "instaloadercontext::InstaloaderContext.error", "width": 1}, {"arrows": "to", "from": "instaloadercontext::InstaloaderContext.get_json", "to": "instaloadercontext::InstaloaderContext.get_json", "width": 1}, {"arrows": "to", "from": "instaloadercontext::InstaloaderContext.get_json", "to": "instaloadercontext::InstaloaderContext.log", "width": 1}, {"arrows": "to", "from": "instaloadercontext::InstaloaderContext.get_json", "to": "instaloadercontext::RateController.handle_429", "width": 1}, {"arrows": "to", "from": "instaloadercontext::InstaloaderContext.get_json", "to": "instaloadercontext::RateController.wait_before_query", "width": 1}, {"arrows": "to", "from": "instaloadercontext::RateController.handle_429", "to": "instaloadercontext::InstaloaderContext.error", "width": 1}, {"arrows": "to", "from": "instaloadercontext::RateController.handle_429", "to": "instaloadercontext::RateController._dump_query_timestamps", "width": 1}, {"arrows": "to", "from": "instaloadercontext::RateController.handle_429", "to": "instaloadercontext::RateController.query_waittime", "width": 1}, {"arrows": "to", "from": "instaloadercontext::RateController.handle_429", "to": "instaloadercontext::RateController.sleep", "width": 1}, {"arrows": "to", "from": "instaloadercontext::RateController.wait_before_query", "to": "instaloadercontext::InstaloaderContext.log", "width": 1}, {"arrows": "to", "from": "instaloadercontext::RateController.wait_before_query", "to": "instaloadercontext::RateController.query_waittime", "width": 1}, {"arrows": "to", "from": "instaloadercontext::RateController.wait_before_query", "to": "instaloadercontext::RateController.sleep", "width": 1}, {"arrows": "to", "from": "instaloadercontext::InstaloaderContext.graphql_node_list", "to": "instaloadercontext::InstaloaderContext.error", "width": 1}, {"arrows": "to", "from": "instaloadercontext::InstaloaderContext.graphql_node_list", "to": "instaloadercontext::InstaloaderContext.graphql_query", "width": 1}, {"arrows": "to", "from": "instaloadercontext::InstaloaderContext.head", "to": "instaloadercontext::InstaloaderContext.get_anonymous_session", "width": 1}, {"arrows": "to", "from": "instaloadercontext::InstaloaderContext.head", "to": "instaloadercontext::InstaloaderContext.head", "width": 1}, {"arrows": "to", "from": "instaloadercontext::InstaloaderContext.load_session", "to": "instaloadercontext::InstaloaderContext._default_http_header", "width": 1}, {"arrows": "to", "from": "instaloadercontext::InstaloaderContext.load_session_from_file", "to": "instaloadercontext::InstaloaderContext.load_session", "width": 1}, {"arrows": "to", "from": "instaloadercontext::InstaloaderContext.login", "to": "instaloadercontext::InstaloaderContext._default_http_header", "width": 1}, {"arrows": "to", "from": "instaloadercontext::InstaloaderContext.login", "to": "instaloadercontext::InstaloaderContext.do_sleep", "width": 1}, {"arrows": "to", "from": "instaloadercontext::InstaloaderContext.login", "to": "instaloadercontext::InstaloaderContext.get_json", "width": 1}, {"arrows": "to", "from": "instaloadercontext::InstaloaderContext.login", "to": "instaloadercontext::copy_session", "width": 1}, {"arrows": "to", "from": "instaloadercontext::InstaloaderContext.root_rhx_gis", "to": "instaloadercontext::InstaloaderContext.get_json", "width": 1}, {"arrows": "to", "from": "instaloadercontext::InstaloaderContext.save_session_to_file", "to": "instaloadercontext::InstaloaderContext.save_session", "width": 1}, {"arrows": "to", "from": "instaloadercontext::InstaloaderContext.test_login", "to": "instaloadercontext::InstaloaderContext.graphql_query", "width": 1}, {"arrows": "to", "from": "instaloadercontext::RateController._dump_query_timestamps", "to": "instaloadercontext::InstaloaderContext.error", "width": 1}, {"arrows": "to", "from": "instaloadercontext::RateController.query_waittime", "to": "instaloadercontext::RateController._reqs_in_sliding_window", "width": 1}, {"arrows": "to", "from": "instaloadercontext::RateController.query_waittime", "to": "instaloadercontext::RateController.count_per_sliding_window", "width": 1}, {"arrows": "to", "from": "lateststamps::LatestStamps._set_timestamp", "to": "lateststamps::LatestStamps._ensure_section", "width": 1}, {"arrows": "to", "from": "lateststamps::LatestStamps._set_timestamp", "to": "lateststamps::LatestStamps._save", "width": 1}, {"arrows": "to", "from": "lateststamps::LatestStamps.save_profile_id", "to": "lateststamps::LatestStamps._ensure_section", "width": 1}, {"arrows": "to", "from": "lateststamps::LatestStamps.save_profile_id", "to": "lateststamps::LatestStamps._save", "width": 1}, {"arrows": "to", "from": "nodeiterator::NodeIterator._query", "to": "instaloadercontext::InstaloaderContext.error", "width": 1}, {"arrows": "to", "from": "nodeiterator::NodeIterator._query", "to": "instaloadercontext::InstaloaderContext.graphql_query", "width": 1}, {"arrows": "to", "from": "nodeiterator::NodeIterator._query", "to": "nodeiterator::NodeIterator._query", "width": 1}, {"arrows": "to", "from": "nodeiterator::NodeIterator.__next__", "to": "nodeiterator::NodeIterator.__next__", "width": 1}, {"arrows": "to", "from": "nodeiterator::NodeIterator.__next__", "to": "nodeiterator::NodeIterator._query", "width": 1}, {"arrows": "to", "from": "sectioniterator::SectionIterator._query", "to": "instaloadercontext::InstaloaderContext.get_json", "width": 1}, {"arrows": "to", "from": "sectioniterator::SectionIterator.__next__", "to": "sectioniterator::SectionIterator.__next__", "width": 1}, {"arrows": "to", "from": "sectioniterator::SectionIterator.__next__", "to": "sectioniterator::SectionIterator._query", "width": 1}, {"arrows": "to", "from": "structures::Hashtag._metadata", "to": "structures::Hashtag._obtain_metadata", "width": 1}, {"arrows": "to", "from": "structures::Hashtag._obtain_metadata", "to": "structures::Hashtag._query", "width": 1}, {"arrows": "to", "from": "structures::Hashtag._query", "to": "instaloadercontext::InstaloaderContext.get_json", "width": 1}, {"arrows": "to", "from": "structures::Hashtag.allow_following", "to": "structures::Hashtag._metadata", "width": 1}, {"arrows": "to", "from": "structures::Hashtag.description", "to": "structures::Hashtag._metadata", "width": 1}, {"arrows": "to", "from": "structures::Hashtag.get_all_posts", "to": "structures::Hashtag.get_posts_resumable", "width": 1}, {"arrows": "to", "from": "structures::Hashtag.get_all_posts", "to": "structures::Hashtag.get_top_posts", "width": 1}, {"arrows": "to", "from": "structures::Hashtag.get_top_posts", "to": "sectioniterator::SectionIterator.__init__", "width": 1}, {"arrows": "to", "from": "structures::Hashtag.get_top_posts", "to": "structures::Hashtag._metadata", "width": 1}, {"arrows": "to", "from": "structures::Hashtag.get_top_posts", "to": "structures::Post.__init__", "width": 1}, {"arrows": "to", "from": "structures::Hashtag.get_top_posts", "to": "structures::Post.from_iphone_struct", "width": 1}, {"arrows": "to", "from": "structures::Hashtag.get_posts", "to": "sectioniterator::SectionIterator.__init__", "width": 1}, {"arrows": "to", "from": "structures::Hashtag.get_posts", "to": "structures::Hashtag._metadata", "width": 1}, {"arrows": "to", "from": "structures::Hashtag.get_posts", "to": "structures::Hashtag._query", "width": 1}, {"arrows": "to", "from": "structures::Hashtag.get_posts", "to": "structures::Post.__init__", "width": 1}, {"arrows": "to", "from": "structures::Hashtag.get_posts", "to": "structures::Post.from_iphone_struct", "width": 1}, {"arrows": "to", "from": "structures::Hashtag.hashtagid", "to": "structures::Hashtag._metadata", "width": 1}, {"arrows": "to", "from": "structures::Hashtag.is_following", "to": "structures::Hashtag._metadata", "width": 1}, {"arrows": "to", "from": "structures::Hashtag.mediacount", "to": "structures::Hashtag._metadata", "width": 1}, {"arrows": "to", "from": "structures::Hashtag.profile_pic_url", "to": "structures::Hashtag._metadata", "width": 1}, {"arrows": "to", "from": "structures::Highlight._fetch_iphone_struct", "to": "instaloadercontext::InstaloaderContext.get_iphone_json", "width": 1}, {"arrows": "to", "from": "structures::Highlight._fetch_items", "to": "instaloadercontext::InstaloaderContext.graphql_query", "width": 1}, {"arrows": "to", "from": "structures::Highlight.get_items", "to": "structures::Highlight._fetch_iphone_struct", "width": 1}, {"arrows": "to", "from": "structures::Highlight.get_items", "to": "structures::Highlight._fetch_items", "width": 1}, {"arrows": "to", "from": "structures::Highlight.get_items", "to": "structures::StoryItem.__init__", "width": 1}, {"arrows": "to", "from": "structures::Highlight.itemcount", "to": "structures::Highlight._fetch_items", "width": 1}, {"arrows": "to", "from": "structures::Highlight.owner_profile", "to": "structures::Profile.__init__", "width": 1}, {"arrows": "to", "from": "structures::Post._asdict", "to": "structures::Post._asdict", "width": 1}, {"arrows": "to", "from": "structures::Post._full_metadata", "to": "structures::Post._obtain_metadata", "width": 1}, {"arrows": "to", "from": "structures::Post._obtain_metadata", "to": "instaloadercontext::InstaloaderContext.graphql_query", "width": 1}, {"arrows": "to", "from": "structures::Post._iphone_struct", "to": "instaloadercontext::InstaloaderContext.get_iphone_json", "width": 1}, {"arrows": "to", "from": "structures::Post.accessibility_caption", "to": "structures::Post._field", "width": 1}, {"arrows": "to", "from": "structures::Post.caption", "to": "structures::_optional_normalize", "width": 1}, {"arrows": "to", "from": "structures::Post.comments", "to": "structures::Post._field", "width": 1}, {"arrows": "to", "from": "structures::Post.date_local", "to": "structures::Post._get_timestamp_date_created", "width": 1}, {"arrows": "to", "from": "structures::Post.date_utc", "to": "structures::Post._get_timestamp_date_created", "width": 1}, {"arrows": "to", "from": "structures::Post.from_mediaid", "to": "structures::Post.from_shortcode", "width": 1}, {"arrows": "to", "from": "structures::Post.from_mediaid", "to": "structures::Post.mediaid_to_shortcode", "width": 1}, {"arrows": "to", "from": "structures::Post.get_likes", "to": "nodeiterator::NodeIterator.__init__", "width": 1}, {"arrows": "to", "from": "structures::Post.get_likes", "to": "structures::Post._field", "width": 1}, {"arrows": "to", "from": "structures::Post.get_likes", "to": "structures::Profile.__init__", "width": 1}, {"arrows": "to", "from": "structures::Post.is_sponsored", "to": "structures::Post._field", "width": 1}, {"arrows": "to", "from": "structures::Post.likes", "to": "structures::Post._field", "width": 1}, {"arrows": "to", "from": "structures::Post.location", "to": "instaloadercontext::InstaloaderContext.get_json", "width": 1}, {"arrows": "to", "from": "structures::Post.location", "to": "structures::Post._field", "width": 1}, {"arrows": "to", "from": "structures::Post.mediacount", "to": "structures::Post._field", "width": 1}, {"arrows": "to", "from": "structures::Post.owner_profile", "to": "structures::Profile.__init__", "width": 1}, {"arrows": "to", "from": "structures::Post.sponsor_users", "to": "structures::Post._field", "width": 1}, {"arrows": "to", "from": "structures::Post.sponsor_users", "to": "structures::Profile.__init__", "width": 1}, {"arrows": "to", "from": "structures::Post.tagged_users", "to": "structures::Post._field", "width": 1}, {"arrows": "to", "from": "structures::Post.title", "to": "structures::Post._field", "width": 1}, {"arrows": "to", "from": "structures::Post.typename", "to": "structures::Post._field", "width": 1}, {"arrows": "to", "from": "structures::Post.url", "to": "instaloadercontext::InstaloaderContext.error", "width": 1}, {"arrows": "to", "from": "structures::Post.video_duration", "to": "structures::Post._field", "width": 1}, {"arrows": "to", "from": "structures::Post.video_url", "to": "instaloadercontext::InstaloaderContext.error", "width": 1}, {"arrows": "to", "from": "structures::Post.video_url", "to": "instaloadercontext::InstaloaderContext.head", "width": 1}, {"arrows": "to", "from": "structures::Post.video_url", "to": "structures::Post._field", "width": 1}, {"arrows": "to", "from": "structures::Post.video_view_count", "to": "structures::Post._field", "width": 1}, {"arrows": "to", "from": "structures::Post.viewer_has_liked", "to": "structures::Post._field", "width": 1}, {"arrows": "to", "from": "structures::Profile._iphone_struct", "to": "instaloadercontext::InstaloaderContext.get_iphone_json", "width": 1}, {"arrows": "to", "from": "structures::Profile._metadata", "to": "structures::Profile._obtain_metadata", "width": 1}, {"arrows": "to", "from": "structures::Profile._obtain_metadata", "to": "instaloadercontext::InstaloaderContext.get_iphone_json", "width": 1}, {"arrows": "to", "from": "structures::Profile._obtain_metadata", "to": "structures::TopSearchResults.__init__", "width": 1}, {"arrows": "to", "from": "structures::Profile._obtain_metadata", "to": "structures::TopSearchResults.get_profiles", "width": 1}, {"arrows": "to", "from": "structures::TopSearchResults.__init__", "to": "instaloadercontext::InstaloaderContext.get_json", "width": 1}, {"arrows": "to", "from": "structures::TopSearchResults.get_profiles", "to": "structures::Profile.__init__", "width": 1}, {"arrows": "to", "from": "structures::Profile.biography", "to": "structures::Profile._metadata", "width": 1}, {"arrows": "to", "from": "structures::Profile.blocked_by_viewer", "to": "structures::Profile._metadata", "width": 1}, {"arrows": "to", "from": "structures::Profile.business_category_name", "to": "structures::Profile._metadata", "width": 1}, {"arrows": "to", "from": "structures::Profile.external_url", "to": "structures::Profile._metadata", "width": 1}, {"arrows": "to", "from": "structures::Profile.followed_by_viewer", "to": "structures::Profile._metadata", "width": 1}, {"arrows": "to", "from": "structures::Profile.followees", "to": "structures::Profile._metadata", "width": 1}, {"arrows": "to", "from": "structures::Profile.followers", "to": "structures::Profile._metadata", "width": 1}, {"arrows": "to", "from": "structures::Profile.follows_viewer", "to": "structures::Profile._metadata", "width": 1}, {"arrows": "to", "from": "structures::Profile.full_name", "to": "structures::Profile._metadata", "width": 1}, {"arrows": "to", "from": "structures::Profile.get_followed_hashtags", "to": "nodeiterator::NodeIterator.__init__", "width": 1}, {"arrows": "to", "from": "structures::Profile.get_followed_hashtags", "to": "structures::Hashtag.__init__", "width": 1}, {"arrows": "to", "from": "structures::Profile.get_followed_hashtags", "to": "structures::Profile._obtain_metadata", "width": 1}, {"arrows": "to", "from": "structures::Profile.get_followers", "to": "nodeiterator::NodeIterator.__init__", "width": 1}, {"arrows": "to", "from": "structures::Profile.get_followers", "to": "structures::Profile.__init__", "width": 1}, {"arrows": "to", "from": "structures::Profile.get_followers", "to": "structures::Profile._obtain_metadata", "width": 1}, {"arrows": "to", "from": "structures::Profile.get_posts", "to": "nodeiterator::NodeIterator.__init__", "width": 1}, {"arrows": "to", "from": "structures::Profile.get_posts", "to": "structures::Post.__init__", "width": 1}, {"arrows": "to", "from": "structures::Profile.get_posts", "to": "structures::Profile._make_is_newest_checker", "width": 1}, {"arrows": "to", "from": "structures::Profile.get_posts", "to": "structures::Profile._metadata", "width": 1}, {"arrows": "to", "from": "structures::Profile.get_posts", "to": "structures::Profile._obtain_metadata", "width": 1}, {"arrows": "to", "from": "structures::Profile.get_similar_accounts", "to": "instaloadercontext::InstaloaderContext.graphql_query", "width": 1}, {"arrows": "to", "from": "structures::Profile.get_similar_accounts", "to": "structures::Profile.__init__", "width": 1}, {"arrows": "to", "from": "structures::Profile.get_similar_accounts", "to": "structures::Profile._obtain_metadata", "width": 1}, {"arrows": "to", "from": "structures::Profile.has_blocked_viewer", "to": "structures::Profile._metadata", "width": 1}, {"arrows": "to", "from": "structures::Profile.has_public_story", "to": "instaloadercontext::InstaloaderContext.graphql_query", "width": 1}, {"arrows": "to", "from": "structures::Profile.has_public_story", "to": "structures::Profile._obtain_metadata", "width": 1}, {"arrows": "to", "from": "structures::Profile.has_requested_viewer", "to": "structures::Profile._metadata", "width": 1}, {"arrows": "to", "from": "structures::Profile.igtvcount", "to": "structures::Profile._metadata", "width": 1}, {"arrows": "to", "from": "structures::Profile.is_business_account", "to": "structures::Profile._metadata", "width": 1}, {"arrows": "to", "from": "structures::Profile.is_private", "to": "structures::Profile._metadata", "width": 1}, {"arrows": "to", "from": "structures::Profile.is_verified", "to": "structures::Profile._metadata", "width": 1}, {"arrows": "to", "from": "structures::Profile.mediacount", "to": "structures::Profile._metadata", "width": 1}, {"arrows": "to", "from": "structures::Profile.profile_pic_url", "to": "instaloadercontext::InstaloaderContext.error", "width": 1}, {"arrows": "to", "from": "structures::Profile.profile_pic_url", "to": "structures::Profile._metadata", "width": 1}, {"arrows": "to", "from": "structures::Profile.profile_pic_url_no_iphone", "to": "structures::Profile._metadata", "width": 1}, {"arrows": "to", "from": "structures::Profile.requested_by_viewer", "to": "structures::Profile._metadata", "width": 1}, {"arrows": "to", "from": "structures::Profile.userid", "to": "structures::Profile._metadata", "width": 1}, {"arrows": "to", "from": "structures::Profile.username", "to": "structures::Profile._metadata", "width": 1}, {"arrows": "to", "from": "structures::Story._fetch_iphone_struct", "to": "instaloadercontext::InstaloaderContext.get_iphone_json", "width": 1}, {"arrows": "to", "from": "structures::Story.get_items", "to": "structures::Story._fetch_iphone_struct", "width": 1}, {"arrows": "to", "from": "structures::Story.get_items", "to": "structures::StoryItem.__init__", "width": 1}, {"arrows": "to", "from": "structures::Story.owner_profile", "to": "structures::Profile.__init__", "width": 1}, {"arrows": "to", "from": "structures::Story.unique_id", "to": "structures::Story.get_items", "width": 1}, {"arrows": "to", "from": "structures::StoryItem._asdict", "to": "structures::StoryItem._asdict", "width": 1}, {"arrows": "to", "from": "structures::StoryItem._iphone_struct", "to": "instaloadercontext::InstaloaderContext.get_iphone_json", "width": 1}, {"arrows": "to", "from": "structures::StoryItem.caption", "to": "structures::_optional_normalize", "width": 1}, {"arrows": "to", "from": "structures::StoryItem.from_mediaid", "to": "instaloadercontext::InstaloaderContext.graphql_query", "width": 1}, {"arrows": "to", "from": "structures::StoryItem.from_mediaid", "to": "structures::Post.mediaid_to_shortcode", "width": 1}, {"arrows": "to", "from": "structures::StoryItem.owner_profile", "to": "structures::Profile.from_id", "width": 1}, {"arrows": "to", "from": "structures::StoryItem.shortcode", "to": "structures::Post.mediaid_to_shortcode", "width": 1}, {"arrows": "to", "from": "structures::StoryItem.url", "to": "instaloadercontext::InstaloaderContext.error", "width": 1}, {"arrows": "to", "from": "structures::StoryItem.video_url", "to": "instaloadercontext::InstaloaderContext.error", "width": 1}, {"arrows": "to", "from": "structures::StoryItem.video_url", "to": "instaloadercontext::InstaloaderContext.head", "width": 1}, {"arrows": "to", "from": "structures::TopSearchResults.get_hashtags", "to": "structures::Hashtag.__init__", "width": 1}, {"arrows": "to", "from": "structures::load_structure", "to": "structures::Hashtag.__init__", "width": 1}, {"arrows": "to", "from": "structures::load_structure", "to": "structures::Post.__init__", "width": 1}, {"arrows": "to", "from": "structures::load_structure", "to": "structures::Post.from_shortcode", "width": 1}, {"arrows": "to", "from": "structures::load_structure", "to": "structures::Profile.__init__", "width": 1}, {"arrows": "to", "from": "structures::load_structure", "to": "structures::StoryItem.__init__", "width": 1}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": true,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+                    network.on("selectNode", neighbourhoodHighlight);
+                  
+
+                  
+
+
+                  
+                      network.on("stabilizationProgress", function(params) {
+                          document.getElementById('loadingBar').removeAttribute("style");
+                          var maxWidth = 496;
+                          var minWidth = 20;
+                          var widthFactor = params.iterations/params.total;
+                          var width = Math.max(minWidth,maxWidth * widthFactor);
+                          document.getElementById('bar').style.width = width + 'px';
+                          document.getElementById('text').innerHTML = Math.round(widthFactor*100) + '%';
+                      });
+                      network.once("stabilizationIterationsDone", function() {
+                          document.getElementById('text').innerHTML = '100%';
+                          document.getElementById('bar').style.width = '496px';
+                          document.getElementById('loadingBar').style.opacity = 0;
+                          // really clean the dom element
+                          setTimeout(function () {document.getElementById('loadingBar').style.display = 'none';}, 500);
+                      });
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>

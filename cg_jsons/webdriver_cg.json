@@ -1,0 +1,549 @@
+{
+    "..\\webdriver_manager\\chrome": [],
+    "..\\webdriver_manager\\chrome.ChromeDriverManager.__init__": [
+        "<builtin>.super",
+        "webdriver_manager.drivers.chrome.ChromeDriver"
+    ],
+    "<builtin>.super": [],
+    "webdriver_manager.drivers.chrome.ChromeDriver": [],
+    "..\\webdriver_manager\\chrome.ChromeDriverManager.install": [
+        "os.chmod",
+        "webdriver_manager.core.manager.DriverManager._get_driver_binary_path"
+    ],
+    "webdriver_manager.core.manager.DriverManager._get_driver_binary_path": [],
+    "os.chmod": [],
+    "..\\webdriver_manager\\chrome.ChromeDriverManager.get_os_type": [
+        "<builtin>.super",
+        "webdriver_manager.core.manager.DriverManager._os_system_manager.is_mac_os",
+        "webdriver_manager.core.manager.DriverManager._os_system_manager.is_arch"
+    ],
+    "webdriver_manager.core.manager.DriverManager._os_system_manager.is_mac_os": [],
+    "webdriver_manager.core.manager.DriverManager._os_system_manager.is_arch": [],
+    "..\\webdriver_manager\\core\\archive": [],
+    "..\\webdriver_manager\\core\\archive.LinuxZipFileWithPermissions.extract": [
+        "os.chmod",
+        "zipfile.ZipFile._extract_member",
+        "zipfile.ZipFile.getinfo",
+        "<builtin>.isinstance",
+        "os.getcwd"
+    ],
+    "<builtin>.isinstance": [],
+    "zipfile.ZipFile.getinfo": [],
+    "os.getcwd": [],
+    "zipfile.ZipFile._extract_member": [],
+    "..\\webdriver_manager\\core\\archive.Archive.__init__": [],
+    "..\\webdriver_manager\\core\\config": [
+        "dotenv.load_dotenv"
+    ],
+    "..\\webdriver_manager\\core\\config.str2bool": [
+        "os.getenv.lower"
+    ],
+    "os.getenv.lower": [],
+    "dotenv.load_dotenv": [],
+    "..\\webdriver_manager\\core\\config.ssl_verify": [
+        "..\\webdriver_manager\\core\\config.str2bool",
+        "os.getenv"
+    ],
+    "os.getenv": [],
+    "..\\webdriver_manager\\core\\config.gh_token": [
+        "os.getenv"
+    ],
+    "..\\webdriver_manager\\core\\config.wdm_local": [
+        "..\\webdriver_manager\\core\\config.str2bool",
+        "os.getenv"
+    ],
+    "..\\webdriver_manager\\core\\config.wdm_log_level": [
+        "<builtin>.int",
+        "os.getenv"
+    ],
+    "<builtin>.int": [],
+    "..\\webdriver_manager\\core\\config.wdm_progress_bar": [
+        "<builtin>.int",
+        "os.getenv"
+    ],
+    "..\\webdriver_manager\\core\\config.get_xdist_worker_id": [
+        "os.getenv"
+    ],
+    "..\\webdriver_manager\\core\\constants": [
+        "os.path.expanduser",
+        "os.path.join"
+    ],
+    "os.path.join": [],
+    "os.path.expanduser": [],
+    "..\\webdriver_manager\\core\\download_manager": [],
+    "..\\webdriver_manager\\core\\download_manager.DownloadManager.__init__": [],
+    "..\\webdriver_manager\\core\\download_manager.DownloadManager.download_file": [],
+    "..\\webdriver_manager\\core\\download_manager.DownloadManager.http_client": [],
+    "..\\webdriver_manager\\core\\download_manager.WDMDownloadManager.__init__": [
+        "webdriver_manager.core.http.WDMHttpClient",
+        "<builtin>.super"
+    ],
+    "webdriver_manager.core.http.WDMHttpClient": [],
+    "..\\webdriver_manager\\core\\download_manager.WDMDownloadManager.download_file": [
+        "..\\webdriver_manager\\core\\download_manager.WDMDownloadManager.extract_filename_from_url",
+        "webdriver_manager.core.file_manager.File",
+        "webdriver_manager.core.logger.log"
+    ],
+    "webdriver_manager.core.logger.log": [],
+    "..\\webdriver_manager\\core\\download_manager.WDMDownloadManager.extract_filename_from_url": [
+        "os.path.basename"
+    ],
+    "webdriver_manager.core.file_manager.File": [],
+    "os.path.basename": [],
+    "..\\webdriver_manager\\core\\driver": [],
+    "..\\webdriver_manager\\core\\driver.Driver.__init__": [
+        "webdriver_manager.core.os_manager.OperationSystemManager"
+    ],
+    "webdriver_manager.core.os_manager.OperationSystemManager": [],
+    "..\\webdriver_manager\\core\\driver.Driver.auth_header": [
+        "webdriver_manager.core.config.gh_token",
+        "webdriver_manager.core.logger.log"
+    ],
+    "webdriver_manager.core.config.gh_token": [],
+    "..\\webdriver_manager\\core\\driver.Driver.get_name": [],
+    "..\\webdriver_manager\\core\\driver.Driver.get_driver_download_url": [
+        "..\\webdriver_manager\\core\\driver.Driver.get_driver_version_to_download"
+    ],
+    "..\\webdriver_manager\\core\\driver.Driver.get_driver_version_to_download": [
+        "..\\webdriver_manager\\core\\driver.Driver.get_latest_release_version"
+    ],
+    "..\\webdriver_manager\\core\\driver.Driver.get_latest_release_version": [
+        "<builtin>.NotImplementedError"
+    ],
+    "<builtin>.NotImplementedError": [],
+    "..\\webdriver_manager\\core\\driver.Driver.get_browser_version_from_os": [
+        "webdriver_manager.core.os_manager.OperationSystemManager.get_browser_version_from_os",
+        "..\\webdriver_manager\\core\\driver.Driver.get_browser_type"
+    ],
+    "..\\webdriver_manager\\core\\driver.Driver.get_browser_type": [
+        "<builtin>.NotImplementedError"
+    ],
+    "webdriver_manager.core.os_manager.OperationSystemManager.get_browser_version_from_os": [],
+    "..\\webdriver_manager\\core\\driver.Driver.get_binary_name": [
+        "..\\webdriver_manager\\core\\driver.Driver.get_name"
+    ],
+    "..\\webdriver_manager\\core\\driver_cache": [],
+    "..\\webdriver_manager\\core\\driver_cache.DriverCacheManager.__init__": [
+        "webdriver_manager.core.file_manager.FileManager",
+        "os.path.join",
+        "webdriver_manager.core.config.wdm_local",
+        "webdriver_manager.core.logger.log",
+        "webdriver_manager.core.os_manager.OperationSystemManager",
+        "webdriver_manager.core.config.get_xdist_worker_id"
+    ],
+    "webdriver_manager.core.config.wdm_local": [],
+    "webdriver_manager.core.config.get_xdist_worker_id": [],
+    "webdriver_manager.core.file_manager.FileManager": [],
+    "..\\webdriver_manager\\core\\driver_cache.DriverCacheManager.save_archive_file": [
+        "webdriver_manager.core.file_manager.FileManager.save_archive_file"
+    ],
+    "webdriver_manager.core.file_manager.FileManager.save_archive_file": [],
+    "..\\webdriver_manager\\core\\driver_cache.DriverCacheManager.unpack_archive": [
+        "webdriver_manager.core.file_manager.FileManager.unpack_archive"
+    ],
+    "webdriver_manager.core.file_manager.FileManager.unpack_archive": [],
+    "..\\webdriver_manager\\core\\driver_cache.DriverCacheManager.save_file_to_cache": [
+        "..\\webdriver_manager\\core\\driver_cache.DriverCacheManager.__get_path",
+        "os.path.join",
+        "webdriver_manager.core.logger.log",
+        "..\\webdriver_manager\\core\\driver_cache.DriverCacheManager.__save_metadata",
+        "..\\webdriver_manager\\core\\driver_cache.DriverCacheManager.unpack_archive",
+        "..\\webdriver_manager\\core\\driver_cache.DriverCacheManager.__get_binary",
+        "..\\webdriver_manager\\core\\driver_cache.DriverCacheManager.save_archive_file"
+    ],
+    "..\\webdriver_manager\\core\\driver_cache.DriverCacheManager.__get_path": [
+        "os.path.join",
+        "..\\webdriver_manager\\core\\driver_cache.DriverCacheManager.get_os_type"
+    ],
+    "..\\webdriver_manager\\core\\driver_cache.DriverCacheManager.__get_binary": [
+        "<builtin>.len",
+        "<builtin>.Exception"
+    ],
+    "..\\webdriver_manager\\core\\driver_cache.DriverCacheManager.__save_metadata": [
+        "datetime.date.today",
+        "json.dump",
+        "..\\webdriver_manager\\core\\driver_cache.DriverCacheManager.load_metadata_content",
+        "<builtin>.open",
+        "..\\webdriver_manager\\core\\driver_cache.DriverCacheManager.__get_metadata_key",
+        "json.load.update"
+    ],
+    "<builtin>.Exception": [],
+    "<builtin>.len": [],
+    "datetime.date.today": [],
+    "..\\webdriver_manager\\core\\driver_cache.DriverCacheManager.load_metadata_content": [
+        "json.load",
+        "os.path.exists",
+        "<builtin>.open"
+    ],
+    "..\\webdriver_manager\\core\\driver_cache.DriverCacheManager.__get_metadata_key": [
+        "..\\webdriver_manager\\core\\driver_cache.DriverCacheManager.get_os_type",
+        "..\\webdriver_manager\\core\\driver_cache.DriverCacheManager.get_cache_key_driver_version"
+    ],
+    "json.load.update": [],
+    "<builtin>.open": [],
+    "json.dump": [],
+    "..\\webdriver_manager\\core\\driver_cache.DriverCacheManager.get_os_type": [
+        "webdriver_manager.core.os_manager.OperationSystemManager.get_os_type"
+    ],
+    "webdriver_manager.core.os_manager.OperationSystemManager.get_os_type": [],
+    "..\\webdriver_manager\\core\\driver_cache.DriverCacheManager.find_driver": [
+        "..\\webdriver_manager\\core\\driver_cache.DriverCacheManager.get_cache_key_driver_version",
+        "..\\webdriver_manager\\core\\driver_cache.DriverCacheManager.load_metadata_content",
+        "os.path.exists",
+        "webdriver_manager.core.logger.log",
+        "..\\webdriver_manager\\core\\driver_cache.DriverCacheManager.get_os_type",
+        "webdriver_manager.core.os_manager.OperationSystemManager.get_browser_version_from_os",
+        "..\\webdriver_manager\\core\\driver_cache.DriverCacheManager.__is_valid",
+        "..\\webdriver_manager\\core\\driver_cache.DriverCacheManager.__get_metadata_key"
+    ],
+    "..\\webdriver_manager\\core\\driver_cache.DriverCacheManager.get_cache_key_driver_version": [],
+    "os.path.exists": [],
+    "..\\webdriver_manager\\core\\driver_cache.DriverCacheManager.__is_valid": [
+        "datetime.date.today",
+        "webdriver_manager.core.utils.get_date_diff"
+    ],
+    "webdriver_manager.core.utils.get_date_diff": [],
+    "json.load": [],
+    "..\\webdriver_manager\\core\\file_manager": [],
+    "..\\webdriver_manager\\core\\file_manager.File.__init__": [],
+    "..\\webdriver_manager\\core\\file_manager.File.filename": [
+        "<builtin>.next",
+        "re.findall",
+        "re.split",
+        "<builtin>.filter"
+    ],
+    "re.split": [],
+    "re.findall": [],
+    "<builtin>.filter": [],
+    "<builtin>.next": [],
+    "..\\webdriver_manager\\core\\file_manager.FileManager.__init__": [],
+    "..\\webdriver_manager\\core\\file_manager.FileManager.save_archive_file": [
+        "os.path.exists",
+        "<builtin>.FileExistsError",
+        "webdriver_manager.core.archive.Archive",
+        "<builtin>.open",
+        "os.makedirs"
+    ],
+    "os.makedirs": [],
+    "<builtin>.FileExistsError": [],
+    "webdriver_manager.core.archive.Archive": [],
+    "..\\webdriver_manager\\core\\file_manager.FileManager.unpack_archive": [
+        "..\\webdriver_manager\\core\\file_manager.FileManager.__extract_tar_file",
+        "..\\webdriver_manager\\core\\file_manager.FileManager.__extract_zip"
+    ],
+    "..\\webdriver_manager\\core\\file_manager.FileManager.__extract_zip": [
+        "os.replace",
+        "<builtin>.sorted",
+        "os.path.join"
+    ],
+    "..\\webdriver_manager\\core\\file_manager.FileManager.__extract_tar_file": [
+        "tarfile.open.getmembers",
+        "tarfile.open.close",
+        "tarfile.open",
+        "tarfile.open.extractall"
+    ],
+    "os.replace": [],
+    "..\\webdriver_manager\\core\\file_manager.FileManager.__extract_zip.<lambda1>": [],
+    "<builtin>.sorted": [],
+    "tarfile.open": [],
+    "tarfile.open.getmembers": [],
+    "tarfile.open.extractall": [],
+    "tarfile.open.close": [],
+    "..\\webdriver_manager\\core\\http": [],
+    "..\\webdriver_manager\\core\\http.HttpClient.get": [],
+    "..\\webdriver_manager\\core\\http.HttpClient.validate_response": [
+        "<builtin>.ValueError",
+        "<builtin>.dict"
+    ],
+    "<builtin>.ValueError": [],
+    "<builtin>.dict": [],
+    "..\\webdriver_manager\\core\\http.WDMHttpClient.__init__": [
+        "webdriver_manager.core.config.ssl_verify"
+    ],
+    "webdriver_manager.core.config.ssl_verify": [],
+    "..\\webdriver_manager\\core\\http.WDMHttpClient.get": [
+        "requests.exceptions.ConnectionError",
+        "..\\webdriver_manager\\core\\http.HttpClient.validate_response",
+        "requests.get"
+    ],
+    "requests.get": [],
+    "requests.exceptions.ConnectionError": [],
+    "..\\webdriver_manager\\core\\logger": [
+        "logging.NullHandler",
+        "logging.getLogger.addHandler",
+        "logging.getLogger"
+    ],
+    "logging.getLogger": [],
+    "logging.NullHandler": [],
+    "logging.getLogger.addHandler": [],
+    "..\\webdriver_manager\\core\\logger.log": [
+        "webdriver_manager.core.config.wdm_log_level",
+        "logging.getLogger.log"
+    ],
+    "webdriver_manager.core.config.wdm_log_level": [],
+    "logging.getLogger.log": [],
+    "..\\webdriver_manager\\core\\logger.set_logger": [
+        "<builtin>.ValueError",
+        "<builtin>.isinstance"
+    ],
+    "..\\webdriver_manager\\core\\manager": [],
+    "..\\webdriver_manager\\core\\manager.DriverManager.__init__": [
+        "webdriver_manager.core.driver_cache.DriverCacheManager",
+        "webdriver_manager.core.download_manager.WDMDownloadManager",
+        "webdriver_manager.core.os_manager.OperationSystemManager",
+        "webdriver_manager.core.logger.log"
+    ],
+    "webdriver_manager.core.driver_cache.DriverCacheManager": [],
+    "webdriver_manager.core.download_manager.WDMDownloadManager": [],
+    "..\\webdriver_manager\\core\\manager.DriverManager.http_client": [],
+    "..\\webdriver_manager\\core\\manager.DriverManager.install": [
+        "<builtin>.NotImplementedError"
+    ],
+    "..\\webdriver_manager\\core\\manager.DriverManager._get_driver_binary_path": [
+        "webdriver_manager.core.driver_cache.DriverCacheManager.find_driver",
+        "..\\webdriver_manager\\core\\manager.DriverManager.get_os_type",
+        "webdriver_manager.core.driver_cache.DriverCacheManager.save_file_to_cache",
+        "webdriver_manager.core.download_manager.WDMDownloadManager.download_file"
+    ],
+    "webdriver_manager.core.driver_cache.DriverCacheManager.find_driver": [],
+    "..\\webdriver_manager\\core\\manager.DriverManager.get_os_type": [
+        "webdriver_manager.core.os_manager.OperationSystemManager.get_os_type"
+    ],
+    "webdriver_manager.core.download_manager.WDMDownloadManager.download_file": [],
+    "webdriver_manager.core.driver_cache.DriverCacheManager.save_file_to_cache": [],
+    "..\\webdriver_manager\\core\\os_manager": [],
+    "..\\webdriver_manager\\core\\os_manager.OperationSystemManager.__init__": [],
+    "..\\webdriver_manager\\core\\os_manager.OperationSystemManager.get_os_name": [],
+    "..\\webdriver_manager\\core\\os_manager.OperationSystemManager.get_os_architecture": [
+        "platform.machine",
+        "platform.machine.endswith"
+    ],
+    "platform.machine": [],
+    "platform.machine.endswith": [],
+    "..\\webdriver_manager\\core\\os_manager.OperationSystemManager.get_os_type": [
+        "..\\webdriver_manager\\core\\os_manager.OperationSystemManager.get_os_name",
+        "..\\webdriver_manager\\core\\os_manager.OperationSystemManager.get_os_architecture"
+    ],
+    "..\\webdriver_manager\\core\\os_manager.OperationSystemManager.is_arch": [
+        "platform.processor"
+    ],
+    "platform.processor": [],
+    "..\\webdriver_manager\\core\\os_manager.OperationSystemManager.is_mac_os": [],
+    "..\\webdriver_manager\\core\\os_manager.OperationSystemManager.get_browser_version_from_os": [
+        "webdriver_manager.core.utils.read_version_from_cmd",
+        "webdriver_manager.core.utils.linux_browser_apps_to_cmd",
+        "..\\webdriver_manager\\core\\os_manager.OperationSystemManager.get_os_name",
+        "webdriver_manager.core.utils.windows_browser_apps_to_cmd"
+    ],
+    "webdriver_manager.core.utils.linux_browser_apps_to_cmd": [],
+    "webdriver_manager.core.utils.windows_browser_apps_to_cmd": [],
+    "webdriver_manager.core.utils.read_version_from_cmd": [],
+    "..\\webdriver_manager\\core\\utils": [],
+    "..\\webdriver_manager\\core\\utils.get_date_diff": [
+        "datetime.datetime.strptime",
+        "<builtin>.str"
+    ],
+    "datetime.datetime.strptime": [],
+    "<builtin>.str": [],
+    "..\\webdriver_manager\\core\\utils.linux_browser_apps_to_cmd": [
+        "os.getenv"
+    ],
+    "..\\webdriver_manager\\core\\utils.windows_browser_apps_to_cmd": [
+        "..\\webdriver_manager\\core\\utils.determine_powershell"
+    ],
+    "..\\webdriver_manager\\core\\utils.determine_powershell": [
+        "subprocess.Popen"
+    ],
+    "..\\webdriver_manager\\core\\utils.read_version_from_cmd": [
+        "re.search.group",
+        "subprocess.Popen",
+        "re.search"
+    ],
+    "subprocess.Popen": [],
+    "re.search": [],
+    "re.search.group": [],
+    ".": [],
+    "..\\webdriver_manager\\drivers\\chrome": [],
+    "..\\webdriver_manager\\drivers\\chrome.ChromeDriver.__init__": [
+        "<builtin>.super"
+    ],
+    "..\\webdriver_manager\\drivers\\chrome.ChromeDriver.get_driver_download_url": [
+        "packaging.version.parse",
+        "webdriver_manager.core.logger.log",
+        "..\\webdriver_manager\\drivers\\chrome.ChromeDriver.get_url_for_version_and_platform",
+        "webdriver_manager.core.driver.Driver.get_driver_version_to_download",
+        "webdriver_manager.core.driver.Driver.get_name"
+    ],
+    "webdriver_manager.core.driver.Driver.get_driver_version_to_download": [],
+    "packaging.version.parse": [],
+    "..\\webdriver_manager\\drivers\\chrome.ChromeDriver.get_url_for_version_and_platform": [
+        "webdriver_manager.core.driver.Driver._http_client.get",
+        "<builtin>.Exception",
+        "packaging.version.parse",
+        "webdriver_manager.core.driver.Driver.get_driver_version_to_download.split",
+        "webdriver_manager.core.driver.Driver._http_client.get.json",
+        "webdriver_manager.core.logger.log"
+    ],
+    "webdriver_manager.core.driver.Driver.get_name": [],
+    "..\\webdriver_manager\\drivers\\chrome.ChromeDriver.get_browser_type": [],
+    "..\\webdriver_manager\\drivers\\chrome.ChromeDriver.get_latest_release_version": [
+        "webdriver_manager.core.driver.Driver._http_client.get",
+        "webdriver_manager.core.driver.Driver.get_browser_version_from_os",
+        "packaging.version.parse",
+        "webdriver_manager.core.driver.Driver._http_client.get.text.rstrip",
+        "webdriver_manager.core.logger.log",
+        "json.loads",
+        "json.loads.get",
+        "webdriver_manager.core.driver.Driver.get_browser_version_from_os.split"
+    ],
+    "webdriver_manager.core.driver.Driver.get_browser_version_from_os": [],
+    "webdriver_manager.core.driver.Driver._http_client.get": [],
+    "json.loads": [],
+    "json.loads.get": [],
+    "webdriver_manager.core.driver.Driver.get_browser_version_from_os.split": [],
+    "webdriver_manager.core.driver.Driver._http_client.get.text.rstrip": [],
+    "webdriver_manager.core.driver.Driver._http_client.get.json": [],
+    "webdriver_manager.core.driver.Driver.get_driver_version_to_download.split": [],
+    "..\\webdriver_manager\\drivers\\edge": [],
+    "..\\webdriver_manager\\drivers\\edge.EdgeChromiumDriver.__init__": [
+        "<builtin>.super"
+    ],
+    "..\\webdriver_manager\\drivers\\edge.EdgeChromiumDriver.get_stable_release_version": [
+        "webdriver_manager.core.driver.Driver._http_client.get",
+        "webdriver_manager.core.driver.Driver._http_client.get.text.rstrip",
+        "webdriver_manager.core.driver.Driver._latest_release_url.replace"
+    ],
+    "webdriver_manager.core.driver.Driver._latest_release_url.replace": [],
+    "..\\webdriver_manager\\drivers\\edge.EdgeChromiumDriver.get_latest_release_version": [
+        "webdriver_manager.core.driver.Driver._http_client.get",
+        "webdriver_manager.core.driver.Driver.get_browser_version_from_os",
+        "webdriver_manager.core.driver.Driver._http_client.get.text.rstrip",
+        "..\\webdriver_manager\\drivers\\edge.EdgeChromiumDriver.get_stable_release_version",
+        "webdriver_manager.core.logger.log",
+        "webdriver_manager.core.driver.Driver._os_system_manager.get_os_type"
+    ],
+    "webdriver_manager.core.driver.Driver._os_system_manager.get_os_type": [],
+    "..\\webdriver_manager\\drivers\\edge.EdgeChromiumDriver.get_browser_type": [],
+    "..\\webdriver_manager\\drivers\\firefox": [],
+    "..\\webdriver_manager\\drivers\\firefox.GeckoDriver.__init__": [
+        "<builtin>.super"
+    ],
+    "..\\webdriver_manager\\drivers\\firefox.GeckoDriver.get_latest_release_version": [
+        "webdriver_manager.core.driver.Driver._http_client.get.json",
+        "webdriver_manager.core.driver.Driver._http_client.get",
+        "webdriver_manager.core.driver.Driver.get_browser_version_from_os",
+        "webdriver_manager.core.logger.log"
+    ],
+    "..\\webdriver_manager\\drivers\\firefox.GeckoDriver.get_driver_download_url": [
+        "webdriver_manager.core.driver.Driver._http_client.get",
+        "..\\webdriver_manager\\drivers\\firefox.GeckoDriver.tagged_release_url",
+        "webdriver_manager.core.driver.Driver._http_client.get.json",
+        "webdriver_manager.core.logger.log",
+        "webdriver_manager.core.driver.Driver.get_driver_version_to_download",
+        "webdriver_manager.core.driver.Driver.get_name"
+    ],
+    "..\\webdriver_manager\\drivers\\firefox.GeckoDriver.tagged_release_url": [],
+    "..\\webdriver_manager\\drivers\\firefox.GeckoDriver.latest_release_url": [],
+    "..\\webdriver_manager\\drivers\\firefox.GeckoDriver.get_browser_type": [],
+    "..\\webdriver_manager\\drivers\\ie": [],
+    "..\\webdriver_manager\\drivers\\ie.IEDriver.__init__": [
+        "<builtin>.super"
+    ],
+    "..\\webdriver_manager\\drivers\\ie.IEDriver.get_latest_release_version": [
+        "webdriver_manager.core.driver.Driver._http_client.get",
+        "webdriver_manager.core.driver.Driver._http_client.get.json",
+        "<builtin>.next",
+        "webdriver_manager.core.logger.log",
+        "webdriver_manager.core.driver.Driver.get_name"
+    ],
+    "..\\webdriver_manager\\drivers\\ie.IEDriver.get_driver_download_url": [
+        "webdriver_manager.core.driver.Driver._http_client.get",
+        "webdriver_manager.core.driver.Driver._http_client.get.json",
+        "webdriver_manager.core.logger.log",
+        "webdriver_manager.core.driver.Driver.get_driver_version_to_download",
+        "..\\webdriver_manager\\drivers\\ie.IEDriver.tagged_release_url"
+    ],
+    "..\\webdriver_manager\\drivers\\ie.IEDriver.tagged_release_url": [
+        "..\\webdriver_manager\\drivers\\ie.IEDriver.__get_divided_version"
+    ],
+    "..\\webdriver_manager\\drivers\\ie.IEDriver.latest_release_url": [],
+    "..\\webdriver_manager\\drivers\\ie.IEDriver.__get_divided_version": [
+        "<builtin>.len",
+        "<builtin>.ValueError",
+        "webdriver_manager.core.driver.Driver.get_driver_version_to_download.split"
+    ],
+    "..\\webdriver_manager\\drivers\\ie.IEDriver.get_browser_type": [],
+    "..\\webdriver_manager\\drivers\\opera": [],
+    "..\\webdriver_manager\\drivers\\opera.OperaDriver.__init__": [
+        "<builtin>.super"
+    ],
+    "..\\webdriver_manager\\drivers\\opera.OperaDriver.get_latest_release_version": [
+        "webdriver_manager.core.driver.Driver._http_client.get.json",
+        "webdriver_manager.core.driver.Driver._http_client.get"
+    ],
+    "..\\webdriver_manager\\drivers\\opera.OperaDriver.get_driver_download_url": [
+        "webdriver_manager.core.driver.Driver._http_client.get",
+        "webdriver_manager.core.driver.Driver._http_client.get.json",
+        "webdriver_manager.core.logger.log",
+        "webdriver_manager.core.driver.Driver.get_driver_version_to_download",
+        "webdriver_manager.core.driver.Driver.get_name",
+        "..\\webdriver_manager\\drivers\\opera.OperaDriver.tagged_release_url"
+    ],
+    "..\\webdriver_manager\\drivers\\opera.OperaDriver.tagged_release_url": [],
+    "..\\webdriver_manager\\drivers\\opera.OperaDriver.latest_release_url": [],
+    "..\\webdriver_manager\\drivers\\opera.OperaDriver.get_browser_type": [],
+    "..\\webdriver_manager\\firefox": [],
+    "..\\webdriver_manager\\firefox.GeckoDriverManager.__init__": [
+        "<builtin>.super",
+        "webdriver_manager.drivers.firefox.GeckoDriver"
+    ],
+    "webdriver_manager.drivers.firefox.GeckoDriver": [],
+    "..\\webdriver_manager\\firefox.GeckoDriverManager.install": [
+        "os.chmod",
+        "webdriver_manager.core.manager.DriverManager._get_driver_binary_path"
+    ],
+    "..\\webdriver_manager\\firefox.GeckoDriverManager.get_os_type": [
+        "<builtin>.super",
+        "webdriver_manager.core.manager.DriverManager._os_system_manager.is_mac_os",
+        "webdriver_manager.core.manager.DriverManager._os_system_manager.is_arch"
+    ],
+    "..\\webdriver_manager\\microsoft": [],
+    "..\\webdriver_manager\\microsoft.IEDriverManager.__init__": [
+        "<builtin>.super",
+        "webdriver_manager.drivers.ie.IEDriver"
+    ],
+    "webdriver_manager.drivers.ie.IEDriver": [],
+    "..\\webdriver_manager\\microsoft.IEDriverManager.install": [
+        "webdriver_manager.core.manager.DriverManager._get_driver_binary_path"
+    ],
+    "..\\webdriver_manager\\microsoft.IEDriverManager.get_os_type": [
+        "webdriver_manager.core.manager.DriverManager._os_system_manager.get_os_type"
+    ],
+    "webdriver_manager.core.manager.DriverManager._os_system_manager.get_os_type": [],
+    "..\\webdriver_manager\\microsoft.EdgeChromiumDriverManager.__init__": [
+        "<builtin>.super",
+        "webdriver_manager.drivers.edge.EdgeChromiumDriver"
+    ],
+    "webdriver_manager.drivers.edge.EdgeChromiumDriver": [],
+    "..\\webdriver_manager\\microsoft.EdgeChromiumDriverManager.install": [
+        "os.chmod",
+        "webdriver_manager.core.manager.DriverManager._get_driver_binary_path"
+    ],
+    "..\\webdriver_manager\\opera": [],
+    "..\\webdriver_manager\\opera.OperaDriverManager.__init__": [
+        "webdriver_manager.drivers.opera.OperaDriver",
+        "<builtin>.super"
+    ],
+    "webdriver_manager.drivers.opera.OperaDriver": [],
+    "..\\webdriver_manager\\opera.OperaDriverManager.install": [
+        "os.chmod",
+        "os.path.isfile",
+        "os.remove",
+        "os.path.join",
+        "os.listdir",
+        "webdriver_manager.core.manager.DriverManager._get_driver_binary_path"
+    ],
+    "os.path.isfile": [],
+    "os.listdir": [],
+    "os.remove": []
+}

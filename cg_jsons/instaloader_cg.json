@@ -1,0 +1,3896 @@
+{
+    "deploy\\windows\\create_exe": [
+        "<builtin>.iter",
+        "sys.exit",
+        "hashlib.md5.update",
+        "shutil.make_archive",
+        "subprocess.Popen",
+        "subprocess.Popen.wait",
+        "re.compile.sub",
+        "hashlib.md5.hexdigest",
+        "<builtin>.print",
+        "re.compile",
+        "os.getenv",
+        "<builtin>.len",
+        "shutil.copy",
+        "hashlib.md5",
+        "<builtin>.enumerate",
+        "<builtin>.open"
+    ],
+    "shutil.copy": [],
+    "<builtin>.open": [],
+    "re.compile": [],
+    "re.compile.sub": [],
+    "<builtin>.enumerate": [],
+    "<builtin>.len": [],
+    "<builtin>.print": [],
+    "subprocess.Popen": [],
+    "subprocess.Popen.wait": [],
+    "sys.exit": [],
+    "hashlib.md5": [],
+    "deploy\\windows\\create_exe.<lambda1>": [],
+    "<builtin>.iter": [],
+    "hashlib.md5.update": [],
+    "hashlib.md5.hexdigest": [],
+    "os.getenv": [],
+    "shutil.make_archive": [],
+    "docs\\codesnippets\\113_only_one_per_user": [
+        "instaloader.Instaloader",
+        "structures.Hashtag.from_name.get_posts",
+        "structures.Hashtag.from_name",
+        "<builtin>.print",
+        "instaloader.Instaloader.download_post",
+        "<builtin>.set"
+    ],
+    "instaloader.Instaloader": [],
+    "structures.Hashtag.from_name": [],
+    "structures.Hashtag.from_name.get_posts": [],
+    "<builtin>.set": [],
+    "instaloader.Instaloader.download_post": [],
+    "instaloader": [
+        "win_unicode_console.enable"
+    ],
+    "win_unicode_console.enable": [],
+    "instaloader.exceptions": [],
+    "instaloader.instaloader": [],
+    "instaloader.instaloader._get_config_dir": [
+        "getpass.getuser",
+        "tempfile.gettempdir",
+        "os.path.expanduser",
+        "os.getenv",
+        "platform.system",
+        "os.path.join"
+    ],
+    "platform.system": [],
+    "os.path.join": [],
+    "tempfile.gettempdir": [],
+    "getpass.getuser": [],
+    "os.path.expanduser": [],
+    "instaloader.instaloader.get_default_session_filename": [
+        "instaloader.instaloader._get_config_dir",
+        "os.path.join"
+    ],
+    "instaloader.instaloader.get_legacy_session_filename": [
+        "tempfile.gettempdir.lower",
+        "getpass.getuser",
+        "tempfile.gettempdir"
+    ],
+    "tempfile.gettempdir.lower": [],
+    "instaloader.instaloader.get_default_stamps_filename": [
+        "instaloader.instaloader._get_config_dir",
+        "os.path.join"
+    ],
+    "instaloader.instaloader.format_string_contains_key": [
+        "string.Formatter.parse",
+        "string.Formatter"
+    ],
+    "string.Formatter": [],
+    "string.Formatter.parse": [],
+    "instaloader.instaloader._requires_login": [
+        "functools.wraps"
+    ],
+    "functools.wraps": [],
+    "instaloader.instaloader._requires_login.call": [
+        "instaloader.instaloader.Instaloader.get_highlights",
+        "instaloader.instaloader.Instaloader.download_stories",
+        "instaloader.instaloader.Instaloader.get_explore_posts",
+        "instaloader.instaloader.Instaloader.download_location",
+        "instaloader.instaloader.Instaloader.get_location_posts",
+        "instaloader.instaloader.Instaloader.download_highlights",
+        "instaloader.instaloader.Instaloader.save_session_to_file",
+        "instaloader.instaloader.Instaloader.get_stories",
+        "instaloader.instaloader.Instaloader.download_feed_posts",
+        "instaloader.instaloader.Instaloader.get_feed_posts",
+        "instaloader.instaloader.Instaloader.download_saved_posts",
+        "instaloader.instaloader.Instaloader.save_session"
+    ],
+    "instaloader.instaloader.Instaloader.get_highlights": [
+        "instaloadercontext.InstaloaderContext.graphql_query",
+        "structures.Highlight",
+        "<builtin>.isinstance"
+    ],
+    "instaloader.instaloader.Instaloader.download_stories": [
+        "<builtin>.str",
+        "datetime.datetime.now",
+        "<builtin>.isinstance",
+        "instaloadercontext.InstaloaderContext.error_catcher",
+        "instaloader.instaloader.Instaloader.download_storyitem",
+        "instaloader.instaloader.Instaloader.get_stories",
+        "<builtin>.len",
+        "instaloadercontext.InstaloaderContext.log",
+        "<builtin>.enumerate",
+        "datetime.datetime.now.astimezone"
+    ],
+    "instaloader.instaloader.Instaloader.get_explore_posts": [
+        "nodeiterator.NodeIterator"
+    ],
+    "instaloader.instaloader.Instaloader.download_location": [
+        "instaloader.instaloader.Instaloader.posts_download_loop",
+        "instaloadercontext.InstaloaderContext.log",
+        "instaloader.instaloader.Instaloader.get_location_posts"
+    ],
+    "instaloader.instaloader.Instaloader.get_location_posts": [
+        "sectioniterator.SectionIterator"
+    ],
+    "instaloader.instaloader.Instaloader.download_highlights": [
+        "instaloader.instaloader.Instaloader.get_highlights",
+        "pathlib.Path",
+        "instaloader.instaloader.Instaloader.download_highlight_cover",
+        "instaloadercontext.InstaloaderContext.error_catcher",
+        "instaloader.instaloader.Instaloader.download_storyitem",
+        "instaloader.instaloader._PostPathFormatter.sanitize_path",
+        "instaloadercontext.InstaloaderContext.log"
+    ],
+    "instaloader.instaloader.Instaloader.save_session_to_file": [
+        "os.path.dirname",
+        "os.path.exists",
+        "os.chmod",
+        "instaloadercontext.InstaloaderContext.save_session_to_file",
+        "instaloader.instaloader.get_default_session_filename",
+        "os.makedirs",
+        "instaloadercontext.InstaloaderContext.log",
+        "<builtin>.open"
+    ],
+    "instaloader.instaloader.Instaloader.get_stories": [
+        "<builtin>.list",
+        "instaloadercontext.InstaloaderContext.graphql_query",
+        "instaloader.instaloader.Instaloader.get_stories._userid_chunks",
+        "structures.Story"
+    ],
+    "instaloader.instaloader.Instaloader.download_feed_posts": [
+        "instaloader.instaloader.Instaloader.posts_download_loop",
+        "instaloadercontext.InstaloaderContext.log",
+        "instaloader.instaloader.Instaloader.get_feed_posts"
+    ],
+    "instaloader.instaloader.Instaloader.get_feed_posts": [
+        "structures.Post.supported_graphql_types",
+        "instaloadercontext.InstaloaderContext.graphql_query",
+        "structures.Post"
+    ],
+    "instaloader.instaloader.Instaloader.download_saved_posts": [
+        "instaloader.instaloader.Instaloader.posts_download_loop",
+        "instaloadercontext.InstaloaderContext.log",
+        "structures.Profile.own_profile",
+        "structures.Profile.own_profile.get_saved_posts"
+    ],
+    "instaloader.instaloader.Instaloader.save_session": [
+        "instaloadercontext.InstaloaderContext.save_session"
+    ],
+    "instaloader.instaloader._retry_on_connection_error": [
+        "functools.wraps"
+    ],
+    "instaloader.instaloader._retry_on_connection_error.call": [
+        "instaloader.instaloader.Instaloader.download_title_pic",
+        "instaloader.instaloader._retry_on_connection_error.call",
+        "instaloader.instaloader.Instaloader.download_pic",
+        "<builtin>.repr"
+    ],
+    "instaloader.instaloader.Instaloader.download_title_pic": [
+        "datetime.datetime.strptime.timestamp",
+        "instaloadercontext.InstaloaderContext.get_raw.headers.get",
+        "structures.Profile.from_id.username.profile_pic_url.split",
+        "os.makedirs",
+        "os.path.join",
+        "datetime.datetime.strptime.replace",
+        "instaloadercontext.InstaloaderContext.write_raw",
+        "instaloader.instaloader.Instaloader.__prepare_filename",
+        "os.path.getsize",
+        "datetime.datetime.strptime",
+        "instaloadercontext.InstaloaderContext.log",
+        "os.utime",
+        "structures.TitlePic",
+        "structures.Profile.from_id.profile_pic_url.split",
+        "datetime.datetime.now",
+        "instaloadercontext.InstaloaderContext.get_raw",
+        "structures.Hashtag.from_name.profile_pic_url.split",
+        "os.path.isfile",
+        "datetime.datetime.strptime.replace.timestamp",
+        "os.path.dirname",
+        "datetime.datetime.now.timestamp",
+        "string.Formatter.format",
+        "structures.Profile.from_username.profile_pic_url.split",
+        "instaloader.instaloader._PostPathFormatter.__init__",
+        "<builtin>.int"
+    ],
+    "instaloader.instaloader.Instaloader.download_pic": [
+        "datetime.datetime.now.timestamp",
+        "re.search.group",
+        "os.utime",
+        "datetime.datetime.now",
+        "instaloadercontext.InstaloaderContext.get_raw",
+        "re.search",
+        "os.path.isfile",
+        "instaloadercontext.InstaloaderContext.log",
+        "instaloadercontext.InstaloaderContext.write_raw"
+    ],
+    "<builtin>.repr": [],
+    "instaloader.instaloader._ArbitraryItemFormatter.__init__": [],
+    "instaloader.instaloader._ArbitraryItemFormatter.get_value": [
+        "<builtin>.getattr",
+        "<builtin>.hasattr",
+        "<builtin>.super",
+        "<builtin>.isinstance"
+    ],
+    "<builtin>.isinstance": [],
+    "<builtin>.hasattr": [],
+    "<builtin>.getattr": [],
+    "<builtin>.super": [],
+    "instaloader.instaloader._ArbitraryItemFormatter.format_field": [
+        "<builtin>.super",
+        "<builtin>.isinstance"
+    ],
+    "instaloader.instaloader._PostPathFormatter.__init__": [
+        "<builtin>.super"
+    ],
+    "instaloader.instaloader._PostPathFormatter.get_value": [
+        "<builtin>.super",
+        "<builtin>.isinstance",
+        "instaloader.instaloader._PostPathFormatter.sanitize_path"
+    ],
+    "instaloader.instaloader._PostPathFormatter.sanitize_path": [
+        "os.path.splitext",
+        "structures.Profile.from_id.username.replace",
+        "structures.Profile.from_id.username.startswith",
+        "platform.system",
+        "structures.Profile.from_id.username.replace.startswith"
+    ],
+    "structures.Profile.from_id.username.replace": [],
+    "structures.Profile.from_id.username.startswith": [],
+    "structures.Profile.from_id.username.replace.startswith": [],
+    "os.path.splitext": [],
+    "instaloader.instaloader.Instaloader.__init__": [
+        "instaloader.instaloader.format_string_contains_key",
+        "instaloadercontext.InstaloaderContext",
+        "<builtin>.int",
+        "<builtin>.len"
+    ],
+    "instaloadercontext.InstaloaderContext": [],
+    "<builtin>.int": [],
+    "instaloader.instaloader.Instaloader": [
+        "instaloader.instaloader._requires_login",
+        "contextlib.contextmanager",
+        "instaloader.instaloader._retry_on_connection_error"
+    ],
+    "contextlib.contextmanager": [],
+    "instaloader.instaloader.Instaloader.anonymous_copy": [
+        "instaloadercontext.InstaloaderContext.error_log.extend",
+        "instaloader.instaloader.Instaloader.close",
+        "instaloader.instaloader.Instaloader.__init__"
+    ],
+    "instaloadercontext.InstaloaderContext.error_log.extend": [],
+    "instaloader.instaloader.Instaloader.close": [
+        "instaloadercontext.InstaloaderContext.close"
+    ],
+    "instaloadercontext.InstaloaderContext.close": [],
+    "instaloader.instaloader.Instaloader.__enter__": [],
+    "instaloader.instaloader.Instaloader.__exit__": [
+        "instaloader.instaloader.Instaloader.close"
+    ],
+    "re.search": [],
+    "re.search.group": [],
+    "os.path.isfile": [],
+    "instaloadercontext.InstaloaderContext.log": [],
+    "instaloadercontext.InstaloaderContext.get_raw": [],
+    "instaloadercontext.InstaloaderContext.write_raw": [],
+    "datetime.datetime.now": [],
+    "datetime.datetime.now.timestamp": [],
+    "os.utime": [],
+    "instaloader.instaloader.Instaloader.save_metadata_json": [
+        "os.path.dirname",
+        "instaloader.instaloader.save_structure_to_file",
+        "<builtin>.isinstance",
+        "structures.save_structure_to_file",
+        "os.makedirs",
+        "instaloadercontext.InstaloaderContext.log"
+    ],
+    "os.path.dirname": [],
+    "os.makedirs": [],
+    "structures.save_structure_to_file": [],
+    "instaloader.instaloader.save_structure_to_file": [],
+    "instaloader.instaloader.Instaloader.update_comments": [
+        "json.load",
+        "<builtin>.list",
+        "instaloader.instaloader.Instaloader.update_comments.save_comments",
+        "json.load.extend",
+        "nodeiterator.resumable_iteration",
+        "instaloadercontext.InstaloaderContext.log",
+        "instaloader.instaloader.Instaloader.update_comments.get_new_comments",
+        "<builtin>.open",
+        "instaloader.instaloader.Instaloader.update_comments._postcomment_asdict"
+    ],
+    "instaloader.instaloader.Instaloader.update_comments._postcommentanswer_asdict": [
+        "<builtin>.int"
+    ],
+    "instaloader.instaloader.Instaloader.update_comments._postcomment_asdict": [
+        "instaloader.instaloader.Instaloader.update_comments._postcommentanswer_asdict",
+        "<builtin>.sorted"
+    ],
+    "instaloader.instaloader.Instaloader.update_comments._postcomment_asdict.<dict1>.<lambda1>": [],
+    "instaloader.instaloader.Instaloader.update_comments._postcomment_asdict.<lambda1>": [
+        "<builtin>.int"
+    ],
+    "<builtin>.sorted": [],
+    "instaloader.instaloader.Instaloader.update_comments.get_unique_comments": [
+        "<builtin>.sorted",
+        "<builtin>.list",
+        "<builtin>.zip",
+        "instaloader.instaloader.Instaloader.update_comments.get_unique_comments"
+    ],
+    "<builtin>.list": [],
+    "instaloader.instaloader.Instaloader.update_comments.get_unique_comments.<lambda1>": [
+        "<builtin>.int"
+    ],
+    "instaloader.instaloader.Instaloader.update_comments.get_unique_comments.<lambda2>": [
+        "<builtin>.int"
+    ],
+    "<builtin>.zip": [],
+    "instaloader.instaloader.Instaloader.update_comments.get_new_comments": [
+        "instaloadercontext.InstaloaderContext.log",
+        "<builtin>.enumerate"
+    ],
+    "instaloader.instaloader.Instaloader.update_comments.save_comments": [
+        "<builtin>.list",
+        "json.dumps",
+        "instaloader.instaloader.Instaloader.update_comments.get_unique_comments",
+        "<builtin>.filter",
+        "<builtin>.int",
+        "<builtin>.set",
+        "<builtin>.open"
+    ],
+    "instaloader.instaloader.Instaloader.update_comments.save_comments.<lambda1>": [
+        "<builtin>.int"
+    ],
+    "<builtin>.filter": [],
+    "json.dumps": [],
+    "json.load": [],
+    "instaloader.instaloader.Instaloader.update_comments.<lambda1>": [],
+    "nodeiterator.resumable_iteration": [],
+    "json.load.extend": [],
+    "instaloader.instaloader.Instaloader.save_caption": [
+        "instaloader.instaloader.Instaloader.save_caption._elliptify",
+        "datetime.datetime.now.timestamp",
+        "os.utime",
+        "instaloader.instaloader.Instaloader.save_caption.get_filename",
+        "string.Formatter.format.strip.encode",
+        "datetime.datetime.now",
+        "<builtin>.range",
+        "os.rename",
+        "contextlib.suppress",
+        "os.path.isfile",
+        "instaloadercontext.InstaloaderContext.log",
+        "string.Formatter.format.strip.encode.replace",
+        "<builtin>.open"
+    ],
+    "instaloader.instaloader.Instaloader.save_caption._elliptify": [
+        "string.Formatter.format.strip.replace",
+        "<builtin>.len"
+    ],
+    "string.Formatter.format.strip.replace": [],
+    "string.Formatter.format.strip.encode": [],
+    "contextlib.suppress": [],
+    "string.Formatter.format.strip.encode.replace": [],
+    "instaloader.instaloader.Instaloader.save_caption.get_filename": [
+        "os.path.splitext"
+    ],
+    "<builtin>.range": [],
+    "os.rename": [],
+    "instaloader.instaloader.Instaloader.save_location": [
+        "datetime.datetime.now.timestamp",
+        "os.utime",
+        "io.BytesIO",
+        "datetime.datetime.now",
+        "typing.cast",
+        "instaloadercontext.InstaloaderContext.log",
+        "shutil.copyfileobj",
+        "<builtin>.open"
+    ],
+    "io.BytesIO": [],
+    "typing.cast": [],
+    "shutil.copyfileobj": [],
+    "instaloader.instaloader.Instaloader.format_filename_within_target_path": [
+        "instaloader.instaloader.format_string_contains_key",
+        "structures.Profile.from_id.username.lower",
+        "os.path.join"
+    ],
+    "structures.Profile.from_id.username.lower": [],
+    "datetime.datetime.strptime": [],
+    "datetime.datetime.strptime.replace": [],
+    "structures.Hashtag.from_name.profile_pic_url.split": [],
+    "structures.Profile.from_id.profile_pic_url.split": [],
+    "structures.Profile.from_id.username.profile_pic_url.split": [],
+    "structures.Profile.from_username.profile_pic_url.split": [],
+    "structures.TitlePic": [],
+    "string.Formatter.format": [],
+    "instaloader.instaloader.Instaloader.download_title_pic.<lambda1>": [],
+    "instaloader.instaloader.Instaloader.__prepare_filename": [
+        "os.path.dirname",
+        "os.path.splitext",
+        "os.path.basename",
+        "os.path.join.replace",
+        "os.makedirs",
+        "urllib.parse.urlparse"
+    ],
+    "instaloadercontext.InstaloaderContext.get_raw.headers.get": [],
+    "os.path.getsize": [],
+    "datetime.datetime.strptime.timestamp": [],
+    "datetime.datetime.strptime.replace.timestamp": [],
+    "instaloader.instaloader.Instaloader.download_profilepic_if_new": [
+        "instaloader.instaloader.Instaloader.download_profilepic"
+    ],
+    "instaloader.instaloader.Instaloader.download_profilepic": [
+        "instaloader.instaloader.Instaloader.download_title_pic",
+        "structures.Profile.from_id.username.lower"
+    ],
+    "instaloader.instaloader.Instaloader.download_highlight_cover": [
+        "instaloader.instaloader.Instaloader.download_title_pic"
+    ],
+    "instaloader.instaloader.Instaloader.download_hashtag_profilepic": [
+        "instaloader.instaloader.Instaloader.download_title_pic"
+    ],
+    "instaloadercontext.InstaloaderContext.save_session": [],
+    "instaloader.instaloader.Instaloader.load_session": [
+        "instaloadercontext.InstaloaderContext.load_session"
+    ],
+    "instaloadercontext.InstaloaderContext.load_session": [],
+    "os.path.exists": [],
+    "os.chmod": [],
+    "instaloadercontext.InstaloaderContext.save_session_to_file": [],
+    "instaloader.instaloader.Instaloader.load_session_from_file": [
+        "instaloadercontext.InstaloaderContext.load_session_from_file",
+        "os.path.exists",
+        "instaloader.instaloader.get_default_session_filename",
+        "instaloader.instaloader.get_legacy_session_filename",
+        "instaloadercontext.InstaloaderContext.log",
+        "<builtin>.open"
+    ],
+    "instaloadercontext.InstaloaderContext.load_session_from_file": [],
+    "instaloader.instaloader.Instaloader.test_login": [
+        "instaloadercontext.InstaloaderContext.test_login"
+    ],
+    "instaloadercontext.InstaloaderContext.test_login": [],
+    "instaloader.instaloader.Instaloader.login": [
+        "instaloadercontext.InstaloaderContext.login"
+    ],
+    "instaloadercontext.InstaloaderContext.login": [],
+    "instaloader.instaloader.Instaloader.two_factor_login": [
+        "instaloadercontext.InstaloaderContext.two_factor_login"
+    ],
+    "instaloadercontext.InstaloaderContext.two_factor_login": [],
+    "urllib.parse.urlparse": [],
+    "os.path.basename": [],
+    "os.path.join.replace": [],
+    "instaloader.instaloader.Instaloader.format_filename": [
+        "instaloader.instaloader._PostPathFormatter.__init__",
+        "string.Formatter.format"
+    ],
+    "instaloader.instaloader.Instaloader.download_post": [
+        "<builtin>.str",
+        "instaloadercontext.InstaloaderContext.error_catcher",
+        "os.path.join",
+        "instaloader.instaloader._PostPathFormatter.__init__",
+        "instaloader.instaloader.Instaloader.__prepare_filename",
+        "instaloader.instaloader.Instaloader.format_filename",
+        "instaloadercontext.InstaloaderContext.log",
+        "instaloader.instaloader.Instaloader.update_comments",
+        "instaloader.instaloader.Instaloader.download_pic",
+        "instaloader.instaloader.Instaloader.download_post._all_already_downloaded",
+        "instaloader.instaloader._ArbitraryItemFormatter.__init__",
+        "<builtin>.range",
+        "instaloader.instaloader.Instaloader.download_post._already_downloaded",
+        "instaloader.instaloader.Instaloader.save_metadata_json",
+        "string.Formatter.format",
+        "instaloader.instaloader.Instaloader.save_caption",
+        "instaloader.instaloader.Instaloader.save_location",
+        "instaloadercontext.InstaloaderContext.error",
+        "<builtin>.enumerate",
+        "string.Formatter.format.strip"
+    ],
+    "instaloader.instaloader.Instaloader.download_post._already_downloaded": [
+        "os.path.isfile",
+        "instaloadercontext.InstaloaderContext.log"
+    ],
+    "instaloader.instaloader.Instaloader.download_post._all_already_downloaded": [
+        "instaloader.instaloader.Instaloader.download_post._already_downloaded"
+    ],
+    "instaloader.instaloader.Instaloader.download_post.<lambda1>": [],
+    "<builtin>.str": [],
+    "instaloader.instaloader.Instaloader.download_post.<lambda2>": [],
+    "instaloader.instaloader.Instaloader.download_post.<lambda3>": [],
+    "instaloadercontext.InstaloaderContext.error_catcher": [],
+    "instaloadercontext.InstaloaderContext.error": [],
+    "string.Formatter.format.strip": [],
+    "instaloadercontext.InstaloaderContext.graphql_query": [],
+    "instaloader.instaloader.Instaloader.get_stories._userid_chunks": [
+        "<builtin>.range",
+        "<builtin>.len"
+    ],
+    "structures.Story": [],
+    "datetime.datetime.now.astimezone": [],
+    "instaloader.instaloader.Instaloader.download_storyitem": [
+        "instaloader.instaloader.Instaloader.save_metadata_json",
+        "instaloader.instaloader.Instaloader.format_filename",
+        "instaloader.instaloader.Instaloader.download_storyitem._already_downloaded",
+        "instaloader.instaloader.Instaloader.download_pic",
+        "instaloader.instaloader._ArbitraryItemFormatter.__init__",
+        "string.Formatter.format",
+        "string.Formatter.format.strip",
+        "instaloader.instaloader.Instaloader.save_caption",
+        "os.path.join",
+        "instaloader.instaloader._PostPathFormatter.__init__",
+        "instaloadercontext.InstaloaderContext.log",
+        "instaloader.instaloader.Instaloader.__prepare_filename"
+    ],
+    "instaloader.instaloader.Instaloader.download_storyitem._already_downloaded": [
+        "os.path.isfile",
+        "instaloadercontext.InstaloaderContext.log"
+    ],
+    "instaloader.instaloader.Instaloader.download_storyitem.<lambda1>": [],
+    "instaloader.instaloader.Instaloader.download_storyitem.<lambda2>": [
+        "<builtin>.str"
+    ],
+    "structures.Highlight": [],
+    "pathlib.Path": [],
+    "instaloader.instaloader.Instaloader.posts_download_loop": [
+        "instaloader.instaloader.Instaloader.download_post",
+        "<builtin>.str",
+        "instaloader.instaloader.Instaloader.posts_download_loop.<lambda1>",
+        "<builtin>.len",
+        "instaloadercontext.InstaloaderContext.error_catcher",
+        "<builtin>.isinstance",
+        "instaloader.instaloader.Instaloader.download_igtv.<lambda1>",
+        "instaloadercontext.InstaloaderContext.log",
+        "instaloader.instaloader.Instaloader.download_profiles.<lambda1>",
+        "nodeiterator.resumable_iteration",
+        "instaloadercontext.InstaloaderContext.error",
+        "instaloader.instaloader._PostPathFormatter.sanitize_path",
+        "<builtin>.enumerate",
+        "instaloader.instaloader.Instaloader.download_tagged.<lambda1>"
+    ],
+    "instaloader.instaloader.Instaloader.posts_download_loop.<lambda1>": [],
+    "instaloader.instaloader.Instaloader.posts_download_loop.<lambda2>": [
+        "instaloader.instaloader.Instaloader.format_filename_within_target_path"
+    ],
+    "instaloader.instaloader.Instaloader.download_profiles.<lambda1>": [],
+    "instaloader.instaloader.Instaloader.download_tagged.<lambda1>": [],
+    "instaloader.instaloader.Instaloader.download_igtv.<lambda1>": [],
+    "structures.Post.supported_graphql_types": [],
+    "structures.Post": [],
+    "structures.Profile.own_profile": [],
+    "structures.Profile.own_profile.get_saved_posts": [],
+    "instaloader.instaloader.Instaloader.get_location_posts.<lambda1>": [],
+    "instaloader.instaloader.Instaloader.get_location_posts.<lambda2>": [
+        "structures.Post.from_iphone_struct"
+    ],
+    "structures.Post.from_iphone_struct": [],
+    "sectioniterator.SectionIterator": [],
+    "instaloader.instaloader.Instaloader.get_explore_posts.<lambda1>": [],
+    "instaloader.instaloader.Instaloader.get_explore_posts.<lambda2>": [
+        "structures.Post"
+    ],
+    "nodeiterator.NodeIterator": [],
+    "instaloader.instaloader.Instaloader.get_hashtag_posts": [
+        "structures.Hashtag.from_name",
+        "structures.Hashtag.from_name.get_posts_resumable"
+    ],
+    "structures.Hashtag.from_name.get_posts_resumable": [],
+    "instaloader.instaloader.Instaloader.download_hashtag": [
+        "instaloader.instaloader.Instaloader.save_metadata_json",
+        "instaloader.instaloader.Instaloader.posts_download_loop",
+        "instaloadercontext.InstaloaderContext.error_catcher",
+        "<builtin>.isinstance",
+        "structures.Hashtag.from_name",
+        "instaloader.instaloader.Instaloader.download_hashtag_profilepic",
+        "instaloadercontext.InstaloaderContext.log",
+        "structures.Hashtag.from_name.get_posts_resumable"
+    ],
+    "instaloader.instaloader.Instaloader.download_tagged": [
+        "pathlib.Path",
+        "instaloader.instaloader.Instaloader.posts_download_loop",
+        "structures.Profile.from_id.username.get_tagged_posts",
+        "structures.Profile.from_id.get_tagged_posts",
+        "instaloader.instaloader._PostPathFormatter.sanitize_path",
+        "instaloadercontext.InstaloaderContext.log",
+        "structures.Profile.from_username.get_tagged_posts"
+    ],
+    "structures.Profile.from_id.username.get_tagged_posts": [],
+    "structures.Profile.from_id.get_tagged_posts": [],
+    "structures.Profile.from_username.get_tagged_posts": [],
+    "instaloader.instaloader.Instaloader.download_igtv": [
+        "instaloader.instaloader.Instaloader.posts_download_loop",
+        "instaloadercontext.InstaloaderContext.log"
+    ],
+    "instaloader.instaloader.Instaloader._get_id_filename": [
+        "instaloader.instaloader.format_string_contains_key",
+        "structures.Profile.from_id.username.lower.lower",
+        "os.path.join"
+    ],
+    "structures.Profile.from_id.username.lower.lower": [],
+    "instaloader.instaloader.Instaloader.load_profile_id": [
+        "instaloader.instaloader.Instaloader._get_id_filename",
+        "<builtin>.int",
+        "<builtin>.open"
+    ],
+    "instaloader.instaloader.Instaloader.save_profile_id": [
+        "<builtin>.str",
+        "os.makedirs",
+        "instaloader.instaloader.Instaloader._get_id_filename",
+        "instaloadercontext.InstaloaderContext.log",
+        "<builtin>.open"
+    ],
+    "instaloader.instaloader.Instaloader.check_profile_id": [
+        "instaloader.instaloader.Instaloader.save_profile_id",
+        "structures.Profile.from_id",
+        "structures.Profile.from_id.username.lower",
+        "structures.Profile.from_username",
+        "instaloader.instaloader.format_string_contains_key",
+        "os.rename",
+        "instaloadercontext.InstaloaderContext.error",
+        "instaloadercontext.InstaloaderContext.log",
+        "structures.Profile.from_id.username.lower.lower",
+        "instaloader.instaloader.Instaloader.load_profile_id"
+    ],
+    "structures.Profile.from_username": [],
+    "structures.Profile.from_id": [],
+    "instaloader.instaloader.Instaloader.download_profiles": [
+        "instaloader.instaloader.Instaloader.save_metadata_json",
+        "instaloader.instaloader.Instaloader.download_stories",
+        "contextlib.contextmanager",
+        "os.path.join",
+        "instaloader.instaloader.Instaloader.download_igtv",
+        "<builtin>.str",
+        "instaloader.instaloader.Instaloader.download_highlights",
+        "instaloader.instaloader.Instaloader.posts_download_loop",
+        "<builtin>.list",
+        "instaloadercontext.InstaloaderContext.error_catcher",
+        "<builtin>.len",
+        "instaloader.instaloader.Instaloader.download_profilepic_if_new",
+        "instaloadercontext.InstaloaderContext.log",
+        "<builtin>.enumerate",
+        "instaloader.instaloader.Instaloader.download_tagged"
+    ],
+    "instaloader.instaloader.Instaloader.download_profiles._error_raiser": [],
+    "instaloader.instaloader.Instaloader.download_profile": [
+        "instaloader.instaloader.Instaloader.save_metadata_json",
+        "instaloader.instaloader.Instaloader.download_stories",
+        "instaloader.instaloader.Instaloader.download_profilepic",
+        "structures.Profile.from_id.username.lower",
+        "structures.Profile.from_id.get_posts",
+        "instaloader.instaloader.Instaloader.posts_download_loop",
+        "instaloader.instaloader.Instaloader.check_profile_id",
+        "instaloadercontext.InstaloaderContext.error_catcher",
+        "<builtin>.isinstance",
+        "instaloadercontext.InstaloaderContext.log",
+        "structures.Profile.from_username.get_posts",
+        "instaloader.instaloader.Instaloader.download_tagged",
+        "structures.Profile.from_id.username.get_posts"
+    ],
+    "structures.Profile.from_username.get_posts": [],
+    "structures.Profile.from_id.get_posts": [],
+    "structures.Profile.from_id.username.get_posts": [],
+    "instaloader.instaloader.Instaloader.interactive_login": [
+        "getpass.getpass",
+        "<builtin>.input",
+        "instaloader.instaloader.Instaloader.two_factor_login",
+        "<builtin>.print",
+        "instaloader.instaloader.Instaloader.login"
+    ],
+    "getpass.getpass": [],
+    "<builtin>.input": [],
+    "instaloader.instaloadercontext": [],
+    "instaloader.instaloadercontext.copy_session": [
+        "requests.utils.cookiejar_from_dict",
+        "requests.utils.dict_from_cookiejar",
+        "requests.Session",
+        "functools.partial",
+        "requests.Session.headers.copy"
+    ],
+    "requests.Session": [],
+    "requests.utils.dict_from_cookiejar": [],
+    "requests.utils.cookiejar_from_dict": [],
+    "requests.Session.headers.copy": [],
+    "functools.partial": [],
+    "instaloader.instaloadercontext.default_user_agent": [],
+    "instaloader.instaloadercontext.default_iphone_headers": [
+        "<builtin>.str",
+        "uuid.uuid4",
+        "datetime.datetime.now.astimezone.utcoffset",
+        "datetime.datetime.now",
+        "datetime.timedelta",
+        "datetime.datetime.now.astimezone",
+        "random.randint"
+    ],
+    "random.randint": [],
+    "datetime.datetime.now.astimezone.utcoffset": [],
+    "datetime.timedelta": [],
+    "uuid.uuid4": [],
+    "instaloader.instaloadercontext.InstaloaderContext.__init__": [
+        "instaloader.instaloadercontext.RateController.__init__",
+        "instaloader.instaloadercontext.default_user_agent",
+        "<builtin>.dict",
+        "instaloader.instaloadercontext.default_iphone_headers",
+        "instaloader.instaloadercontext.InstaloaderContext.get_anonymous_session"
+    ],
+    "instaloader.instaloadercontext.InstaloaderContext.get_anonymous_session": [
+        "requests.Session.cookies.update",
+        "requests.Session.headers.update",
+        "requests.Session",
+        "instaloader.instaloadercontext.InstaloaderContext._default_http_header",
+        "functools.partial"
+    ],
+    "instaloader.instaloadercontext.RateController.__init__": [
+        "<builtin>.dict"
+    ],
+    "<builtin>.dict": [],
+    "instaloader.instaloadercontext.InstaloaderContext": [
+        "contextlib.contextmanager"
+    ],
+    "instaloader.instaloadercontext.InstaloaderContext.anonymous_copy": [
+        "instaloader.instaloadercontext.default_iphone_headers",
+        "instaloader.instaloadercontext.InstaloaderContext.get_anonymous_session",
+        "requests.Session.close"
+    ],
+    "requests.Session.close": [],
+    "instaloader.instaloadercontext.InstaloaderContext.is_logged_in": [
+        "<builtin>.bool"
+    ],
+    "<builtin>.bool": [],
+    "instaloader.instaloadercontext.InstaloaderContext.log": [
+        "<builtin>.print"
+    ],
+    "instaloader.instaloadercontext.InstaloaderContext.error": [
+        "<builtin>.print"
+    ],
+    "instaloader.instaloadercontext.InstaloaderContext.close": [
+        "<builtin>.print",
+        "requests.Session.close"
+    ],
+    "instaloader.instaloadercontext.InstaloaderContext.error_catcher": [
+        "instaloader.instaloadercontext.InstaloaderContext.error"
+    ],
+    "instaloader.instaloadercontext.InstaloaderContext._default_http_header": [],
+    "requests.Session.cookies.update": [],
+    "requests.Session.headers.update": [],
+    "instaloader.instaloadercontext.InstaloaderContext.save_session": [
+        "requests.utils.dict_from_cookiejar"
+    ],
+    "instaloader.instaloadercontext.InstaloaderContext.load_session": [
+        "requests.utils.cookiejar_from_dict",
+        "requests.Session.headers.update",
+        "requests.Session",
+        "instaloader.instaloadercontext.InstaloaderContext._default_http_header",
+        "functools.partial",
+        "requests.Session.cookies.get_dict"
+    ],
+    "requests.Session.cookies.get_dict": [],
+    "instaloader.instaloadercontext.InstaloaderContext.save_session_to_file": [
+        "instaloader.instaloadercontext.InstaloaderContext.save_session",
+        "pickle.dump"
+    ],
+    "pickle.dump": [],
+    "instaloader.instaloadercontext.InstaloaderContext.load_session_from_file": [
+        "pickle.load",
+        "instaloader.instaloadercontext.InstaloaderContext.load_session"
+    ],
+    "pickle.load": [],
+    "instaloader.instaloadercontext.InstaloaderContext.test_login": [
+        "instaloader.instaloadercontext.InstaloaderContext.graphql_query"
+    ],
+    "instaloader.instaloadercontext.InstaloaderContext.graphql_query": [
+        "instaloader.instaloadercontext.copy_session",
+        "json.dumps",
+        "instaloader.instaloadercontext.InstaloaderContext.error",
+        "instaloader.instaloadercontext.InstaloaderContext._default_http_header",
+        "instaloader.instaloadercontext.InstaloaderContext.get_json",
+        "hashlib.md5.hexdigest",
+        "hashlib.md5",
+        "urllib.parse.quote"
+    ],
+    "instaloader.instaloadercontext.InstaloaderContext.login": [
+        "datetime.datetime.now.timestamp",
+        "requests.Session.cookies.update",
+        "instaloader.instaloadercontext.copy_session",
+        "requests.Session.headers.update",
+        "requests.Session",
+        "datetime.datetime.now",
+        "instaloader.instaloadercontext.InstaloaderContext._default_http_header",
+        "requests.Session.post",
+        "functools.partial",
+        "instaloader.instaloadercontext.InstaloaderContext.do_sleep",
+        "instaloader.instaloadercontext.InstaloaderContext.get_json",
+        "<builtin>.int",
+        "requests.Session.post.json.get",
+        "requests.Session.post.json"
+    ],
+    "instaloader.instaloadercontext.InstaloaderContext.get_json": [
+        "re.search.group",
+        "<builtin>.isinstance",
+        "instaloader.instaloadercontext.InstaloaderContext.error",
+        "re.search",
+        "instaloader.instaloadercontext.InstaloaderContext.log",
+        "json.loads",
+        "<builtin>.len",
+        "instaloader.instaloadercontext.InstaloaderContext.do_sleep",
+        "instaloader.instaloadercontext.InstaloaderContext.get_json",
+        "re.search.group.encode",
+        "re.search.group.encode.decode"
+    ],
+    "instaloader.instaloadercontext.InstaloaderContext.do_sleep": [
+        "time.sleep",
+        "<builtin>.min",
+        "random.expovariate"
+    ],
+    "requests.Session.post": [],
+    "requests.Session.post.json": [],
+    "requests.Session.post.json.get": [],
+    "instaloader.instaloadercontext.InstaloaderContext.two_factor_login": [],
+    "random.expovariate": [],
+    "<builtin>.min": [],
+    "time.sleep": [],
+    "re.search.group.encode": [],
+    "re.search.group.encode.decode": [],
+    "json.loads": [],
+    "urllib.parse.quote": [],
+    "instaloader.instaloadercontext.InstaloaderContext.graphql_node_list": [
+        "instaloader.instaloadercontext.InstaloaderContext.graphql_node_list._query"
+    ],
+    "instaloader.instaloadercontext.InstaloaderContext.graphql_node_list._query": [
+        "instaloader.instaloadercontext.InstaloaderContext.error",
+        "<builtin>.int",
+        "instaloader.instaloadercontext.InstaloaderContext.graphql_query",
+        "instaloader.instaloadercontext.InstaloaderContext.graphql_node_list._query"
+    ],
+    "instaloader.instaloadercontext.InstaloaderContext.get_iphone_json": [
+        "<builtin>.str",
+        "instaloader.instaloadercontext.copy_session",
+        "time.time",
+        "<builtin>.dict",
+        "instaloader.instaloadercontext.InstaloaderContext.get_json"
+    ],
+    "time.time": [],
+    "instaloader.instaloadercontext.InstaloaderContext.write_raw": [
+        "<builtin>.isinstance",
+        "os.replace",
+        "instaloader.instaloadercontext.InstaloaderContext.log",
+        "shutil.copyfileobj",
+        "<builtin>.open"
+    ],
+    "os.replace": [],
+    "instaloader.instaloadercontext.InstaloaderContext.get_raw": [
+        "instaloader.instaloadercontext.InstaloaderContext.get_anonymous_session"
+    ],
+    "instaloader.instaloadercontext.InstaloaderContext.get_and_write_raw": [
+        "instaloader.instaloadercontext.InstaloaderContext.get_raw",
+        "instaloader.instaloadercontext.InstaloaderContext.write_raw"
+    ],
+    "instaloader.instaloadercontext.InstaloaderContext.head": [
+        "instaloader.instaloadercontext.InstaloaderContext.get_anonymous_session"
+    ],
+    "instaloader.instaloadercontext.InstaloaderContext.root_rhx_gis": [
+        "instaloader.instaloadercontext.InstaloaderContext.get_json",
+        "json.loads.get"
+    ],
+    "json.loads.get": [],
+    "instaloader.instaloadercontext.RateController.sleep": [
+        "time.sleep"
+    ],
+    "instaloader.instaloadercontext.RateController._dump_query_timestamps": [
+        "<builtin>.str",
+        "<builtin>.sum",
+        "instaloader.instaloadercontext.InstaloaderContext.error"
+    ],
+    "<builtin>.sum": [],
+    "instaloader.instaloadercontext.RateController.count_per_sliding_window": [],
+    "instaloader.instaloadercontext.RateController._reqs_in_sliding_window": [
+        "<builtin>.filter",
+        "<builtin>.list"
+    ],
+    "instaloader.instaloadercontext.RateController._reqs_in_sliding_window.<lambda1>": [],
+    "instaloader.instaloadercontext.RateController._reqs_in_sliding_window.<lambda2>": [],
+    "instaloader.instaloadercontext.RateController.query_waittime": [
+        "instaloader.instaloadercontext.RateController.query_waittime.per_type_next_request_time",
+        "<builtin>.list",
+        "instaloader.instaloadercontext.RateController.query_waittime.untracked_next_request_time",
+        "instaloader.instaloadercontext.RateController.query_waittime.iphone_next_request",
+        "<builtin>.filter",
+        "<builtin>.max",
+        "instaloader.instaloadercontext.RateController.query_waittime.gql_accumulated_next_request_time"
+    ],
+    "instaloader.instaloadercontext.RateController.query_waittime.<lambda1>": [],
+    "instaloader.instaloadercontext.RateController.query_waittime.per_type_next_request_time": [
+        "instaloader.instaloadercontext.RateController.count_per_sliding_window",
+        "instaloader.instaloadercontext.RateController._reqs_in_sliding_window",
+        "<builtin>.min",
+        "<builtin>.len"
+    ],
+    "instaloader.instaloadercontext.RateController.query_waittime.gql_accumulated_next_request_time": [
+        "instaloader.instaloadercontext.RateController._reqs_in_sliding_window",
+        "<builtin>.min",
+        "<builtin>.len"
+    ],
+    "instaloader.instaloadercontext.RateController.query_waittime.untracked_next_request_time": [
+        "instaloader.instaloadercontext.RateController._reqs_in_sliding_window",
+        "<builtin>.min",
+        "<builtin>.max"
+    ],
+    "<builtin>.max": [],
+    "instaloader.instaloadercontext.RateController.query_waittime.iphone_next_request": [
+        "instaloader.instaloadercontext.RateController._reqs_in_sliding_window",
+        "<builtin>.min",
+        "<builtin>.len"
+    ],
+    "instaloader.instaloadercontext.RateController.wait_before_query": [
+        "instaloader.instaloadercontext.RateController.sleep",
+        "datetime.datetime.now",
+        "instaloader.instaloadercontext.InstaloaderContext.log",
+        "<builtin>.round",
+        "datetime.timedelta",
+        "time.monotonic",
+        "instaloader.instaloadercontext.RateController.query_waittime"
+    ],
+    "time.monotonic": [],
+    "<builtin>.round": [],
+    "instaloader.instaloadercontext.RateController.handle_429": [
+        "instaloader.instaloadercontext.RateController._dump_query_timestamps",
+        "instaloader.instaloadercontext.RateController.sleep",
+        "datetime.datetime.now",
+        "instaloader.instaloadercontext.InstaloaderContext.error",
+        "<builtin>.round",
+        "datetime.timedelta",
+        "textwrap.fill",
+        "time.monotonic",
+        "instaloader.instaloadercontext.RateController.query_waittime"
+    ],
+    "textwrap.fill": [],
+    "instaloader.lateststamps": [],
+    "instaloader.lateststamps.LatestStamps.__init__": [
+        "configparser.ConfigParser.read",
+        "configparser.ConfigParser"
+    ],
+    "configparser.ConfigParser": [],
+    "configparser.ConfigParser.read": [],
+    "instaloader.lateststamps.LatestStamps._save": [
+        "os.path.dirname",
+        "configparser.ConfigParser.write",
+        "<builtin>.open",
+        "os.makedirs"
+    ],
+    "configparser.ConfigParser.write": [],
+    "instaloader.lateststamps.LatestStamps._ensure_section": [
+        "configparser.ConfigParser.has_section",
+        "configparser.ConfigParser.add_section"
+    ],
+    "configparser.ConfigParser.has_section": [],
+    "configparser.ConfigParser.add_section": [],
+    "instaloader.lateststamps.LatestStamps.get_profile_id": [
+        "configparser.ConfigParser.getint"
+    ],
+    "configparser.ConfigParser.getint": [],
+    "instaloader.lateststamps.LatestStamps.save_profile_id": [
+        "<builtin>.str",
+        "instaloader.lateststamps.LatestStamps._ensure_section",
+        "instaloader.lateststamps.LatestStamps._save",
+        "configparser.ConfigParser.set"
+    ],
+    "configparser.ConfigParser.set": [],
+    "instaloader.lateststamps.LatestStamps.rename_profile": [
+        "instaloader.lateststamps.LatestStamps._save",
+        "configparser.ConfigParser.remove_section",
+        "configparser.ConfigParser.set",
+        "instaloader.lateststamps.LatestStamps._ensure_section",
+        "configparser.ConfigParser.get",
+        "configparser.ConfigParser.has_option"
+    ],
+    "configparser.ConfigParser.has_option": [],
+    "configparser.ConfigParser.get": [],
+    "configparser.ConfigParser.remove_section": [],
+    "instaloader.lateststamps.LatestStamps._get_timestamp": [
+        "datetime.datetime.strptime",
+        "configparser.ConfigParser.get",
+        "datetime.datetime.fromtimestamp"
+    ],
+    "datetime.datetime.fromtimestamp": [],
+    "instaloader.lateststamps.LatestStamps._set_timestamp": [
+        "instaloader.lateststamps.LatestStamps._ensure_section",
+        "instaloader.lateststamps.LatestStamps._save",
+        "configparser.ConfigParser.set"
+    ],
+    "instaloader.lateststamps.LatestStamps.get_last_post_timestamp": [
+        "instaloader.lateststamps.LatestStamps._get_timestamp"
+    ],
+    "instaloader.lateststamps.LatestStamps.set_last_post_timestamp": [
+        "instaloader.lateststamps.LatestStamps._set_timestamp"
+    ],
+    "instaloader.lateststamps.LatestStamps.get_last_tagged_timestamp": [
+        "instaloader.lateststamps.LatestStamps._get_timestamp"
+    ],
+    "instaloader.lateststamps.LatestStamps.set_last_tagged_timestamp": [
+        "instaloader.lateststamps.LatestStamps._set_timestamp"
+    ],
+    "instaloader.lateststamps.LatestStamps.get_last_igtv_timestamp": [
+        "instaloader.lateststamps.LatestStamps._get_timestamp"
+    ],
+    "instaloader.lateststamps.LatestStamps.set_last_igtv_timestamp": [
+        "instaloader.lateststamps.LatestStamps._set_timestamp"
+    ],
+    "instaloader.lateststamps.LatestStamps.get_last_story_timestamp": [
+        "instaloader.lateststamps.LatestStamps._get_timestamp"
+    ],
+    "instaloader.lateststamps.LatestStamps.set_last_story_timestamp": [
+        "instaloader.lateststamps.LatestStamps._set_timestamp"
+    ],
+    "instaloader.lateststamps.LatestStamps.get_profile_pic": [
+        "configparser.ConfigParser.get"
+    ],
+    "instaloader.lateststamps.LatestStamps.set_profile_pic": [
+        "instaloader.lateststamps.LatestStamps._ensure_section",
+        "instaloader.lateststamps.LatestStamps._save",
+        "configparser.ConfigParser.set"
+    ],
+    "instaloader.sectioniterator": [
+        "typing.TypeVar"
+    ],
+    "typing.TypeVar": [],
+    "instaloader.sectioniterator.SectionIterator.__init__": [
+        "instaloader.sectioniterator.SectionIterator._query"
+    ],
+    "instaloader.sectioniterator.SectionIterator._query": [],
+    "instaloader.sectioniterator.SectionIterator.__iter__": [],
+    "instaloader.sectioniterator.SectionIterator.__next__": [
+        "instaloader.sectioniterator.SectionIterator._query",
+        "instaloader.sectioniterator.SectionIterator.__next__",
+        "<builtin>.StopIteration",
+        "<builtin>.len"
+    ],
+    "<builtin>.StopIteration": [],
+    "instaloader.structures": [
+        "<builtin>.getattr",
+        "re.compile"
+    ],
+    "instaloader.structures._optional_normalize": [
+        "unicodedata.normalize"
+    ],
+    "unicodedata.normalize": [],
+    "instaloader.structures.Post.__init__": [],
+    "instaloader.structures.Post.from_shortcode": [
+        "instaloader.structures.Post.__init__"
+    ],
+    "instaloader.structures.Post.from_mediaid": [
+        "instaloader.structures.Post.mediaid_to_shortcode",
+        "instaloader.structures.Post.from_shortcode"
+    ],
+    "instaloader.structures.Post.mediaid_to_shortcode": [
+        "base64.b64encode",
+        "base64.b64encode.decode",
+        "base64.b64encode.decode.replace",
+        "<builtin>.str",
+        "base64.b64encode.decode.replace.lstrip"
+    ],
+    "instaloader.structures.Post.from_iphone_struct": [
+        "contextlib.suppress",
+        "instaloader.structures.Post.__init__",
+        "instaloader.structures.Profile.from_iphone_struct"
+    ],
+    "instaloader.structures.Profile.from_iphone_struct": [
+        "instaloader.structures.Profile.__init__"
+    ],
+    "instaloader.structures.Post.shortcode_to_mediaid": [
+        "base64.b64decode",
+        "<builtin>.len"
+    ],
+    "base64.b64decode": [],
+    "base64.b64encode": [],
+    "base64.b64encode.decode": [],
+    "base64.b64encode.decode.replace": [],
+    "base64.b64encode.decode.replace.lstrip": [],
+    "instaloader.structures.Post.supported_graphql_types": [],
+    "instaloader.structures.Post._asdict": [
+        "typing.NamedTuple._asdict"
+    ],
+    "typing.NamedTuple._asdict": [],
+    "instaloader.structures.Post.shortcode": [],
+    "instaloader.structures.Post.mediaid": [
+        "<builtin>.int"
+    ],
+    "instaloader.structures.Post.title": [
+        "instaloader.structures.Post._field"
+    ],
+    "instaloader.structures.Post._field": [],
+    "instaloader.structures.Post.__repr__": [],
+    "instaloader.structures.Post.__eq__": [
+        "<builtin>.isinstance"
+    ],
+    "instaloader.structures.Post.__hash__": [
+        "<builtin>.hash"
+    ],
+    "<builtin>.hash": [],
+    "instaloader.structures.Post._obtain_metadata": [],
+    "instaloader.structures.Post._full_metadata": [
+        "instaloader.structures.Post._obtain_metadata"
+    ],
+    "instaloader.structures.Post._iphone_struct": [],
+    "instaloader.structures.Post.owner_profile": [
+        "instaloader.structures.Profile.__init__"
+    ],
+    "instaloader.structures.Profile.__init__": [],
+    "instaloader.structures.Post.owner_username": [],
+    "instaloader.structures.Post.owner_id": [],
+    "instaloader.structures.Post.date_local": [
+        "instaloader.structures.Post._get_timestamp_date_created",
+        "datetime.datetime.fromtimestamp",
+        "datetime.datetime.fromtimestamp.astimezone"
+    ],
+    "instaloader.structures.Post._get_timestamp_date_created": [],
+    "datetime.datetime.fromtimestamp.astimezone": [],
+    "instaloader.structures.Post.date_utc": [
+        "datetime.datetime.utcfromtimestamp",
+        "instaloader.structures.Post._get_timestamp_date_created"
+    ],
+    "datetime.datetime.utcfromtimestamp": [],
+    "instaloader.structures.Post.date": [],
+    "instaloader.structures.Post.profile": [],
+    "instaloader.structures.Post.url": [
+        "re.sub.rstrip",
+        "re.sub"
+    ],
+    "re.sub": [],
+    "re.sub.rstrip": [],
+    "instaloader.structures.Post.typename": [
+        "instaloader.structures.Post._field"
+    ],
+    "instaloader.structures.Post.mediacount": [
+        "instaloader.structures.Post._field",
+        "<builtin>.len"
+    ],
+    "instaloader.structures.Post.get_is_videos": [
+        "instaloader.structures.Post._field"
+    ],
+    "instaloader.structures.Post.get_sidecar_nodes": [
+        "typing.NamedTuple.__init__",
+        "<builtin>.any",
+        "instaloader.structures.Post._field",
+        "re.sub",
+        "<builtin>.len",
+        "<builtin>.enumerate",
+        "re.sub.rstrip"
+    ],
+    "<builtin>.any": [],
+    "typing.NamedTuple.__init__": [],
+    "instaloader.structures.Post.caption": [
+        "instaloader.structures._optional_normalize"
+    ],
+    "instaloader.structures.Post.caption_hashtags": [
+        "re.compile.findall"
+    ],
+    "re.compile.findall": [],
+    "instaloader.structures.Post.caption_mentions": [
+        "re.compile.findall"
+    ],
+    "instaloader.structures.Post.pcaption": [
+        "instaloader.structures.Post.pcaption._elliptify"
+    ],
+    "instaloader.structures.Post.pcaption._elliptify": [
+        "<builtin>.len"
+    ],
+    "instaloader.structures.Post.accessibility_caption": [
+        "instaloader.structures.Post._field"
+    ],
+    "instaloader.structures.Post.tagged_users": [
+        "instaloader.structures.Post._field"
+    ],
+    "instaloader.structures.Post.is_video": [],
+    "instaloader.structures.Post.video_url": [
+        "<builtin>.list",
+        "instaloader.structures.Post._field",
+        "<builtin>.len",
+        "<builtin>.enumerate",
+        "<builtin>.int"
+    ],
+    "instaloader.structures.Post.video_view_count": [
+        "instaloader.structures.Post._field"
+    ],
+    "instaloader.structures.Post.video_duration": [
+        "instaloader.structures.Post._field"
+    ],
+    "instaloader.structures.Post.viewer_has_liked": [
+        "instaloader.structures.Post._field"
+    ],
+    "instaloader.structures.Post.likes": [
+        "instaloader.structures.Post._field"
+    ],
+    "instaloader.structures.Post.comments": [
+        "instaloader.structures.Post._field"
+    ],
+    "instaloader.structures.Post.get_comments": [
+        "<builtin>.sum",
+        "nodeiterator.NodeIterator",
+        "instaloader.structures.Post._field",
+        "<builtin>.len",
+        "instaloader.structures.Hashtag.get_posts_resumable.<lambda2>"
+    ],
+    "instaloader.structures.Post.get_comments._postcommentanswer": [
+        "typing.NamedTuple.__init__",
+        "datetime.datetime.utcfromtimestamp",
+        "<builtin>.int",
+        "instaloader.structures.Profile.__init__"
+    ],
+    "instaloader.structures.Post.get_comments._postcommentanswers": [
+        "instaloader.structures.Hashtag.get_posts_resumable.<lambda2>",
+        "nodeiterator.NodeIterator",
+        "<builtin>.len"
+    ],
+    "instaloader.structures.Hashtag.get_posts_resumable.<lambda2>": [
+        "instaloader.structures.Post.__init__"
+    ],
+    "instaloader.structures.Post.get_comments._postcommentanswers.<lambda1>": [],
+    "instaloader.structures.Post.get_comments._postcomment": [
+        "typing.NamedTuple.__init__",
+        "instaloader.structures.Post.get_comments._postcommentanswers",
+        "instaloader.structures.Hashtag.get_posts_resumable.<lambda2>"
+    ],
+    "instaloader.structures.Post.get_comments.<lambda1>": [],
+    "instaloader.structures.Post.get_likes": [
+        "instaloader.structures.Profile.__init__",
+        "instaloader.structures.Post._field",
+        "nodeiterator.NodeIterator",
+        "<builtin>.len"
+    ],
+    "instaloader.structures.Post.get_likes.<lambda1>": [],
+    "instaloader.structures.Post.get_likes.<lambda2>": [
+        "instaloader.structures.Profile.__init__"
+    ],
+    "instaloader.structures.Post.is_sponsored": [
+        "instaloader.structures.Post._field",
+        "<builtin>.bool"
+    ],
+    "instaloader.structures.Post.sponsor_users": [
+        "instaloader.structures.Profile.__init__",
+        "instaloader.structures.Post._field"
+    ],
+    "instaloader.structures.Post.location": [
+        "<builtin>.int",
+        "typing.NamedTuple.__init__",
+        "instaloader.structures.Post._field",
+        "<builtin>.any"
+    ],
+    "instaloader.structures.Post.is_pinned": [
+        "<builtin>.bool"
+    ],
+    "instaloader.structures.Profile.from_username": [
+        "instaloader.structures.Profile.__init__"
+    ],
+    "instaloader.structures.Profile.from_id": [
+        "<builtin>.str",
+        "instaloader.structures.Profile.__init__"
+    ],
+    "instaloader.structures.Profile.own_profile": [
+        "instaloader.structures.Profile.__init__"
+    ],
+    "instaloader.structures.Profile._asdict": [],
+    "instaloader.structures.Profile._obtain_metadata": [
+        "instaloader.structures.TopSearchResults.get_profiles",
+        "instaloader.structures.TopSearchResults.__init__",
+        "<builtin>.len"
+    ],
+    "instaloader.structures.TopSearchResults.__init__": [],
+    "instaloader.structures.TopSearchResults.get_profiles": [
+        "instaloader.structures.Profile.__init__"
+    ],
+    "instaloader.structures.Profile._metadata": [
+        "instaloader.structures.Profile._obtain_metadata"
+    ],
+    "instaloader.structures.Profile._iphone_struct": [],
+    "instaloader.structures.Profile.userid": [
+        "instaloader.structures.Profile._metadata",
+        "<builtin>.int"
+    ],
+    "instaloader.structures.Profile.username": [
+        "instaloader.structures.Profile._metadata"
+    ],
+    "instaloader.structures.Profile.__repr__": [],
+    "instaloader.structures.Profile.__eq__": [
+        "<builtin>.isinstance"
+    ],
+    "instaloader.structures.Profile.__hash__": [
+        "<builtin>.hash"
+    ],
+    "instaloader.structures.Profile.is_private": [
+        "instaloader.structures.Profile._metadata"
+    ],
+    "instaloader.structures.Profile.followed_by_viewer": [
+        "instaloader.structures.Profile._metadata"
+    ],
+    "instaloader.structures.Profile.mediacount": [
+        "instaloader.structures.Profile._metadata"
+    ],
+    "instaloader.structures.Profile.igtvcount": [
+        "instaloader.structures.Profile._metadata"
+    ],
+    "instaloader.structures.Profile.followers": [
+        "instaloader.structures.Profile._metadata"
+    ],
+    "instaloader.structures.Profile.followees": [
+        "instaloader.structures.Profile._metadata"
+    ],
+    "instaloader.structures.Profile.external_url": [
+        "instaloader.structures.Profile._metadata"
+    ],
+    "instaloader.structures.Profile.is_business_account": [
+        "instaloader.structures.Profile._metadata"
+    ],
+    "instaloader.structures.Profile.business_category_name": [
+        "instaloader.structures.Profile._metadata"
+    ],
+    "instaloader.structures.Profile.biography": [
+        "instaloader.structures.Profile._metadata",
+        "unicodedata.normalize"
+    ],
+    "instaloader.structures.Profile.biography_hashtags": [
+        "re.compile.findall"
+    ],
+    "instaloader.structures.Profile.biography_mentions": [
+        "re.compile.findall"
+    ],
+    "instaloader.structures.Profile.blocked_by_viewer": [
+        "instaloader.structures.Profile._metadata"
+    ],
+    "instaloader.structures.Profile.follows_viewer": [
+        "instaloader.structures.Profile._metadata"
+    ],
+    "instaloader.structures.Profile.full_name": [
+        "instaloader.structures.Profile._metadata"
+    ],
+    "instaloader.structures.Profile.has_blocked_viewer": [
+        "instaloader.structures.Profile._metadata"
+    ],
+    "instaloader.structures.Profile.has_highlight_reels": [],
+    "instaloader.structures.Profile.has_public_story": [
+        "instaloader.structures.Profile._obtain_metadata"
+    ],
+    "instaloader.structures.Profile.has_viewable_story": [],
+    "instaloader.structures.Profile.has_requested_viewer": [
+        "instaloader.structures.Profile._metadata"
+    ],
+    "instaloader.structures.Profile.is_verified": [
+        "instaloader.structures.Profile._metadata"
+    ],
+    "instaloader.structures.Profile.requested_by_viewer": [
+        "instaloader.structures.Profile._metadata"
+    ],
+    "instaloader.structures.Profile.profile_pic_url": [
+        "instaloader.structures.Profile._metadata"
+    ],
+    "instaloader.structures.Profile.profile_pic_url_no_iphone": [
+        "instaloader.structures.Profile._metadata"
+    ],
+    "instaloader.structures.Profile.get_profile_pic_url": [],
+    "instaloader.structures.Profile.get_posts": [
+        "instaloader.structures.Profile._metadata",
+        "instaloader.structures.Profile._obtain_metadata",
+        "instaloader.structures.Profile._make_is_newest_checker",
+        "nodeiterator.NodeIterator"
+    ],
+    "instaloader.structures.Profile.get_posts.<lambda1>": [],
+    "instaloader.structures.Profile.get_posts.<lambda2>": [
+        "instaloader.structures.Post.__init__"
+    ],
+    "instaloader.structures.Profile._make_is_newest_checker": [],
+    "instaloader.structures.Profile.get_saved_posts": [
+        "nodeiterator.NodeIterator"
+    ],
+    "instaloader.structures.Profile.get_saved_posts.<lambda1>": [],
+    "instaloader.structures.Profile.get_saved_posts.<lambda2>": [
+        "instaloader.structures.Post.__init__"
+    ],
+    "instaloader.structures.Profile.get_tagged_posts": [
+        "instaloader.structures.Profile._obtain_metadata",
+        "instaloader.structures.Profile._make_is_newest_checker",
+        "nodeiterator.NodeIterator"
+    ],
+    "instaloader.structures.Profile.get_tagged_posts.<lambda1>": [],
+    "instaloader.structures.Profile.get_tagged_posts.<lambda2>": [
+        "<builtin>.int",
+        "instaloader.structures.Post.__init__"
+    ],
+    "instaloader.structures.Profile.get_igtv_posts": [
+        "instaloader.structures.Profile._metadata",
+        "instaloader.structures.Profile._obtain_metadata",
+        "instaloader.structures.Profile._make_is_newest_checker",
+        "nodeiterator.NodeIterator"
+    ],
+    "instaloader.structures.Profile.get_igtv_posts.<lambda1>": [],
+    "instaloader.structures.Profile.get_igtv_posts.<lambda2>": [
+        "instaloader.structures.Post.__init__"
+    ],
+    "instaloader.structures.Profile._make_is_newest_checker.<lambda1>": [],
+    "instaloader.structures.Profile.get_followed_hashtags": [
+        "<builtin>.str",
+        "instaloader.structures.Profile._obtain_metadata",
+        "nodeiterator.NodeIterator"
+    ],
+    "instaloader.structures.Profile.get_followed_hashtags.<lambda1>": [],
+    "instaloader.structures.Profile.get_followed_hashtags.<lambda2>": [
+        "instaloader.structures.Hashtag.__init__"
+    ],
+    "instaloader.structures.Hashtag.__init__": [],
+    "instaloader.structures.Profile.get_followers": [
+        "<builtin>.str",
+        "instaloader.structures.Profile._obtain_metadata",
+        "nodeiterator.NodeIterator"
+    ],
+    "instaloader.structures.Profile.get_followers.<lambda1>": [],
+    "instaloader.structures.Profile.get_followers.<lambda2>": [
+        "instaloader.structures.Profile.__init__"
+    ],
+    "instaloader.structures.Profile.get_followees": [
+        "<builtin>.str",
+        "instaloader.structures.Profile._obtain_metadata",
+        "nodeiterator.NodeIterator"
+    ],
+    "instaloader.structures.Profile.get_followees.<lambda1>": [],
+    "instaloader.structures.Profile.get_followees.<lambda2>": [
+        "instaloader.structures.Profile.__init__"
+    ],
+    "instaloader.structures.Profile.get_similar_accounts": [
+        "instaloader.structures.Profile._obtain_metadata",
+        "instaloader.structures.Profile.__init__"
+    ],
+    "instaloader.structures.StoryItem.__init__": [],
+    "instaloader.structures.StoryItem._asdict": [],
+    "instaloader.structures.StoryItem.mediaid": [
+        "<builtin>.int"
+    ],
+    "instaloader.structures.StoryItem.shortcode": [
+        "instaloader.structures.Post.mediaid_to_shortcode"
+    ],
+    "instaloader.structures.StoryItem.__repr__": [],
+    "instaloader.structures.StoryItem.__eq__": [
+        "<builtin>.isinstance"
+    ],
+    "instaloader.structures.StoryItem.__hash__": [
+        "<builtin>.hash"
+    ],
+    "instaloader.structures.StoryItem.from_mediaid": [
+        "instaloader.structures.StoryItem.__init__"
+    ],
+    "instaloader.structures.StoryItem._iphone_struct": [
+        "<builtin>.str"
+    ],
+    "instaloader.structures.StoryItem.owner_profile": [
+        "instaloader.structures.Profile.from_id"
+    ],
+    "instaloader.structures.StoryItem.owner_username": [],
+    "instaloader.structures.StoryItem.owner_id": [],
+    "instaloader.structures.StoryItem.date_local": [
+        "datetime.datetime.fromtimestamp",
+        "datetime.datetime.fromtimestamp.astimezone"
+    ],
+    "instaloader.structures.StoryItem.date_utc": [
+        "datetime.datetime.utcfromtimestamp"
+    ],
+    "instaloader.structures.StoryItem.date": [],
+    "instaloader.structures.StoryItem.profile": [],
+    "instaloader.structures.StoryItem.expiring_local": [
+        "datetime.datetime.fromtimestamp"
+    ],
+    "instaloader.structures.StoryItem.expiring_utc": [
+        "datetime.datetime.utcfromtimestamp"
+    ],
+    "instaloader.structures.StoryItem.url": [
+        "re.sub.rstrip",
+        "re.sub"
+    ],
+    "instaloader.structures.StoryItem.typename": [],
+    "instaloader.structures.StoryItem.caption": [
+        "instaloader.structures._optional_normalize"
+    ],
+    "instaloader.structures.StoryItem.caption_hashtags": [
+        "re.compile.findall"
+    ],
+    "instaloader.structures.StoryItem.caption_mentions": [
+        "re.compile.findall"
+    ],
+    "instaloader.structures.StoryItem.pcaption": [
+        "instaloader.structures.StoryItem.pcaption._elliptify"
+    ],
+    "instaloader.structures.StoryItem.pcaption._elliptify": [
+        "<builtin>.len"
+    ],
+    "instaloader.structures.StoryItem.is_video": [],
+    "instaloader.structures.StoryItem.video_url": [
+        "<builtin>.list",
+        "<builtin>.enumerate",
+        "<builtin>.int",
+        "<builtin>.len"
+    ],
+    "instaloader.structures.Story.__init__": [],
+    "instaloader.structures.Story.__repr__": [],
+    "instaloader.structures.Story.__eq__": [
+        "<builtin>.isinstance"
+    ],
+    "instaloader.structures.Story.__hash__": [
+        "<builtin>.hash"
+    ],
+    "instaloader.structures.Story.unique_id": [
+        "<builtin>.map",
+        "<builtin>.list",
+        "instaloader.structures.Story.get_items",
+        "<builtin>.str"
+    ],
+    "instaloader.structures.Story.get_items": [
+        "<builtin>.reversed",
+        "instaloader.structures.StoryItem.__init__",
+        "instaloader.structures.Story._fetch_iphone_struct",
+        "<builtin>.int"
+    ],
+    "<builtin>.map": [],
+    "instaloader.structures.Story.last_seen_local": [
+        "datetime.datetime.fromtimestamp"
+    ],
+    "instaloader.structures.Story.last_seen_utc": [
+        "datetime.datetime.utcfromtimestamp"
+    ],
+    "instaloader.structures.Story.latest_media_local": [
+        "datetime.datetime.fromtimestamp"
+    ],
+    "instaloader.structures.Story.latest_media_utc": [
+        "datetime.datetime.utcfromtimestamp"
+    ],
+    "instaloader.structures.Story.itemcount": [
+        "<builtin>.len"
+    ],
+    "instaloader.structures.Story.owner_profile": [
+        "instaloader.structures.Profile.__init__"
+    ],
+    "instaloader.structures.Story.owner_username": [],
+    "instaloader.structures.Story.owner_id": [],
+    "instaloader.structures.Story._fetch_iphone_struct": [
+        "<builtin>.str"
+    ],
+    "<builtin>.reversed": [],
+    "instaloader.structures.Highlight.__init__": [
+        "<builtin>.super"
+    ],
+    "instaloader.structures.Highlight.__repr__": [],
+    "instaloader.structures.Highlight.unique_id": [
+        "<builtin>.int"
+    ],
+    "instaloader.structures.Highlight.owner_profile": [
+        "instaloader.structures.Profile.__init__"
+    ],
+    "instaloader.structures.Highlight.title": [],
+    "instaloader.structures.Highlight.cover_url": [],
+    "instaloader.structures.Highlight.cover_cropped_url": [],
+    "instaloader.structures.Highlight._fetch_items": [],
+    "instaloader.structures.Highlight._fetch_iphone_struct": [],
+    "instaloader.structures.Highlight.itemcount": [
+        "instaloader.structures.Highlight._fetch_items",
+        "<builtin>.len"
+    ],
+    "instaloader.structures.Highlight.get_items": [
+        "instaloader.structures.StoryItem.__init__",
+        "instaloader.structures.Highlight._fetch_items",
+        "instaloader.structures.Highlight._fetch_iphone_struct",
+        "<builtin>.int"
+    ],
+    "instaloader.structures.Hashtag.from_name": [
+        "instaloader.structures.Hashtag.__init__"
+    ],
+    "instaloader.structures.Hashtag.name": [],
+    "instaloader.structures.Hashtag._query": [],
+    "instaloader.structures.Hashtag._obtain_metadata": [
+        "instaloader.structures.Hashtag._query"
+    ],
+    "instaloader.structures.Hashtag._asdict": [],
+    "instaloader.structures.Hashtag.__repr__": [],
+    "instaloader.structures.Hashtag.__eq__": [
+        "<builtin>.isinstance"
+    ],
+    "instaloader.structures.Hashtag.__hash__": [
+        "<builtin>.hash"
+    ],
+    "instaloader.structures.Hashtag._metadata": [
+        "instaloader.structures.Hashtag._obtain_metadata"
+    ],
+    "instaloader.structures.Hashtag.hashtagid": [
+        "instaloader.structures.Hashtag._metadata",
+        "<builtin>.int"
+    ],
+    "instaloader.structures.Hashtag.profile_pic_url": [
+        "instaloader.structures.Hashtag._metadata"
+    ],
+    "instaloader.structures.Hashtag.description": [
+        "instaloader.structures.Hashtag._metadata"
+    ],
+    "instaloader.structures.Hashtag.allow_following": [
+        "instaloader.structures.Hashtag._metadata",
+        "<builtin>.bool"
+    ],
+    "instaloader.structures.Hashtag.is_following": [
+        "instaloader.structures.Hashtag._metadata",
+        "<builtin>.bool"
+    ],
+    "instaloader.structures.Hashtag.get_top_posts": [
+        "sectioniterator.SectionIterator",
+        "instaloader.structures.Hashtag._metadata",
+        "instaloader.structures.Post.__init__"
+    ],
+    "instaloader.structures.Hashtag.get_top_posts.<lambda1>": [],
+    "instaloader.structures.Hashtag.get_top_posts.<lambda2>": [
+        "instaloader.structures.Post.from_iphone_struct"
+    ],
+    "instaloader.structures.Hashtag.mediacount": [
+        "instaloader.structures.Hashtag._metadata"
+    ],
+    "instaloader.structures.Hashtag.get_posts": [
+        "sectioniterator.SectionIterator",
+        "instaloader.structures.Hashtag._metadata",
+        "instaloader.structures.Hashtag._query",
+        "instaloader.structures.Post.__init__"
+    ],
+    "instaloader.structures.Hashtag.get_posts.<lambda1>": [],
+    "instaloader.structures.Hashtag.get_posts.<lambda2>": [
+        "instaloader.structures.Post.from_iphone_struct"
+    ],
+    "instaloader.structures.Hashtag.get_all_posts": [
+        "<builtin>.iter",
+        "instaloader.structures.Hashtag.get_top_posts",
+        "<builtin>.next",
+        "<builtin>.sorted",
+        "instaloader.structures.Hashtag.get_posts_resumable",
+        "itertools.islice"
+    ],
+    "itertools.islice": [],
+    "instaloader.structures.Hashtag.get_all_posts.<lambda1>": [],
+    "instaloader.structures.Hashtag.get_posts_resumable": [
+        "nodeiterator.NodeIterator"
+    ],
+    "<builtin>.next": [],
+    "instaloader.structures.Hashtag.get_posts_resumable.<lambda1>": [],
+    "instaloader.structures.TopSearchResults.get_prefixed_usernames": [],
+    "instaloader.structures.TopSearchResults.get_locations": [
+        "typing.NamedTuple.__init__",
+        "<builtin>.int"
+    ],
+    "instaloader.structures.TopSearchResults.get_hashtag_strings": [],
+    "instaloader.structures.TopSearchResults.get_hashtags": [
+        "instaloader.structures.Hashtag.__init__"
+    ],
+    "instaloader.structures.TopSearchResults.searchstring": [],
+    "instaloader.structures.TitlePic.__init__": [],
+    "instaloader.structures.TitlePic.profile": [],
+    "instaloader.structures.TitlePic.owner_username": [],
+    "instaloader.structures.TitlePic.owner_id": [
+        "<builtin>.str"
+    ],
+    "instaloader.structures.TitlePic.target": [],
+    "instaloader.structures.TitlePic.typename": [],
+    "instaloader.structures.TitlePic.filename": [],
+    "instaloader.structures.TitlePic.date_utc": [],
+    "instaloader.structures.TitlePic.date": [],
+    "instaloader.structures.TitlePic.date_local": [],
+    "instaloader.structures.get_json_structure": [],
+    "instaloader.structures.save_structure_to_file": [
+        "instaloader.structures.get_json_structure",
+        "lzma.open",
+        "json.dump",
+        "<builtin>.open"
+    ],
+    "lzma.open": [],
+    "json.dump": [],
+    "instaloader.structures.load_structure": [
+        "instaloader.structures.Profile.__init__",
+        "instaloader.structures.Post.from_shortcode",
+        "instaloader.structures.Hashtag.__init__",
+        "instaloader.structures.StoryItem.__init__",
+        "instaloader.structures.Post.__init__",
+        "nodeiterator.FrozenNodeIterator"
+    ],
+    "nodeiterator.FrozenNodeIterator": [],
+    "instaloader.structures.load_structure_from_file": [
+        "lzma.open.close",
+        "lzma.open",
+        "json.load",
+        "instaloader.structures.load_structure",
+        "<builtin>.open"
+    ],
+    "lzma.open.close": [],
+    "instaloader.nodeiterator": [
+        "contextlib.contextmanager",
+        "typing.TypeVar"
+    ],
+    "instaloader.nodeiterator.NodeIterator": [
+        "datetime.timedelta"
+    ],
+    "instaloader.nodeiterator.NodeIterator.__init__": [
+        "datetime.datetime.now",
+        "instaloader.nodeiterator.NodeIterator._query"
+    ],
+    "instaloader.nodeiterator.NodeIterator._query": [
+        "<builtin>.int",
+        "datetime.datetime.now",
+        "instaloader.nodeiterator.NodeIterator._query"
+    ],
+    "instaloader.nodeiterator.NodeIterator.__iter__": [],
+    "instaloader.nodeiterator.NodeIterator.__next__": [
+        "instaloader.nodeiterator.NodeIterator._query",
+        "instaloader.nodeiterator.NodeIterator.__next__",
+        "<builtin>.StopIteration",
+        "<builtin>.len"
+    ],
+    "instaloader.nodeiterator.NodeIterator.count": [],
+    "instaloader.nodeiterator.NodeIterator.total_index": [],
+    "instaloader.nodeiterator.NodeIterator.magic": [
+        "json.dumps.encode",
+        "json.dumps",
+        "base64.urlsafe_b64encode.decode",
+        "hashlib.blake2b.update",
+        "hashlib.blake2b",
+        "hashlib.blake2b.digest",
+        "base64.urlsafe_b64encode"
+    ],
+    "hashlib.blake2b": [],
+    "json.dumps.encode": [],
+    "hashlib.blake2b.update": [],
+    "hashlib.blake2b.digest": [],
+    "base64.urlsafe_b64encode": [],
+    "base64.urlsafe_b64encode.decode": [],
+    "instaloader.nodeiterator.NodeIterator.first_item": [],
+    "instaloader.nodeiterator.NodeIterator.freeze": [
+        "typing.NamedTuple.__init__",
+        "datetime.datetime.now.timestamp",
+        "<builtin>.max"
+    ],
+    "instaloader.nodeiterator.NodeIterator.thaw": [
+        "datetime.datetime.fromtimestamp",
+        "exceptions.InvalidArgumentException"
+    ],
+    "exceptions.InvalidArgumentException": [],
+    "instaloader.nodeiterator.resumable_iteration": [
+        "os.path.dirname",
+        "datetime.datetime.fromtimestamp",
+        "datetime.datetime.now",
+        "exceptions.InvalidArgumentException",
+        "<builtin>.isinstance",
+        "os.unlink",
+        "os.makedirs",
+        "os.path.isfile"
+    ],
+    "os.unlink": [],
+    "docs\\codesnippets\\120_ghost_followers": [
+        "structures.Profile.from_username",
+        "instaloader.Instaloader",
+        "structures.Profile.from_username.get_posts.get_likes",
+        "<builtin>.open",
+        "<builtin>.print",
+        "structures.Profile.from_username.get_followers",
+        "structures.Profile.from_username.get_posts",
+        "instaloader.Instaloader.load_session_from_file",
+        "<builtin>.set"
+    ],
+    "instaloader.Instaloader.load_session_from_file": [],
+    "structures.Profile.from_username.get_posts.get_likes": [],
+    "structures.Profile.from_username.get_followers": [],
+    "docs\\codesnippets\\121_since_until": [
+        "datetime.datetime",
+        "itertools.takewhile",
+        "structures.Profile.from_username",
+        "itertools.dropwhile",
+        "instaloader.Instaloader",
+        "<builtin>.print",
+        "instaloader.Instaloader.download_post",
+        "structures.Profile.from_username.get_posts"
+    ],
+    "datetime.datetime": [],
+    "docs\\codesnippets\\121_since_until.<lambda1>": [],
+    "docs\\codesnippets\\121_since_until.<lambda2>": [],
+    "itertools.dropwhile": [],
+    "itertools.takewhile": [],
+    "docs\\codesnippets\\194_top_x_of_user": [
+        "<builtin>.sorted",
+        "structures.Profile.from_username",
+        "instaloader.Instaloader",
+        "itertools.islice",
+        "math.ceil",
+        "instaloader.Instaloader.download_post",
+        "structures.Profile.from_username.get_posts"
+    ],
+    "docs\\codesnippets\\194_top_x_of_user.<lambda1>": [],
+    "math.ceil": [],
+    "docs\\codesnippets\\56_track_deleted": [
+        "structures.load_structure_from_file",
+        "glob.glob",
+        "<builtin>.str",
+        "structures.Profile.from_username",
+        "os.chdir",
+        "instaloader.Instaloader",
+        "<builtin>.print",
+        "<builtin>.filter",
+        "structures.Profile.from_username.get_posts",
+        "<builtin>.set",
+        "<builtin>.SystemExit"
+    ],
+    "<builtin>.SystemExit": [],
+    "os.chdir": [],
+    "docs\\codesnippets\\56_track_deleted.<lambda1>": [
+        "<builtin>.isinstance"
+    ],
+    "structures.load_structure_from_file": [],
+    "glob.glob": [],
+    "docs\\codesnippets\\615_import_firefox_session": [
+        "argparse.ArgumentParser.parse_args",
+        "argparse.ArgumentParser",
+        "argparse.ArgumentParser.add_argument",
+        "docs\\codesnippets\\615_import_firefox_session.import_session",
+        "docs\\codesnippets\\615_import_firefox_session.get_cookiefile",
+        "<builtin>.SystemExit"
+    ],
+    "docs\\codesnippets\\615_import_firefox_session.get_cookiefile": [
+        "glob.glob",
+        "<builtin>.SystemExit",
+        "platform.system",
+        "os.path.expanduser"
+    ],
+    "docs\\codesnippets\\615_import_firefox_session.import_session": [
+        "instaloader.Instaloader.save_session_to_file",
+        "instaloader.Instaloader.context._session.cookies.update",
+        "sqlite3.connect",
+        "instaloader.Instaloader",
+        "<builtin>.print",
+        "sqlite3.connect.execute",
+        "instaloader.Instaloader.test_login",
+        "<builtin>.SystemExit"
+    ],
+    "sqlite3.connect": [],
+    "sqlite3.connect.execute": [],
+    "instaloader.Instaloader.context._session.cookies.update": [],
+    "instaloader.Instaloader.test_login": [],
+    "instaloader.Instaloader.save_session_to_file": [],
+    "argparse.ArgumentParser": [],
+    "argparse.ArgumentParser.add_argument": [],
+    "argparse.ArgumentParser.parse_args": [],
+    "docs\\codesnippets\\666_historical_hashtag_data": [
+        "datetime.datetime",
+        "instaloader.Instaloader",
+        "structures.Hashtag.from_name.get_posts",
+        "structures.Hashtag.from_name",
+        "instaloader.Instaloader.download_post"
+    ],
+    "docs\\conf": [
+        "os.path.abspath",
+        "subprocess.check_output.decode",
+        "platform.system",
+        "subprocess.check_output",
+        "sys.path.insert"
+    ],
+    "os.path.abspath": [],
+    "sys.path.insert": [],
+    "subprocess.check_output": [],
+    "subprocess.check_output.decode": [],
+    "docs\\conf.setup": [],
+    "docs.sphinx_autodoc_typehints": [
+        "sphinx.util.logging.getLogger"
+    ],
+    "docs.sphinx_autodoc_typehints.unwrap": [
+        "<builtin>.id",
+        "<builtin>.ValueError",
+        "docs.sphinx_autodoc_typehints.unwrap._is_wrapper"
+    ],
+    "docs.sphinx_autodoc_typehints.unwrap._is_wrapper": [
+        "<builtin>.hasattr"
+    ],
+    "<builtin>.id": [],
+    "<builtin>.ValueError": [],
+    "sphinx.util.logging.getLogger": [],
+    "docs.sphinx_autodoc_typehints.format_annotation": [
+        "docs.sphinx_autodoc_typehints.format_annotation",
+        "<builtin>.getattr",
+        "<builtin>.str",
+        "inspect.isclass",
+        "<builtin>.isinstance",
+        "<builtin>.type",
+        "<builtin>.len",
+        "<builtin>.hasattr"
+    ],
+    "inspect.isclass": [],
+    "<builtin>.type": [],
+    "docs.sphinx_autodoc_typehints.process_signature": [
+        "sphinx.util.inspect.Signature.format_args",
+        "<builtin>.getattr",
+        "sphinx.util.inspect.Signature.format_args.replace",
+        "sphinx.util.inspect.Signature",
+        "<builtin>.isinstance",
+        "<builtin>.callable",
+        "inspect.getmodule",
+        "inspect.unwrap",
+        "sphinx.util.inspect.Signature.signature.parameters.values",
+        "sphinx.util.inspect.Signature.signature.replace"
+    ],
+    "<builtin>.callable": [],
+    "inspect.unwrap": [],
+    "sphinx.util.inspect.Signature": [],
+    "sphinx.util.inspect.Signature.signature.parameters.values": [],
+    "inspect.getmodule": [],
+    "sphinx.util.inspect.Signature.signature.replace": [],
+    "sphinx.util.inspect.Signature.format_args": [],
+    "sphinx.util.inspect.Signature.format_args.replace": [],
+    "docs.sphinx_autodoc_typehints.process_docstring": [
+        "sphinx.util.logging.getLogger.warning",
+        "docs.sphinx_autodoc_typehints.format_annotation",
+        "typing.get_type_hints",
+        "<builtin>.getattr",
+        "<builtin>.len",
+        "<builtin>.isinstance",
+        "<builtin>.callable",
+        "typing.get_type_hints.items",
+        "inspect.unwrap",
+        "<builtin>.enumerate"
+    ],
+    "typing.get_type_hints": [],
+    "sphinx.util.logging.getLogger.warning": [],
+    "typing.get_type_hints.items": [],
+    "docs\\sphinx_autodoc_typehints": [
+        "sphinx.util.logging.getLogger"
+    ],
+    "docs\\sphinx_autodoc_typehints.unwrap": [
+        "<builtin>.id",
+        "<builtin>.ValueError",
+        "docs\\sphinx_autodoc_typehints.unwrap._is_wrapper"
+    ],
+    "docs\\sphinx_autodoc_typehints.unwrap._is_wrapper": [
+        "<builtin>.hasattr"
+    ],
+    "docs\\sphinx_autodoc_typehints.format_annotation": [
+        "docs\\sphinx_autodoc_typehints.format_annotation",
+        "<builtin>.getattr",
+        "<builtin>.str",
+        "inspect.isclass",
+        "<builtin>.isinstance",
+        "<builtin>.type",
+        "<builtin>.len",
+        "<builtin>.hasattr"
+    ],
+    "docs\\sphinx_autodoc_typehints.process_signature": [
+        "sphinx.util.inspect.Signature.format_args",
+        "<builtin>.getattr",
+        "sphinx.util.inspect.Signature.format_args.replace",
+        "sphinx.util.inspect.Signature",
+        "<builtin>.isinstance",
+        "<builtin>.callable",
+        "inspect.getmodule",
+        "inspect.unwrap",
+        "sphinx.util.inspect.Signature.signature.parameters.values",
+        "sphinx.util.inspect.Signature.signature.replace"
+    ],
+    "docs\\sphinx_autodoc_typehints.process_docstring": [
+        "sphinx.util.logging.getLogger.warning",
+        "docs\\sphinx_autodoc_typehints.format_annotation",
+        "typing.get_type_hints",
+        "<builtin>.getattr",
+        "<builtin>.len",
+        "<builtin>.isinstance",
+        "<builtin>.callable",
+        "typing.get_type_hints.items",
+        "inspect.unwrap",
+        "<builtin>.enumerate"
+    ],
+    "instaloader\\exceptions": [],
+    "instaloader\\instaloader": [],
+    "instaloader\\instaloader._get_config_dir": [
+        "getpass.getuser",
+        "tempfile.gettempdir",
+        "os.path.expanduser",
+        "os.getenv",
+        "platform.system",
+        "os.path.join"
+    ],
+    "instaloader\\instaloader.get_default_session_filename": [
+        "instaloader\\instaloader._get_config_dir",
+        "os.path.join"
+    ],
+    "instaloader\\instaloader.get_legacy_session_filename": [
+        "tempfile.gettempdir.lower",
+        "getpass.getuser",
+        "tempfile.gettempdir"
+    ],
+    "instaloader\\instaloader.get_default_stamps_filename": [
+        "instaloader\\instaloader._get_config_dir",
+        "os.path.join"
+    ],
+    "instaloader\\instaloader.format_string_contains_key": [
+        "string.Formatter.parse",
+        "string.Formatter"
+    ],
+    "instaloader\\instaloader._requires_login": [
+        "functools.wraps"
+    ],
+    "instaloader\\instaloader._requires_login.call": [
+        "instaloader\\instaloader.Instaloader.save_session_to_file",
+        "instaloader\\instaloader.Instaloader.download_highlights",
+        "instaloader\\instaloader.Instaloader.get_location_posts",
+        "instaloader\\instaloader.Instaloader.get_highlights",
+        "instaloader\\instaloader.Instaloader.get_explore_posts",
+        "instaloader\\instaloader.Instaloader.save_session",
+        "instaloader\\instaloader.Instaloader.download_saved_posts",
+        "instaloader\\instaloader.Instaloader.get_feed_posts",
+        "instaloader\\instaloader.Instaloader.get_stories",
+        "instaloader\\instaloader.Instaloader.download_location",
+        "instaloader\\instaloader.Instaloader.download_feed_posts",
+        "instaloader\\instaloader.Instaloader.download_stories"
+    ],
+    "instaloader\\instaloader.Instaloader.save_session_to_file": [
+        "os.path.dirname",
+        "os.path.exists",
+        "os.chmod",
+        "instaloadercontext.InstaloaderContext.save_session_to_file",
+        "instaloader\\instaloader.get_default_session_filename",
+        "os.makedirs",
+        "instaloadercontext.InstaloaderContext.log",
+        "<builtin>.open"
+    ],
+    "instaloader\\instaloader.Instaloader.download_highlights": [
+        "instaloader\\instaloader._PostPathFormatter.sanitize_path",
+        "instaloader\\instaloader.Instaloader.download_storyitem",
+        "instaloader\\instaloader.Instaloader.get_highlights",
+        "pathlib.Path",
+        "instaloadercontext.InstaloaderContext.error_catcher",
+        "instaloader\\instaloader.Instaloader.download_highlight_cover",
+        "instaloadercontext.InstaloaderContext.log"
+    ],
+    "instaloader\\instaloader.Instaloader.get_location_posts": [
+        "sectioniterator.SectionIterator"
+    ],
+    "instaloader\\instaloader.Instaloader.get_highlights": [
+        "instaloadercontext.InstaloaderContext.graphql_query",
+        "structures.Highlight",
+        "<builtin>.isinstance"
+    ],
+    "instaloader\\instaloader.Instaloader.get_explore_posts": [
+        "nodeiterator.NodeIterator"
+    ],
+    "instaloader\\instaloader.Instaloader.save_session": [
+        "instaloadercontext.InstaloaderContext.save_session"
+    ],
+    "instaloader\\instaloader.Instaloader.download_saved_posts": [
+        "instaloadercontext.InstaloaderContext.log",
+        "instaloader\\instaloader.Instaloader.posts_download_loop",
+        "structures.Profile.own_profile",
+        "structures.Profile.own_profile.get_saved_posts"
+    ],
+    "instaloader\\instaloader.Instaloader.get_feed_posts": [
+        "structures.Post.supported_graphql_types",
+        "instaloadercontext.InstaloaderContext.graphql_query",
+        "structures.Post"
+    ],
+    "instaloader\\instaloader.Instaloader.get_stories": [
+        "<builtin>.list",
+        "instaloadercontext.InstaloaderContext.graphql_query",
+        "instaloader\\instaloader.Instaloader.get_stories._userid_chunks",
+        "structures.Story"
+    ],
+    "instaloader\\instaloader.Instaloader.download_location": [
+        "instaloadercontext.InstaloaderContext.log",
+        "instaloader\\instaloader.Instaloader.posts_download_loop",
+        "instaloader\\instaloader.Instaloader.get_location_posts"
+    ],
+    "instaloader\\instaloader.Instaloader.download_feed_posts": [
+        "instaloadercontext.InstaloaderContext.log",
+        "instaloader\\instaloader.Instaloader.posts_download_loop",
+        "instaloader\\instaloader.Instaloader.get_feed_posts"
+    ],
+    "instaloader\\instaloader.Instaloader.download_stories": [
+        "instaloader\\instaloader.Instaloader.download_storyitem",
+        "<builtin>.str",
+        "datetime.datetime.now",
+        "<builtin>.isinstance",
+        "instaloadercontext.InstaloaderContext.error_catcher",
+        "instaloader\\instaloader.Instaloader.get_stories",
+        "<builtin>.len",
+        "instaloadercontext.InstaloaderContext.log",
+        "<builtin>.enumerate",
+        "datetime.datetime.now.astimezone"
+    ],
+    "instaloader\\instaloader._retry_on_connection_error": [
+        "functools.wraps"
+    ],
+    "instaloader\\instaloader._retry_on_connection_error.call": [
+        "<builtin>.repr",
+        "instaloader\\instaloader.Instaloader.download_pic",
+        "instaloader\\instaloader._retry_on_connection_error.call",
+        "instaloader\\instaloader.Instaloader.download_title_pic"
+    ],
+    "instaloader\\instaloader.Instaloader.download_pic": [
+        "datetime.datetime.now.timestamp",
+        "re.search.group",
+        "os.utime",
+        "datetime.datetime.now",
+        "instaloadercontext.InstaloaderContext.get_raw",
+        "re.search",
+        "os.path.isfile",
+        "instaloadercontext.InstaloaderContext.log",
+        "instaloadercontext.InstaloaderContext.write_raw"
+    ],
+    "instaloader\\instaloader.Instaloader.download_title_pic": [
+        "instaloader\\instaloader.Instaloader.__prepare_filename",
+        "datetime.datetime.strptime.timestamp",
+        "instaloadercontext.InstaloaderContext.get_raw.headers.get",
+        "structures.Profile.from_id.username.profile_pic_url.split",
+        "os.makedirs",
+        "os.path.join",
+        "datetime.datetime.strptime.replace",
+        "instaloadercontext.InstaloaderContext.write_raw",
+        "os.path.getsize",
+        "datetime.datetime.strptime",
+        "instaloadercontext.InstaloaderContext.log",
+        "os.utime",
+        "structures.TitlePic",
+        "structures.Profile.from_id.profile_pic_url.split",
+        "datetime.datetime.now",
+        "instaloadercontext.InstaloaderContext.get_raw",
+        "structures.Hashtag.from_name.profile_pic_url.split",
+        "instaloader\\instaloader._PostPathFormatter.__init__",
+        "os.path.isfile",
+        "datetime.datetime.strptime.replace.timestamp",
+        "os.path.dirname",
+        "datetime.datetime.now.timestamp",
+        "string.Formatter.format",
+        "structures.Profile.from_username.profile_pic_url.split",
+        "<builtin>.int"
+    ],
+    "instaloader\\instaloader._ArbitraryItemFormatter.__init__": [],
+    "instaloader\\instaloader._ArbitraryItemFormatter.get_value": [
+        "<builtin>.getattr",
+        "<builtin>.hasattr",
+        "<builtin>.super",
+        "<builtin>.isinstance"
+    ],
+    "instaloader\\instaloader._ArbitraryItemFormatter.format_field": [
+        "<builtin>.super",
+        "<builtin>.isinstance"
+    ],
+    "instaloader\\instaloader._PostPathFormatter.__init__": [
+        "<builtin>.super"
+    ],
+    "instaloader\\instaloader._PostPathFormatter.get_value": [
+        "<builtin>.super",
+        "instaloader\\instaloader._PostPathFormatter.sanitize_path",
+        "<builtin>.isinstance"
+    ],
+    "instaloader\\instaloader._PostPathFormatter.sanitize_path": [
+        "os.path.splitext",
+        "structures.Profile.from_id.username.replace",
+        "structures.Profile.from_id.username.startswith",
+        "platform.system",
+        "structures.Profile.from_id.username.replace.startswith"
+    ],
+    "instaloader\\instaloader.Instaloader.__init__": [
+        "instaloadercontext.InstaloaderContext",
+        "<builtin>.int",
+        "instaloader\\instaloader.format_string_contains_key",
+        "<builtin>.len"
+    ],
+    "instaloader\\instaloader.Instaloader": [
+        "instaloader\\instaloader._retry_on_connection_error",
+        "instaloader\\instaloader._requires_login",
+        "contextlib.contextmanager"
+    ],
+    "instaloader\\instaloader.Instaloader.anonymous_copy": [
+        "instaloader\\instaloader.Instaloader.__init__",
+        "instaloadercontext.InstaloaderContext.error_log.extend",
+        "instaloader\\instaloader.Instaloader.close"
+    ],
+    "instaloader\\instaloader.Instaloader.close": [
+        "instaloadercontext.InstaloaderContext.close"
+    ],
+    "instaloader\\instaloader.Instaloader.__enter__": [],
+    "instaloader\\instaloader.Instaloader.__exit__": [
+        "instaloader\\instaloader.Instaloader.close"
+    ],
+    "instaloader\\instaloader.Instaloader.save_metadata_json": [
+        "os.path.dirname",
+        "instaloader.instaloader.save_structure_to_file",
+        "<builtin>.isinstance",
+        "structures.save_structure_to_file",
+        "os.makedirs",
+        "instaloadercontext.InstaloaderContext.log"
+    ],
+    "instaloader\\instaloader.Instaloader.update_comments": [
+        "instaloader\\instaloader.Instaloader.update_comments.get_new_comments",
+        "json.load",
+        "<builtin>.list",
+        "instaloader\\instaloader.Instaloader.update_comments.save_comments",
+        "json.load.extend",
+        "instaloader\\instaloader.Instaloader.update_comments._postcomment_asdict",
+        "nodeiterator.resumable_iteration",
+        "instaloadercontext.InstaloaderContext.log",
+        "<builtin>.open"
+    ],
+    "instaloader\\instaloader.Instaloader.update_comments._postcommentanswer_asdict": [
+        "<builtin>.int"
+    ],
+    "instaloader\\instaloader.Instaloader.update_comments._postcomment_asdict": [
+        "instaloader\\instaloader.Instaloader.update_comments._postcommentanswer_asdict",
+        "<builtin>.sorted"
+    ],
+    "instaloader\\instaloader.Instaloader.update_comments._postcomment_asdict.<dict1>.<lambda1>": [],
+    "instaloader\\instaloader.Instaloader.update_comments._postcomment_asdict.<lambda1>": [
+        "<builtin>.int"
+    ],
+    "instaloader\\instaloader.Instaloader.update_comments.get_unique_comments": [
+        "<builtin>.sorted",
+        "<builtin>.list",
+        "instaloader\\instaloader.Instaloader.update_comments.get_unique_comments",
+        "<builtin>.zip"
+    ],
+    "instaloader\\instaloader.Instaloader.update_comments.get_unique_comments.<lambda1>": [
+        "<builtin>.int"
+    ],
+    "instaloader\\instaloader.Instaloader.update_comments.get_unique_comments.<lambda2>": [
+        "<builtin>.int"
+    ],
+    "instaloader\\instaloader.Instaloader.update_comments.get_new_comments": [
+        "instaloadercontext.InstaloaderContext.log",
+        "<builtin>.enumerate"
+    ],
+    "instaloader\\instaloader.Instaloader.update_comments.save_comments": [
+        "<builtin>.list",
+        "instaloader\\instaloader.Instaloader.update_comments.get_unique_comments",
+        "json.dumps",
+        "<builtin>.filter",
+        "<builtin>.int",
+        "<builtin>.set",
+        "<builtin>.open"
+    ],
+    "instaloader\\instaloader.Instaloader.update_comments.save_comments.<lambda1>": [
+        "<builtin>.int"
+    ],
+    "instaloader\\instaloader.Instaloader.update_comments.<lambda1>": [],
+    "instaloader\\instaloader.Instaloader.save_caption": [
+        "datetime.datetime.now.timestamp",
+        "instaloader\\instaloader.Instaloader.save_caption.get_filename",
+        "os.utime",
+        "instaloader\\instaloader.Instaloader.save_caption._elliptify",
+        "string.Formatter.format.strip.encode",
+        "datetime.datetime.now",
+        "<builtin>.range",
+        "os.rename",
+        "contextlib.suppress",
+        "os.path.isfile",
+        "instaloadercontext.InstaloaderContext.log",
+        "string.Formatter.format.strip.encode.replace",
+        "<builtin>.open"
+    ],
+    "instaloader\\instaloader.Instaloader.save_caption._elliptify": [
+        "string.Formatter.format.strip.replace",
+        "<builtin>.len"
+    ],
+    "instaloader\\instaloader.Instaloader.save_caption.get_filename": [
+        "os.path.splitext"
+    ],
+    "instaloader\\instaloader.Instaloader.save_location": [
+        "datetime.datetime.now.timestamp",
+        "os.utime",
+        "io.BytesIO",
+        "datetime.datetime.now",
+        "typing.cast",
+        "instaloadercontext.InstaloaderContext.log",
+        "shutil.copyfileobj",
+        "<builtin>.open"
+    ],
+    "instaloader\\instaloader.Instaloader.format_filename_within_target_path": [
+        "instaloader\\instaloader.format_string_contains_key",
+        "structures.Profile.from_id.username.lower",
+        "os.path.join"
+    ],
+    "instaloader\\instaloader.Instaloader.download_title_pic.<lambda1>": [],
+    "instaloader\\instaloader.Instaloader.__prepare_filename": [
+        "os.path.dirname",
+        "os.path.splitext",
+        "os.path.basename",
+        "os.path.join.replace",
+        "os.makedirs",
+        "urllib.parse.urlparse"
+    ],
+    "instaloader\\instaloader.Instaloader.download_profilepic_if_new": [
+        "instaloader\\instaloader.Instaloader.download_profilepic"
+    ],
+    "instaloader\\instaloader.Instaloader.download_profilepic": [
+        "instaloader\\instaloader.Instaloader.download_title_pic",
+        "structures.Profile.from_id.username.lower"
+    ],
+    "instaloader\\instaloader.Instaloader.download_highlight_cover": [
+        "instaloader\\instaloader.Instaloader.download_title_pic"
+    ],
+    "instaloader\\instaloader.Instaloader.download_hashtag_profilepic": [
+        "instaloader\\instaloader.Instaloader.download_title_pic"
+    ],
+    "instaloader\\instaloader.Instaloader.load_session": [
+        "instaloadercontext.InstaloaderContext.load_session"
+    ],
+    "instaloader\\instaloader.Instaloader.load_session_from_file": [
+        "instaloadercontext.InstaloaderContext.load_session_from_file",
+        "os.path.exists",
+        "instaloader\\instaloader.get_default_session_filename",
+        "instaloadercontext.InstaloaderContext.log",
+        "instaloader\\instaloader.get_legacy_session_filename",
+        "<builtin>.open"
+    ],
+    "instaloader\\instaloader.Instaloader.test_login": [
+        "instaloadercontext.InstaloaderContext.test_login"
+    ],
+    "instaloader\\instaloader.Instaloader.login": [
+        "instaloadercontext.InstaloaderContext.login"
+    ],
+    "instaloader\\instaloader.Instaloader.two_factor_login": [
+        "instaloadercontext.InstaloaderContext.two_factor_login"
+    ],
+    "instaloader\\instaloader.Instaloader.format_filename": [
+        "instaloader\\instaloader._PostPathFormatter.__init__",
+        "string.Formatter.format"
+    ],
+    "instaloader\\instaloader.Instaloader.download_post": [
+        "instaloader\\instaloader.Instaloader.__prepare_filename",
+        "<builtin>.str",
+        "instaloader\\instaloader.Instaloader.save_caption",
+        "instaloader\\instaloader.Instaloader.save_location",
+        "instaloadercontext.InstaloaderContext.error_catcher",
+        "instaloader\\instaloader.Instaloader.download_post._already_downloaded",
+        "os.path.join",
+        "instaloader\\instaloader.Instaloader.download_post._all_already_downloaded",
+        "instaloader\\instaloader.Instaloader.download_pic",
+        "instaloader\\instaloader._ArbitraryItemFormatter.__init__",
+        "instaloadercontext.InstaloaderContext.log",
+        "instaloader\\instaloader.Instaloader.format_filename",
+        "instaloader\\instaloader._PostPathFormatter.__init__",
+        "<builtin>.range",
+        "string.Formatter.format",
+        "instaloader\\instaloader.Instaloader.save_metadata_json",
+        "instaloadercontext.InstaloaderContext.error",
+        "instaloader\\instaloader.Instaloader.update_comments",
+        "<builtin>.enumerate",
+        "string.Formatter.format.strip"
+    ],
+    "instaloader\\instaloader.Instaloader.download_post._already_downloaded": [
+        "os.path.isfile",
+        "instaloadercontext.InstaloaderContext.log"
+    ],
+    "instaloader\\instaloader.Instaloader.download_post._all_already_downloaded": [
+        "instaloader\\instaloader.Instaloader.download_post._already_downloaded"
+    ],
+    "instaloader\\instaloader.Instaloader.download_post.<lambda1>": [],
+    "instaloader\\instaloader.Instaloader.download_post.<lambda2>": [],
+    "instaloader\\instaloader.Instaloader.download_post.<lambda3>": [],
+    "instaloader\\instaloader.Instaloader.get_stories._userid_chunks": [
+        "<builtin>.range",
+        "<builtin>.len"
+    ],
+    "instaloader\\instaloader.Instaloader.download_storyitem": [
+        "instaloader\\instaloader.Instaloader.__prepare_filename",
+        "instaloader\\instaloader.Instaloader.download_storyitem._already_downloaded",
+        "instaloader\\instaloader.Instaloader.save_caption",
+        "instaloader\\instaloader.Instaloader.download_pic",
+        "instaloader\\instaloader.Instaloader.format_filename",
+        "instaloader\\instaloader._ArbitraryItemFormatter.__init__",
+        "string.Formatter.format",
+        "instaloader\\instaloader._PostPathFormatter.__init__",
+        "os.path.join",
+        "instaloadercontext.InstaloaderContext.log",
+        "instaloader\\instaloader.Instaloader.save_metadata_json",
+        "string.Formatter.format.strip"
+    ],
+    "instaloader\\instaloader.Instaloader.download_storyitem._already_downloaded": [
+        "os.path.isfile",
+        "instaloadercontext.InstaloaderContext.log"
+    ],
+    "instaloader\\instaloader.Instaloader.download_storyitem.<lambda1>": [],
+    "instaloader\\instaloader.Instaloader.download_storyitem.<lambda2>": [
+        "<builtin>.str"
+    ],
+    "instaloader\\instaloader.Instaloader.posts_download_loop": [
+        "instaloader\\instaloader._PostPathFormatter.sanitize_path",
+        "<builtin>.str",
+        "instaloader\\instaloader.Instaloader.download_igtv.<lambda1>",
+        "<builtin>.len",
+        "instaloadercontext.InstaloaderContext.error_catcher",
+        "<builtin>.isinstance",
+        "instaloader\\instaloader.Instaloader.download_tagged.<lambda1>",
+        "instaloader\\instaloader.Instaloader.download_post",
+        "instaloader\\instaloader.Instaloader.download_profiles.<lambda1>",
+        "instaloader\\instaloader.Instaloader.posts_download_loop.<lambda1>",
+        "nodeiterator.resumable_iteration",
+        "instaloadercontext.InstaloaderContext.error",
+        "instaloadercontext.InstaloaderContext.log",
+        "<builtin>.enumerate"
+    ],
+    "instaloader\\instaloader.Instaloader.posts_download_loop.<lambda1>": [],
+    "instaloader\\instaloader.Instaloader.posts_download_loop.<lambda2>": [
+        "instaloader\\instaloader.Instaloader.format_filename_within_target_path"
+    ],
+    "instaloader\\instaloader.Instaloader.download_profiles.<lambda1>": [],
+    "instaloader\\instaloader.Instaloader.download_igtv.<lambda1>": [],
+    "instaloader\\instaloader.Instaloader.download_tagged.<lambda1>": [],
+    "instaloader\\instaloader.Instaloader.get_location_posts.<lambda1>": [],
+    "instaloader\\instaloader.Instaloader.get_location_posts.<lambda2>": [
+        "structures.Post.from_iphone_struct"
+    ],
+    "instaloader\\instaloader.Instaloader.get_explore_posts.<lambda1>": [],
+    "instaloader\\instaloader.Instaloader.get_explore_posts.<lambda2>": [
+        "structures.Post"
+    ],
+    "instaloader\\instaloader.Instaloader.get_hashtag_posts": [
+        "structures.Hashtag.from_name",
+        "structures.Hashtag.from_name.get_posts_resumable"
+    ],
+    "instaloader\\instaloader.Instaloader.download_hashtag": [
+        "instaloader\\instaloader.Instaloader.download_hashtag_profilepic",
+        "instaloadercontext.InstaloaderContext.error_catcher",
+        "<builtin>.isinstance",
+        "structures.Hashtag.from_name",
+        "instaloader\\instaloader.Instaloader.posts_download_loop",
+        "instaloader\\instaloader.Instaloader.save_metadata_json",
+        "instaloadercontext.InstaloaderContext.log",
+        "structures.Hashtag.from_name.get_posts_resumable"
+    ],
+    "instaloader\\instaloader.Instaloader.download_tagged": [
+        "instaloader\\instaloader._PostPathFormatter.sanitize_path",
+        "pathlib.Path",
+        "structures.Profile.from_id.username.get_tagged_posts",
+        "structures.Profile.from_id.get_tagged_posts",
+        "instaloadercontext.InstaloaderContext.log",
+        "instaloader\\instaloader.Instaloader.posts_download_loop",
+        "structures.Profile.from_username.get_tagged_posts"
+    ],
+    "instaloader\\instaloader.Instaloader.download_igtv": [
+        "instaloadercontext.InstaloaderContext.log",
+        "instaloader\\instaloader.Instaloader.posts_download_loop"
+    ],
+    "instaloader\\instaloader.Instaloader._get_id_filename": [
+        "structures.Profile.from_id.username.lower.lower",
+        "instaloader\\instaloader.format_string_contains_key",
+        "os.path.join"
+    ],
+    "instaloader\\instaloader.Instaloader.load_profile_id": [
+        "<builtin>.open",
+        "<builtin>.int",
+        "instaloader\\instaloader.Instaloader._get_id_filename"
+    ],
+    "instaloader\\instaloader.Instaloader.save_profile_id": [
+        "instaloader\\instaloader.Instaloader._get_id_filename",
+        "<builtin>.str",
+        "os.makedirs",
+        "instaloadercontext.InstaloaderContext.log",
+        "<builtin>.open"
+    ],
+    "instaloader\\instaloader.Instaloader.check_profile_id": [
+        "structures.Profile.from_id",
+        "instaloader\\instaloader.Instaloader.save_profile_id",
+        "structures.Profile.from_id.username.lower",
+        "instaloader\\instaloader.Instaloader.load_profile_id",
+        "structures.Profile.from_username",
+        "instaloader\\instaloader.format_string_contains_key",
+        "os.rename",
+        "instaloadercontext.InstaloaderContext.error",
+        "instaloadercontext.InstaloaderContext.log",
+        "structures.Profile.from_id.username.lower.lower"
+    ],
+    "instaloader\\instaloader.Instaloader.download_profiles": [
+        "instaloader\\instaloader.Instaloader.download_highlights",
+        "contextlib.contextmanager",
+        "os.path.join",
+        "<builtin>.str",
+        "<builtin>.list",
+        "instaloader\\instaloader.Instaloader.download_tagged",
+        "instaloader\\instaloader.Instaloader.download_igtv",
+        "instaloadercontext.InstaloaderContext.error_catcher",
+        "instaloader\\instaloader.Instaloader.download_profilepic_if_new",
+        "instaloader\\instaloader.Instaloader.posts_download_loop",
+        "<builtin>.len",
+        "instaloadercontext.InstaloaderContext.log",
+        "<builtin>.enumerate",
+        "instaloader\\instaloader.Instaloader.save_metadata_json",
+        "instaloader\\instaloader.Instaloader.download_stories"
+    ],
+    "instaloader\\instaloader.Instaloader.download_profiles._error_raiser": [],
+    "instaloader\\instaloader.Instaloader.download_profile": [
+        "structures.Profile.from_id.username.lower",
+        "structures.Profile.from_id.get_posts",
+        "instaloader\\instaloader.Instaloader.download_tagged",
+        "instaloadercontext.InstaloaderContext.error_catcher",
+        "<builtin>.isinstance",
+        "instaloader\\instaloader.Instaloader.download_profilepic",
+        "instaloader\\instaloader.Instaloader.posts_download_loop",
+        "instaloader\\instaloader.Instaloader.check_profile_id",
+        "instaloader\\instaloader.Instaloader.save_metadata_json",
+        "instaloadercontext.InstaloaderContext.log",
+        "structures.Profile.from_username.get_posts",
+        "instaloader\\instaloader.Instaloader.download_stories",
+        "structures.Profile.from_id.username.get_posts"
+    ],
+    "instaloader\\instaloader.Instaloader.interactive_login": [
+        "getpass.getpass",
+        "instaloader\\instaloader.Instaloader.login",
+        "<builtin>.input",
+        "instaloader\\instaloader.Instaloader.two_factor_login",
+        "<builtin>.print"
+    ],
+    "instaloader\\instaloadercontext": [],
+    "instaloader\\instaloadercontext.copy_session": [
+        "requests.utils.cookiejar_from_dict",
+        "requests.utils.dict_from_cookiejar",
+        "requests.Session",
+        "functools.partial",
+        "requests.Session.headers.copy"
+    ],
+    "instaloader\\instaloadercontext.default_user_agent": [],
+    "instaloader\\instaloadercontext.default_iphone_headers": [
+        "<builtin>.str",
+        "uuid.uuid4",
+        "datetime.datetime.now.astimezone.utcoffset",
+        "datetime.datetime.now",
+        "datetime.timedelta",
+        "datetime.datetime.now.astimezone",
+        "random.randint"
+    ],
+    "instaloader\\instaloadercontext.InstaloaderContext.__init__": [
+        "instaloader\\instaloadercontext.default_user_agent",
+        "instaloader\\instaloadercontext.RateController.__init__",
+        "<builtin>.dict",
+        "instaloader\\instaloadercontext.default_iphone_headers",
+        "instaloader\\instaloadercontext.InstaloaderContext.get_anonymous_session"
+    ],
+    "instaloader\\instaloadercontext.InstaloaderContext.get_anonymous_session": [
+        "instaloader\\instaloadercontext.InstaloaderContext._default_http_header",
+        "requests.Session.cookies.update",
+        "requests.Session.headers.update",
+        "requests.Session",
+        "functools.partial"
+    ],
+    "instaloader\\instaloadercontext.RateController.__init__": [
+        "<builtin>.dict"
+    ],
+    "instaloader\\instaloadercontext.InstaloaderContext": [
+        "contextlib.contextmanager"
+    ],
+    "instaloader\\instaloadercontext.InstaloaderContext.anonymous_copy": [
+        "instaloader\\instaloadercontext.default_iphone_headers",
+        "requests.Session.close",
+        "instaloader\\instaloadercontext.InstaloaderContext.get_anonymous_session"
+    ],
+    "instaloader\\instaloadercontext.InstaloaderContext.is_logged_in": [
+        "<builtin>.bool"
+    ],
+    "instaloader\\instaloadercontext.InstaloaderContext.log": [
+        "<builtin>.print"
+    ],
+    "instaloader\\instaloadercontext.InstaloaderContext.error": [
+        "<builtin>.print"
+    ],
+    "instaloader\\instaloadercontext.InstaloaderContext.close": [
+        "<builtin>.print",
+        "requests.Session.close"
+    ],
+    "instaloader\\instaloadercontext.InstaloaderContext.error_catcher": [
+        "instaloader\\instaloadercontext.InstaloaderContext.error"
+    ],
+    "instaloader\\instaloadercontext.InstaloaderContext._default_http_header": [],
+    "instaloader\\instaloadercontext.InstaloaderContext.save_session": [
+        "requests.utils.dict_from_cookiejar"
+    ],
+    "instaloader\\instaloadercontext.InstaloaderContext.load_session": [
+        "requests.utils.cookiejar_from_dict",
+        "instaloader\\instaloadercontext.InstaloaderContext._default_http_header",
+        "requests.Session.headers.update",
+        "requests.Session",
+        "functools.partial",
+        "requests.Session.cookies.get_dict"
+    ],
+    "instaloader\\instaloadercontext.InstaloaderContext.save_session_to_file": [
+        "pickle.dump",
+        "instaloader\\instaloadercontext.InstaloaderContext.save_session"
+    ],
+    "instaloader\\instaloadercontext.InstaloaderContext.load_session_from_file": [
+        "pickle.load",
+        "instaloader\\instaloadercontext.InstaloaderContext.load_session"
+    ],
+    "instaloader\\instaloadercontext.InstaloaderContext.test_login": [
+        "instaloader\\instaloadercontext.InstaloaderContext.graphql_query"
+    ],
+    "instaloader\\instaloadercontext.InstaloaderContext.graphql_query": [
+        "instaloader\\instaloadercontext.InstaloaderContext.error",
+        "instaloader\\instaloadercontext.InstaloaderContext._default_http_header",
+        "instaloader\\instaloadercontext.InstaloaderContext.get_json",
+        "json.dumps",
+        "instaloader\\instaloadercontext.copy_session",
+        "hashlib.md5.hexdigest",
+        "hashlib.md5",
+        "urllib.parse.quote"
+    ],
+    "instaloader\\instaloadercontext.InstaloaderContext.login": [
+        "datetime.datetime.now.timestamp",
+        "instaloader\\instaloadercontext.InstaloaderContext._default_http_header",
+        "instaloader\\instaloadercontext.InstaloaderContext.do_sleep",
+        "instaloader\\instaloadercontext.InstaloaderContext.get_json",
+        "requests.Session.cookies.update",
+        "requests.Session.headers.update",
+        "requests.Session",
+        "datetime.datetime.now",
+        "functools.partial",
+        "instaloader\\instaloadercontext.copy_session",
+        "requests.Session.post",
+        "<builtin>.int",
+        "requests.Session.post.json.get",
+        "requests.Session.post.json"
+    ],
+    "instaloader\\instaloadercontext.InstaloaderContext.get_json": [
+        "instaloader\\instaloadercontext.InstaloaderContext.log",
+        "re.search.group",
+        "instaloader\\instaloadercontext.InstaloaderContext.do_sleep",
+        "instaloader\\instaloadercontext.InstaloaderContext.error",
+        "instaloader\\instaloadercontext.InstaloaderContext.get_json",
+        "<builtin>.isinstance",
+        "re.search",
+        "json.loads",
+        "<builtin>.len",
+        "re.search.group.encode",
+        "re.search.group.encode.decode"
+    ],
+    "instaloader\\instaloadercontext.InstaloaderContext.do_sleep": [
+        "time.sleep",
+        "<builtin>.min",
+        "random.expovariate"
+    ],
+    "instaloader\\instaloadercontext.InstaloaderContext.two_factor_login": [],
+    "instaloader\\instaloadercontext.InstaloaderContext.graphql_node_list": [
+        "instaloader\\instaloadercontext.InstaloaderContext.graphql_node_list._query"
+    ],
+    "instaloader\\instaloadercontext.InstaloaderContext.graphql_node_list._query": [
+        "instaloader\\instaloadercontext.InstaloaderContext.graphql_query",
+        "instaloader\\instaloadercontext.InstaloaderContext.graphql_node_list._query",
+        "instaloader\\instaloadercontext.InstaloaderContext.error",
+        "<builtin>.int"
+    ],
+    "instaloader\\instaloadercontext.InstaloaderContext.get_iphone_json": [
+        "instaloader\\instaloadercontext.InstaloaderContext.get_json",
+        "<builtin>.str",
+        "time.time",
+        "<builtin>.dict",
+        "instaloader\\instaloadercontext.copy_session"
+    ],
+    "instaloader\\instaloadercontext.InstaloaderContext.write_raw": [
+        "instaloader\\instaloadercontext.InstaloaderContext.log",
+        "<builtin>.isinstance",
+        "os.replace",
+        "shutil.copyfileobj",
+        "<builtin>.open"
+    ],
+    "instaloader\\instaloadercontext.InstaloaderContext.get_raw": [
+        "instaloader\\instaloadercontext.InstaloaderContext.get_anonymous_session"
+    ],
+    "instaloader\\instaloadercontext.InstaloaderContext.get_and_write_raw": [
+        "instaloader\\instaloadercontext.InstaloaderContext.get_raw",
+        "instaloader\\instaloadercontext.InstaloaderContext.write_raw"
+    ],
+    "instaloader\\instaloadercontext.InstaloaderContext.head": [
+        "instaloader\\instaloadercontext.InstaloaderContext.get_anonymous_session"
+    ],
+    "instaloader\\instaloadercontext.InstaloaderContext.root_rhx_gis": [
+        "json.loads.get",
+        "instaloader\\instaloadercontext.InstaloaderContext.get_json"
+    ],
+    "instaloader\\instaloadercontext.RateController.sleep": [
+        "time.sleep"
+    ],
+    "instaloader\\instaloadercontext.RateController._dump_query_timestamps": [
+        "<builtin>.str",
+        "instaloader\\instaloadercontext.InstaloaderContext.error",
+        "<builtin>.sum"
+    ],
+    "instaloader\\instaloadercontext.RateController.count_per_sliding_window": [],
+    "instaloader\\instaloadercontext.RateController._reqs_in_sliding_window": [
+        "<builtin>.filter",
+        "<builtin>.list"
+    ],
+    "instaloader\\instaloadercontext.RateController._reqs_in_sliding_window.<lambda1>": [],
+    "instaloader\\instaloadercontext.RateController._reqs_in_sliding_window.<lambda2>": [],
+    "instaloader\\instaloadercontext.RateController.query_waittime": [
+        "instaloader\\instaloadercontext.RateController.query_waittime.untracked_next_request_time",
+        "instaloader\\instaloadercontext.RateController.query_waittime.per_type_next_request_time",
+        "<builtin>.list",
+        "instaloader\\instaloadercontext.RateController.query_waittime.gql_accumulated_next_request_time",
+        "instaloader\\instaloadercontext.RateController.query_waittime.iphone_next_request",
+        "<builtin>.filter",
+        "<builtin>.max"
+    ],
+    "instaloader\\instaloadercontext.RateController.query_waittime.<lambda1>": [],
+    "instaloader\\instaloadercontext.RateController.query_waittime.per_type_next_request_time": [
+        "instaloader\\instaloadercontext.RateController.count_per_sliding_window",
+        "instaloader\\instaloadercontext.RateController._reqs_in_sliding_window",
+        "<builtin>.min",
+        "<builtin>.len"
+    ],
+    "instaloader\\instaloadercontext.RateController.query_waittime.gql_accumulated_next_request_time": [
+        "instaloader\\instaloadercontext.RateController._reqs_in_sliding_window",
+        "<builtin>.min",
+        "<builtin>.len"
+    ],
+    "instaloader\\instaloadercontext.RateController.query_waittime.untracked_next_request_time": [
+        "instaloader\\instaloadercontext.RateController._reqs_in_sliding_window",
+        "<builtin>.min",
+        "<builtin>.max"
+    ],
+    "instaloader\\instaloadercontext.RateController.query_waittime.iphone_next_request": [
+        "instaloader\\instaloadercontext.RateController._reqs_in_sliding_window",
+        "<builtin>.min",
+        "<builtin>.len"
+    ],
+    "instaloader\\instaloadercontext.RateController.wait_before_query": [
+        "instaloader\\instaloadercontext.InstaloaderContext.log",
+        "instaloader\\instaloadercontext.RateController.sleep",
+        "datetime.datetime.now",
+        "instaloader\\instaloadercontext.RateController.query_waittime",
+        "<builtin>.round",
+        "datetime.timedelta",
+        "time.monotonic"
+    ],
+    "instaloader\\instaloadercontext.RateController.handle_429": [
+        "instaloader\\instaloadercontext.InstaloaderContext.error",
+        "instaloader\\instaloadercontext.RateController._dump_query_timestamps",
+        "instaloader\\instaloadercontext.RateController.sleep",
+        "datetime.datetime.now",
+        "instaloader\\instaloadercontext.RateController.query_waittime",
+        "<builtin>.round",
+        "datetime.timedelta",
+        "textwrap.fill",
+        "time.monotonic"
+    ],
+    "instaloader\\lateststamps": [],
+    "instaloader\\lateststamps.LatestStamps.__init__": [
+        "configparser.ConfigParser.read",
+        "configparser.ConfigParser"
+    ],
+    "instaloader\\lateststamps.LatestStamps._save": [
+        "os.path.dirname",
+        "configparser.ConfigParser.write",
+        "<builtin>.open",
+        "os.makedirs"
+    ],
+    "instaloader\\lateststamps.LatestStamps._ensure_section": [
+        "configparser.ConfigParser.has_section",
+        "configparser.ConfigParser.add_section"
+    ],
+    "instaloader\\lateststamps.LatestStamps.get_profile_id": [
+        "configparser.ConfigParser.getint"
+    ],
+    "instaloader\\lateststamps.LatestStamps.save_profile_id": [
+        "<builtin>.str",
+        "instaloader\\lateststamps.LatestStamps._save",
+        "instaloader\\lateststamps.LatestStamps._ensure_section",
+        "configparser.ConfigParser.set"
+    ],
+    "instaloader\\lateststamps.LatestStamps.rename_profile": [
+        "instaloader\\lateststamps.LatestStamps._save",
+        "instaloader\\lateststamps.LatestStamps._ensure_section",
+        "configparser.ConfigParser.remove_section",
+        "configparser.ConfigParser.set",
+        "configparser.ConfigParser.get",
+        "configparser.ConfigParser.has_option"
+    ],
+    "instaloader\\lateststamps.LatestStamps._get_timestamp": [
+        "datetime.datetime.strptime",
+        "configparser.ConfigParser.get",
+        "datetime.datetime.fromtimestamp"
+    ],
+    "instaloader\\lateststamps.LatestStamps._set_timestamp": [
+        "instaloader\\lateststamps.LatestStamps._save",
+        "instaloader\\lateststamps.LatestStamps._ensure_section",
+        "configparser.ConfigParser.set"
+    ],
+    "instaloader\\lateststamps.LatestStamps.get_last_post_timestamp": [
+        "instaloader\\lateststamps.LatestStamps._get_timestamp"
+    ],
+    "instaloader\\lateststamps.LatestStamps.set_last_post_timestamp": [
+        "instaloader\\lateststamps.LatestStamps._set_timestamp"
+    ],
+    "instaloader\\lateststamps.LatestStamps.get_last_tagged_timestamp": [
+        "instaloader\\lateststamps.LatestStamps._get_timestamp"
+    ],
+    "instaloader\\lateststamps.LatestStamps.set_last_tagged_timestamp": [
+        "instaloader\\lateststamps.LatestStamps._set_timestamp"
+    ],
+    "instaloader\\lateststamps.LatestStamps.get_last_igtv_timestamp": [
+        "instaloader\\lateststamps.LatestStamps._get_timestamp"
+    ],
+    "instaloader\\lateststamps.LatestStamps.set_last_igtv_timestamp": [
+        "instaloader\\lateststamps.LatestStamps._set_timestamp"
+    ],
+    "instaloader\\lateststamps.LatestStamps.get_last_story_timestamp": [
+        "instaloader\\lateststamps.LatestStamps._get_timestamp"
+    ],
+    "instaloader\\lateststamps.LatestStamps.set_last_story_timestamp": [
+        "instaloader\\lateststamps.LatestStamps._set_timestamp"
+    ],
+    "instaloader\\lateststamps.LatestStamps.get_profile_pic": [
+        "configparser.ConfigParser.get"
+    ],
+    "instaloader\\lateststamps.LatestStamps.set_profile_pic": [
+        "instaloader\\lateststamps.LatestStamps._save",
+        "instaloader\\lateststamps.LatestStamps._ensure_section",
+        "configparser.ConfigParser.set"
+    ],
+    "instaloader\\nodeiterator": [
+        "contextlib.contextmanager",
+        "typing.TypeVar"
+    ],
+    "instaloader\\nodeiterator.NodeIterator": [
+        "datetime.timedelta"
+    ],
+    "instaloader\\nodeiterator.NodeIterator.__init__": [
+        "datetime.datetime.now",
+        "instaloader\\nodeiterator.NodeIterator._query"
+    ],
+    "instaloader\\nodeiterator.NodeIterator._query": [
+        "<builtin>.int",
+        "datetime.datetime.now",
+        "instaloader\\nodeiterator.NodeIterator._query"
+    ],
+    "instaloader\\nodeiterator.NodeIterator.__iter__": [],
+    "instaloader\\nodeiterator.NodeIterator.__next__": [
+        "instaloader\\nodeiterator.NodeIterator.__next__",
+        "<builtin>.StopIteration",
+        "instaloader\\nodeiterator.NodeIterator._query",
+        "<builtin>.len"
+    ],
+    "instaloader\\nodeiterator.NodeIterator.count": [],
+    "instaloader\\nodeiterator.NodeIterator.total_index": [],
+    "instaloader\\nodeiterator.NodeIterator.magic": [
+        "json.dumps.encode",
+        "json.dumps",
+        "base64.urlsafe_b64encode.decode",
+        "hashlib.blake2b.update",
+        "hashlib.blake2b",
+        "hashlib.blake2b.digest",
+        "base64.urlsafe_b64encode"
+    ],
+    "instaloader\\nodeiterator.NodeIterator.first_item": [],
+    "instaloader\\nodeiterator.NodeIterator.freeze": [
+        "typing.NamedTuple.__init__",
+        "datetime.datetime.now.timestamp",
+        "<builtin>.max"
+    ],
+    "instaloader\\nodeiterator.NodeIterator.thaw": [
+        "datetime.datetime.fromtimestamp",
+        "exceptions.InvalidArgumentException"
+    ],
+    "instaloader\\nodeiterator.resumable_iteration": [
+        "os.path.dirname",
+        "datetime.datetime.fromtimestamp",
+        "datetime.datetime.now",
+        "exceptions.InvalidArgumentException",
+        "<builtin>.isinstance",
+        "os.unlink",
+        "os.makedirs",
+        "os.path.isfile"
+    ],
+    "instaloader\\sectioniterator": [
+        "typing.TypeVar"
+    ],
+    "instaloader\\sectioniterator.SectionIterator.__init__": [
+        "instaloader\\sectioniterator.SectionIterator._query"
+    ],
+    "instaloader\\sectioniterator.SectionIterator._query": [],
+    "instaloader\\sectioniterator.SectionIterator.__iter__": [],
+    "instaloader\\sectioniterator.SectionIterator.__next__": [
+        "instaloader\\sectioniterator.SectionIterator.__next__",
+        "instaloader\\sectioniterator.SectionIterator._query",
+        "<builtin>.StopIteration",
+        "<builtin>.len"
+    ],
+    "instaloader\\structures": [
+        "<builtin>.getattr",
+        "re.compile"
+    ],
+    "instaloader\\structures._optional_normalize": [
+        "unicodedata.normalize"
+    ],
+    "instaloader\\structures.Post.__init__": [],
+    "instaloader\\structures.Post.from_shortcode": [
+        "instaloader\\structures.Post.__init__"
+    ],
+    "instaloader\\structures.Post.from_mediaid": [
+        "instaloader\\structures.Post.mediaid_to_shortcode",
+        "instaloader\\structures.Post.from_shortcode"
+    ],
+    "instaloader\\structures.Post.mediaid_to_shortcode": [
+        "base64.b64encode",
+        "base64.b64encode.decode",
+        "base64.b64encode.decode.replace",
+        "<builtin>.str",
+        "base64.b64encode.decode.replace.lstrip"
+    ],
+    "instaloader\\structures.Post.from_iphone_struct": [
+        "contextlib.suppress",
+        "instaloader\\structures.Profile.from_iphone_struct",
+        "instaloader\\structures.Post.__init__"
+    ],
+    "instaloader\\structures.Profile.from_iphone_struct": [
+        "instaloader\\structures.Profile.__init__"
+    ],
+    "instaloader\\structures.Post.shortcode_to_mediaid": [
+        "base64.b64decode",
+        "<builtin>.len"
+    ],
+    "instaloader\\structures.Post.supported_graphql_types": [],
+    "instaloader\\structures.Post._asdict": [
+        "typing.NamedTuple._asdict"
+    ],
+    "instaloader\\structures.Post.shortcode": [],
+    "instaloader\\structures.Post.mediaid": [
+        "<builtin>.int"
+    ],
+    "instaloader\\structures.Post.title": [
+        "instaloader\\structures.Post._field"
+    ],
+    "instaloader\\structures.Post._field": [],
+    "instaloader\\structures.Post.__repr__": [],
+    "instaloader\\structures.Post.__eq__": [
+        "<builtin>.isinstance"
+    ],
+    "instaloader\\structures.Post.__hash__": [
+        "<builtin>.hash"
+    ],
+    "instaloader\\structures.Post._obtain_metadata": [],
+    "instaloader\\structures.Post._full_metadata": [
+        "instaloader\\structures.Post._obtain_metadata"
+    ],
+    "instaloader\\structures.Post._iphone_struct": [],
+    "instaloader\\structures.Post.owner_profile": [
+        "instaloader\\structures.Profile.__init__"
+    ],
+    "instaloader\\structures.Profile.__init__": [],
+    "instaloader\\structures.Post.owner_username": [],
+    "instaloader\\structures.Post.owner_id": [],
+    "instaloader\\structures.Post.date_local": [
+        "instaloader\\structures.Post._get_timestamp_date_created",
+        "datetime.datetime.fromtimestamp",
+        "datetime.datetime.fromtimestamp.astimezone"
+    ],
+    "instaloader\\structures.Post._get_timestamp_date_created": [],
+    "instaloader\\structures.Post.date_utc": [
+        "instaloader\\structures.Post._get_timestamp_date_created",
+        "datetime.datetime.utcfromtimestamp"
+    ],
+    "instaloader\\structures.Post.date": [],
+    "instaloader\\structures.Post.profile": [],
+    "instaloader\\structures.Post.url": [
+        "re.sub.rstrip",
+        "re.sub"
+    ],
+    "instaloader\\structures.Post.typename": [
+        "instaloader\\structures.Post._field"
+    ],
+    "instaloader\\structures.Post.mediacount": [
+        "instaloader\\structures.Post._field",
+        "<builtin>.len"
+    ],
+    "instaloader\\structures.Post.get_is_videos": [
+        "instaloader\\structures.Post._field"
+    ],
+    "instaloader\\structures.Post.get_sidecar_nodes": [
+        "typing.NamedTuple.__init__",
+        "<builtin>.any",
+        "instaloader\\structures.Post._field",
+        "re.sub",
+        "<builtin>.len",
+        "<builtin>.enumerate",
+        "re.sub.rstrip"
+    ],
+    "instaloader\\structures.Post.caption": [
+        "instaloader\\structures._optional_normalize"
+    ],
+    "instaloader\\structures.Post.caption_hashtags": [
+        "re.compile.findall"
+    ],
+    "instaloader\\structures.Post.caption_mentions": [
+        "re.compile.findall"
+    ],
+    "instaloader\\structures.Post.pcaption": [
+        "instaloader\\structures.Post.pcaption._elliptify"
+    ],
+    "instaloader\\structures.Post.pcaption._elliptify": [
+        "<builtin>.len"
+    ],
+    "instaloader\\structures.Post.accessibility_caption": [
+        "instaloader\\structures.Post._field"
+    ],
+    "instaloader\\structures.Post.tagged_users": [
+        "instaloader\\structures.Post._field"
+    ],
+    "instaloader\\structures.Post.is_video": [],
+    "instaloader\\structures.Post.video_url": [
+        "<builtin>.list",
+        "instaloader\\structures.Post._field",
+        "<builtin>.len",
+        "<builtin>.enumerate",
+        "<builtin>.int"
+    ],
+    "instaloader\\structures.Post.video_view_count": [
+        "instaloader\\structures.Post._field"
+    ],
+    "instaloader\\structures.Post.video_duration": [
+        "instaloader\\structures.Post._field"
+    ],
+    "instaloader\\structures.Post.viewer_has_liked": [
+        "instaloader\\structures.Post._field"
+    ],
+    "instaloader\\structures.Post.likes": [
+        "instaloader\\structures.Post._field"
+    ],
+    "instaloader\\structures.Post.comments": [
+        "instaloader\\structures.Post._field"
+    ],
+    "instaloader\\structures.Post.get_comments": [
+        "<builtin>.sum",
+        "instaloader\\structures.Post._field",
+        "nodeiterator.NodeIterator",
+        "<builtin>.len",
+        "instaloader.structures.Hashtag.get_posts_resumable.<lambda2>"
+    ],
+    "instaloader\\structures.Post.get_comments._postcommentanswer": [
+        "typing.NamedTuple.__init__",
+        "instaloader\\structures.Profile.__init__",
+        "datetime.datetime.utcfromtimestamp",
+        "<builtin>.int"
+    ],
+    "instaloader\\structures.Post.get_comments._postcommentanswers": [
+        "instaloader.structures.Hashtag.get_posts_resumable.<lambda2>",
+        "nodeiterator.NodeIterator",
+        "<builtin>.len"
+    ],
+    "instaloader\\structures.Post.get_comments._postcommentanswers.<lambda1>": [],
+    "instaloader\\structures.Post.get_comments._postcomment": [
+        "typing.NamedTuple.__init__",
+        "instaloader\\structures.Post.get_comments._postcommentanswers",
+        "instaloader.structures.Hashtag.get_posts_resumable.<lambda2>"
+    ],
+    "instaloader\\structures.Post.get_comments.<lambda1>": [],
+    "instaloader\\structures.Post.get_likes": [
+        "instaloader\\structures.Post._field",
+        "nodeiterator.NodeIterator",
+        "instaloader\\structures.Profile.__init__",
+        "<builtin>.len"
+    ],
+    "instaloader\\structures.Post.get_likes.<lambda1>": [],
+    "instaloader\\structures.Post.get_likes.<lambda2>": [
+        "instaloader\\structures.Profile.__init__"
+    ],
+    "instaloader\\structures.Post.is_sponsored": [
+        "instaloader\\structures.Post._field",
+        "<builtin>.bool"
+    ],
+    "instaloader\\structures.Post.sponsor_users": [
+        "instaloader\\structures.Profile.__init__",
+        "instaloader\\structures.Post._field"
+    ],
+    "instaloader\\structures.Post.location": [
+        "typing.NamedTuple.__init__",
+        "instaloader\\structures.Post._field",
+        "<builtin>.int",
+        "<builtin>.any"
+    ],
+    "instaloader\\structures.Post.is_pinned": [
+        "<builtin>.bool"
+    ],
+    "instaloader\\structures.Profile.from_username": [
+        "instaloader\\structures.Profile.__init__"
+    ],
+    "instaloader\\structures.Profile.from_id": [
+        "<builtin>.str",
+        "instaloader\\structures.Profile.__init__"
+    ],
+    "instaloader\\structures.Profile.own_profile": [
+        "instaloader\\structures.Profile.__init__"
+    ],
+    "instaloader\\structures.Profile._asdict": [],
+    "instaloader\\structures.Profile._obtain_metadata": [
+        "instaloader\\structures.TopSearchResults.get_profiles",
+        "instaloader\\structures.TopSearchResults.__init__",
+        "<builtin>.len"
+    ],
+    "instaloader\\structures.TopSearchResults.__init__": [],
+    "instaloader\\structures.TopSearchResults.get_profiles": [
+        "instaloader\\structures.Profile.__init__"
+    ],
+    "instaloader\\structures.Profile._metadata": [
+        "instaloader\\structures.Profile._obtain_metadata"
+    ],
+    "instaloader\\structures.Profile._iphone_struct": [],
+    "instaloader\\structures.Profile.userid": [
+        "<builtin>.int",
+        "instaloader\\structures.Profile._metadata"
+    ],
+    "instaloader\\structures.Profile.username": [
+        "instaloader\\structures.Profile._metadata"
+    ],
+    "instaloader\\structures.Profile.__repr__": [],
+    "instaloader\\structures.Profile.__eq__": [
+        "<builtin>.isinstance"
+    ],
+    "instaloader\\structures.Profile.__hash__": [
+        "<builtin>.hash"
+    ],
+    "instaloader\\structures.Profile.is_private": [
+        "instaloader\\structures.Profile._metadata"
+    ],
+    "instaloader\\structures.Profile.followed_by_viewer": [
+        "instaloader\\structures.Profile._metadata"
+    ],
+    "instaloader\\structures.Profile.mediacount": [
+        "instaloader\\structures.Profile._metadata"
+    ],
+    "instaloader\\structures.Profile.igtvcount": [
+        "instaloader\\structures.Profile._metadata"
+    ],
+    "instaloader\\structures.Profile.followers": [
+        "instaloader\\structures.Profile._metadata"
+    ],
+    "instaloader\\structures.Profile.followees": [
+        "instaloader\\structures.Profile._metadata"
+    ],
+    "instaloader\\structures.Profile.external_url": [
+        "instaloader\\structures.Profile._metadata"
+    ],
+    "instaloader\\structures.Profile.is_business_account": [
+        "instaloader\\structures.Profile._metadata"
+    ],
+    "instaloader\\structures.Profile.business_category_name": [
+        "instaloader\\structures.Profile._metadata"
+    ],
+    "instaloader\\structures.Profile.biography": [
+        "instaloader\\structures.Profile._metadata",
+        "unicodedata.normalize"
+    ],
+    "instaloader\\structures.Profile.biography_hashtags": [
+        "re.compile.findall"
+    ],
+    "instaloader\\structures.Profile.biography_mentions": [
+        "re.compile.findall"
+    ],
+    "instaloader\\structures.Profile.blocked_by_viewer": [
+        "instaloader\\structures.Profile._metadata"
+    ],
+    "instaloader\\structures.Profile.follows_viewer": [
+        "instaloader\\structures.Profile._metadata"
+    ],
+    "instaloader\\structures.Profile.full_name": [
+        "instaloader\\structures.Profile._metadata"
+    ],
+    "instaloader\\structures.Profile.has_blocked_viewer": [
+        "instaloader\\structures.Profile._metadata"
+    ],
+    "instaloader\\structures.Profile.has_highlight_reels": [],
+    "instaloader\\structures.Profile.has_public_story": [
+        "instaloader\\structures.Profile._obtain_metadata"
+    ],
+    "instaloader\\structures.Profile.has_viewable_story": [],
+    "instaloader\\structures.Profile.has_requested_viewer": [
+        "instaloader\\structures.Profile._metadata"
+    ],
+    "instaloader\\structures.Profile.is_verified": [
+        "instaloader\\structures.Profile._metadata"
+    ],
+    "instaloader\\structures.Profile.requested_by_viewer": [
+        "instaloader\\structures.Profile._metadata"
+    ],
+    "instaloader\\structures.Profile.profile_pic_url": [
+        "instaloader\\structures.Profile._metadata"
+    ],
+    "instaloader\\structures.Profile.profile_pic_url_no_iphone": [
+        "instaloader\\structures.Profile._metadata"
+    ],
+    "instaloader\\structures.Profile.get_profile_pic_url": [],
+    "instaloader\\structures.Profile.get_posts": [
+        "instaloader\\structures.Profile._obtain_metadata",
+        "nodeiterator.NodeIterator",
+        "instaloader\\structures.Profile._make_is_newest_checker",
+        "instaloader\\structures.Profile._metadata"
+    ],
+    "instaloader\\structures.Profile.get_posts.<lambda1>": [],
+    "instaloader\\structures.Profile.get_posts.<lambda2>": [
+        "instaloader\\structures.Post.__init__"
+    ],
+    "instaloader\\structures.Profile._make_is_newest_checker": [],
+    "instaloader\\structures.Profile.get_saved_posts": [
+        "nodeiterator.NodeIterator"
+    ],
+    "instaloader\\structures.Profile.get_saved_posts.<lambda1>": [],
+    "instaloader\\structures.Profile.get_saved_posts.<lambda2>": [
+        "instaloader\\structures.Post.__init__"
+    ],
+    "instaloader\\structures.Profile.get_tagged_posts": [
+        "instaloader\\structures.Profile._obtain_metadata",
+        "nodeiterator.NodeIterator",
+        "instaloader\\structures.Profile._make_is_newest_checker"
+    ],
+    "instaloader\\structures.Profile.get_tagged_posts.<lambda1>": [],
+    "instaloader\\structures.Profile.get_tagged_posts.<lambda2>": [
+        "<builtin>.int",
+        "instaloader\\structures.Post.__init__"
+    ],
+    "instaloader\\structures.Profile.get_igtv_posts": [
+        "instaloader\\structures.Profile._obtain_metadata",
+        "nodeiterator.NodeIterator",
+        "instaloader\\structures.Profile._make_is_newest_checker",
+        "instaloader\\structures.Profile._metadata"
+    ],
+    "instaloader\\structures.Profile.get_igtv_posts.<lambda1>": [],
+    "instaloader\\structures.Profile.get_igtv_posts.<lambda2>": [
+        "instaloader\\structures.Post.__init__"
+    ],
+    "instaloader\\structures.Profile._make_is_newest_checker.<lambda1>": [],
+    "instaloader\\structures.Profile.get_followed_hashtags": [
+        "<builtin>.str",
+        "instaloader\\structures.Profile._obtain_metadata",
+        "nodeiterator.NodeIterator"
+    ],
+    "instaloader\\structures.Profile.get_followed_hashtags.<lambda1>": [],
+    "instaloader\\structures.Profile.get_followed_hashtags.<lambda2>": [
+        "instaloader\\structures.Hashtag.__init__"
+    ],
+    "instaloader\\structures.Hashtag.__init__": [],
+    "instaloader\\structures.Profile.get_followers": [
+        "<builtin>.str",
+        "instaloader\\structures.Profile._obtain_metadata",
+        "nodeiterator.NodeIterator"
+    ],
+    "instaloader\\structures.Profile.get_followers.<lambda1>": [],
+    "instaloader\\structures.Profile.get_followers.<lambda2>": [
+        "instaloader\\structures.Profile.__init__"
+    ],
+    "instaloader\\structures.Profile.get_followees": [
+        "<builtin>.str",
+        "instaloader\\structures.Profile._obtain_metadata",
+        "nodeiterator.NodeIterator"
+    ],
+    "instaloader\\structures.Profile.get_followees.<lambda1>": [],
+    "instaloader\\structures.Profile.get_followees.<lambda2>": [
+        "instaloader\\structures.Profile.__init__"
+    ],
+    "instaloader\\structures.Profile.get_similar_accounts": [
+        "instaloader\\structures.Profile._obtain_metadata",
+        "instaloader\\structures.Profile.__init__"
+    ],
+    "instaloader\\structures.StoryItem.__init__": [],
+    "instaloader\\structures.StoryItem._asdict": [],
+    "instaloader\\structures.StoryItem.mediaid": [
+        "<builtin>.int"
+    ],
+    "instaloader\\structures.StoryItem.shortcode": [
+        "instaloader\\structures.Post.mediaid_to_shortcode"
+    ],
+    "instaloader\\structures.StoryItem.__repr__": [],
+    "instaloader\\structures.StoryItem.__eq__": [
+        "<builtin>.isinstance"
+    ],
+    "instaloader\\structures.StoryItem.__hash__": [
+        "<builtin>.hash"
+    ],
+    "instaloader\\structures.StoryItem.from_mediaid": [
+        "instaloader\\structures.StoryItem.__init__"
+    ],
+    "instaloader\\structures.StoryItem._iphone_struct": [
+        "<builtin>.str"
+    ],
+    "instaloader\\structures.StoryItem.owner_profile": [
+        "instaloader\\structures.Profile.from_id"
+    ],
+    "instaloader\\structures.StoryItem.owner_username": [],
+    "instaloader\\structures.StoryItem.owner_id": [],
+    "instaloader\\structures.StoryItem.date_local": [
+        "datetime.datetime.fromtimestamp",
+        "datetime.datetime.fromtimestamp.astimezone"
+    ],
+    "instaloader\\structures.StoryItem.date_utc": [
+        "datetime.datetime.utcfromtimestamp"
+    ],
+    "instaloader\\structures.StoryItem.date": [],
+    "instaloader\\structures.StoryItem.profile": [],
+    "instaloader\\structures.StoryItem.expiring_local": [
+        "datetime.datetime.fromtimestamp"
+    ],
+    "instaloader\\structures.StoryItem.expiring_utc": [
+        "datetime.datetime.utcfromtimestamp"
+    ],
+    "instaloader\\structures.StoryItem.url": [
+        "re.sub.rstrip",
+        "re.sub"
+    ],
+    "instaloader\\structures.StoryItem.typename": [],
+    "instaloader\\structures.StoryItem.caption": [
+        "instaloader\\structures._optional_normalize"
+    ],
+    "instaloader\\structures.StoryItem.caption_hashtags": [
+        "re.compile.findall"
+    ],
+    "instaloader\\structures.StoryItem.caption_mentions": [
+        "re.compile.findall"
+    ],
+    "instaloader\\structures.StoryItem.pcaption": [
+        "instaloader\\structures.StoryItem.pcaption._elliptify"
+    ],
+    "instaloader\\structures.StoryItem.pcaption._elliptify": [
+        "<builtin>.len"
+    ],
+    "instaloader\\structures.StoryItem.is_video": [],
+    "instaloader\\structures.StoryItem.video_url": [
+        "<builtin>.list",
+        "<builtin>.enumerate",
+        "<builtin>.int",
+        "<builtin>.len"
+    ],
+    "instaloader\\structures.Story.__init__": [],
+    "instaloader\\structures.Story.__repr__": [],
+    "instaloader\\structures.Story.__eq__": [
+        "<builtin>.isinstance"
+    ],
+    "instaloader\\structures.Story.__hash__": [
+        "<builtin>.hash"
+    ],
+    "instaloader\\structures.Story.unique_id": [
+        "<builtin>.map",
+        "instaloader\\structures.Story.get_items",
+        "<builtin>.list",
+        "<builtin>.str"
+    ],
+    "instaloader\\structures.Story.get_items": [
+        "<builtin>.reversed",
+        "instaloader\\structures.StoryItem.__init__",
+        "<builtin>.int",
+        "instaloader\\structures.Story._fetch_iphone_struct"
+    ],
+    "instaloader\\structures.Story.last_seen_local": [
+        "datetime.datetime.fromtimestamp"
+    ],
+    "instaloader\\structures.Story.last_seen_utc": [
+        "datetime.datetime.utcfromtimestamp"
+    ],
+    "instaloader\\structures.Story.latest_media_local": [
+        "datetime.datetime.fromtimestamp"
+    ],
+    "instaloader\\structures.Story.latest_media_utc": [
+        "datetime.datetime.utcfromtimestamp"
+    ],
+    "instaloader\\structures.Story.itemcount": [
+        "<builtin>.len"
+    ],
+    "instaloader\\structures.Story.owner_profile": [
+        "instaloader\\structures.Profile.__init__"
+    ],
+    "instaloader\\structures.Story.owner_username": [],
+    "instaloader\\structures.Story.owner_id": [],
+    "instaloader\\structures.Story._fetch_iphone_struct": [
+        "<builtin>.str"
+    ],
+    "instaloader\\structures.Highlight.__init__": [
+        "<builtin>.super"
+    ],
+    "instaloader\\structures.Highlight.__repr__": [],
+    "instaloader\\structures.Highlight.unique_id": [
+        "<builtin>.int"
+    ],
+    "instaloader\\structures.Highlight.owner_profile": [
+        "instaloader\\structures.Profile.__init__"
+    ],
+    "instaloader\\structures.Highlight.title": [],
+    "instaloader\\structures.Highlight.cover_url": [],
+    "instaloader\\structures.Highlight.cover_cropped_url": [],
+    "instaloader\\structures.Highlight._fetch_items": [],
+    "instaloader\\structures.Highlight._fetch_iphone_struct": [],
+    "instaloader\\structures.Highlight.itemcount": [
+        "instaloader\\structures.Highlight._fetch_items",
+        "<builtin>.len"
+    ],
+    "instaloader\\structures.Highlight.get_items": [
+        "instaloader\\structures.StoryItem.__init__",
+        "instaloader\\structures.Highlight._fetch_iphone_struct",
+        "<builtin>.int",
+        "instaloader\\structures.Highlight._fetch_items"
+    ],
+    "instaloader\\structures.Hashtag.from_name": [
+        "instaloader\\structures.Hashtag.__init__"
+    ],
+    "instaloader\\structures.Hashtag.name": [],
+    "instaloader\\structures.Hashtag._query": [],
+    "instaloader\\structures.Hashtag._obtain_metadata": [
+        "instaloader\\structures.Hashtag._query"
+    ],
+    "instaloader\\structures.Hashtag._asdict": [],
+    "instaloader\\structures.Hashtag.__repr__": [],
+    "instaloader\\structures.Hashtag.__eq__": [
+        "<builtin>.isinstance"
+    ],
+    "instaloader\\structures.Hashtag.__hash__": [
+        "<builtin>.hash"
+    ],
+    "instaloader\\structures.Hashtag._metadata": [
+        "instaloader\\structures.Hashtag._obtain_metadata"
+    ],
+    "instaloader\\structures.Hashtag.hashtagid": [
+        "<builtin>.int",
+        "instaloader\\structures.Hashtag._metadata"
+    ],
+    "instaloader\\structures.Hashtag.profile_pic_url": [
+        "instaloader\\structures.Hashtag._metadata"
+    ],
+    "instaloader\\structures.Hashtag.description": [
+        "instaloader\\structures.Hashtag._metadata"
+    ],
+    "instaloader\\structures.Hashtag.allow_following": [
+        "<builtin>.bool",
+        "instaloader\\structures.Hashtag._metadata"
+    ],
+    "instaloader\\structures.Hashtag.is_following": [
+        "<builtin>.bool",
+        "instaloader\\structures.Hashtag._metadata"
+    ],
+    "instaloader\\structures.Hashtag.get_top_posts": [
+        "sectioniterator.SectionIterator",
+        "instaloader\\structures.Post.__init__",
+        "instaloader\\structures.Hashtag._metadata"
+    ],
+    "instaloader\\structures.Hashtag.get_top_posts.<lambda1>": [],
+    "instaloader\\structures.Hashtag.get_top_posts.<lambda2>": [
+        "instaloader\\structures.Post.from_iphone_struct"
+    ],
+    "instaloader\\structures.Hashtag.mediacount": [
+        "instaloader\\structures.Hashtag._metadata"
+    ],
+    "instaloader\\structures.Hashtag.get_posts": [
+        "instaloader\\structures.Hashtag._query",
+        "sectioniterator.SectionIterator",
+        "instaloader\\structures.Post.__init__",
+        "instaloader\\structures.Hashtag._metadata"
+    ],
+    "instaloader\\structures.Hashtag.get_posts.<lambda1>": [],
+    "instaloader\\structures.Hashtag.get_posts.<lambda2>": [
+        "instaloader\\structures.Post.from_iphone_struct"
+    ],
+    "instaloader\\structures.Hashtag.get_all_posts": [
+        "<builtin>.iter",
+        "instaloader\\structures.Hashtag.get_posts_resumable",
+        "<builtin>.next",
+        "<builtin>.sorted",
+        "itertools.islice",
+        "instaloader\\structures.Hashtag.get_top_posts"
+    ],
+    "instaloader\\structures.Hashtag.get_all_posts.<lambda1>": [],
+    "instaloader\\structures.Hashtag.get_posts_resumable": [
+        "nodeiterator.NodeIterator"
+    ],
+    "instaloader\\structures.Hashtag.get_posts_resumable.<lambda1>": [],
+    "instaloader\\structures.Hashtag.get_posts_resumable.<lambda2>": [
+        "instaloader\\structures.Post.__init__"
+    ],
+    "instaloader\\structures.TopSearchResults.get_prefixed_usernames": [],
+    "instaloader\\structures.TopSearchResults.get_locations": [
+        "typing.NamedTuple.__init__",
+        "<builtin>.int"
+    ],
+    "instaloader\\structures.TopSearchResults.get_hashtag_strings": [],
+    "instaloader\\structures.TopSearchResults.get_hashtags": [
+        "instaloader\\structures.Hashtag.__init__"
+    ],
+    "instaloader\\structures.TopSearchResults.searchstring": [],
+    "instaloader\\structures.TitlePic.__init__": [],
+    "instaloader\\structures.TitlePic.profile": [],
+    "instaloader\\structures.TitlePic.owner_username": [],
+    "instaloader\\structures.TitlePic.owner_id": [
+        "<builtin>.str"
+    ],
+    "instaloader\\structures.TitlePic.target": [],
+    "instaloader\\structures.TitlePic.typename": [],
+    "instaloader\\structures.TitlePic.filename": [],
+    "instaloader\\structures.TitlePic.date_utc": [],
+    "instaloader\\structures.TitlePic.date": [],
+    "instaloader\\structures.TitlePic.date_local": [],
+    "instaloader\\structures.get_json_structure": [],
+    "instaloader\\structures.save_structure_to_file": [
+        "lzma.open",
+        "json.dump",
+        "<builtin>.open",
+        "instaloader\\structures.get_json_structure"
+    ],
+    "instaloader\\structures.load_structure": [
+        "instaloader\\structures.Profile.__init__",
+        "instaloader\\structures.StoryItem.__init__",
+        "instaloader\\structures.Post.__init__",
+        "instaloader\\structures.Post.from_shortcode",
+        "nodeiterator.FrozenNodeIterator",
+        "instaloader\\structures.Hashtag.__init__"
+    ],
+    "instaloader\\structures.load_structure_from_file": [
+        "lzma.open.close",
+        "lzma.open",
+        "json.load",
+        "<builtin>.open",
+        "instaloader\\structures.load_structure"
+    ],
+    "instaloader\\__main__": [
+        "instaloader\\__main__.main"
+    ],
+    "instaloader\\__main__.usage_string": [
+        "os.path.basename",
+        "<builtin>.len"
+    ],
+    "instaloader\\__main__.http_status_code_list": [
+        "<builtin>.int",
+        "argparse.ArgumentTypeError"
+    ],
+    "argparse.ArgumentTypeError": [],
+    "instaloader\\__main__.filterstr_to_filterfunc": [
+        "<builtin>.compile",
+        "ast.NodeTransformer.visit",
+        "ast.NodeTransformer.__init__",
+        "ast.parse"
+    ],
+    "instaloader\\__main__.filterstr_to_filterfunc.TransformFilterAst.visit_Name": [
+        "ast.Name",
+        "ast.copy_location",
+        "ast.Attribute",
+        "<builtin>.isinstance",
+        "InvalidArgumentException",
+        "ast.Load",
+        "<builtin>.hasattr"
+    ],
+    "InvalidArgumentException": [],
+    "ast.Load": [],
+    "ast.Name": [],
+    "ast.copy_location": [],
+    "ast.Attribute": [],
+    "ast.parse": [],
+    "ast.NodeTransformer.__init__": [],
+    "ast.NodeTransformer.visit": [],
+    "<builtin>.compile": [],
+    "instaloader\\__main__.filterstr_to_filterfunc.filterfunc": [
+        "<builtin>.eval",
+        "<builtin>.bool"
+    ],
+    "<builtin>.eval": [],
+    "instaloader\\__main__._main": [
+        "argparse.ArgumentParser.parse_args.profile.endswith",
+        "Instaloader.context.log",
+        "Instaloader.save_profile_id",
+        "Instaloader.anonymous_copy",
+        "argparse.ArgumentParser.parse_args.profile.rstrip",
+        "re.match",
+        "lateststamps.LatestStamps",
+        "instaloader\\__main__.filterstr_to_filterfunc",
+        "ProfileNotExistsException",
+        "<builtin>.print",
+        "Instaloader.download_feed_posts",
+        "Profile.from_username.get_followees",
+        "argparse.ArgumentParser.parse_args.profile.rstrip.endswith",
+        "Instaloader.two_factor_login",
+        "Instaloader.load_session_from_file",
+        "Instaloader.download_profiles",
+        "Instaloader.download_saved_posts",
+        "Instaloader.login",
+        "Instaloader.download_post",
+        "Instaloader.download_storyitem",
+        "Instaloader.test_login",
+        "Instaloader.interactive_login",
+        "Instaloader.download_location",
+        "Instaloader.check_profile_id.get_followees",
+        "Instaloader.context.error_catcher",
+        "<builtin>.isinstance",
+        "Profile.from_username",
+        "instaloader\\__main__.usage_string",
+        "<builtin>.len",
+        "os.path.isfile",
+        "Instaloader.download_hashtag",
+        "<builtin>.set",
+        "Instaloader.save_session_to_file",
+        "os.path.dirname",
+        "Post.from_shortcode",
+        "Instaloader.check_profile_id",
+        "<builtin>.input",
+        "instaloader\\__main__.filterstr_to_filterfunc.filterfunc",
+        "load_structure_from_file",
+        "Instaloader.download_stories",
+        "InvalidArgumentException",
+        "Instaloader.context.error"
+    ],
+    "Instaloader.context.log": [],
+    "lateststamps.LatestStamps": [],
+    "re.match": [],
+    "Instaloader.context.error": [],
+    "Instaloader.load_session_from_file": [],
+    "Instaloader.test_login": [],
+    "Instaloader.login": [],
+    "Instaloader.two_factor_login": [],
+    "Instaloader.interactive_login": [],
+    "argparse.ArgumentParser.parse_args.profile.rstrip.endswith": [],
+    "argparse.ArgumentParser.parse_args.profile.endswith": [],
+    "Instaloader.context.error_catcher": [],
+    "load_structure_from_file": [],
+    "Instaloader.download_post": [],
+    "Instaloader.download_storyitem": [],
+    "argparse.ArgumentParser.parse_args.profile.rstrip": [],
+    "Profile.from_username": [],
+    "Instaloader.check_profile_id.get_followees": [],
+    "Profile.from_username.get_followees": [],
+    "Instaloader.save_profile_id": [],
+    "Instaloader.download_hashtag": [],
+    "Post.from_shortcode": [],
+    "Instaloader.download_location": [],
+    "Instaloader.download_feed_posts": [],
+    "Instaloader.download_stories": [],
+    "Instaloader.download_saved_posts": [],
+    "Instaloader.check_profile_id": [],
+    "ProfileNotExistsException": [],
+    "Instaloader.anonymous_copy": [],
+    "Instaloader.download_profiles": [],
+    "Instaloader.save_session_to_file": [],
+    "instaloader\\__main__.main": [
+        "instaloadercontext.default_user_agent",
+        "argparse.ArgumentParser.parse_args",
+        "argparse.ArgumentParser.parse_args.login.lower",
+        "Instaloader.close",
+        "argparse.ArgumentParser",
+        "argparse.ArgumentParser.add_argument_group.add_argument",
+        "Instaloader",
+        "instaloader\\__main__._main",
+        "instaloader\\__main__.usage_string",
+        "<builtin>.print",
+        "instaloader.get_default_stamps_filename",
+        "<builtin>.int",
+        "argparse.ArgumentParser.add_argument_group",
+        "instaloader.get_default_session_filename",
+        "<builtin>.SystemExit"
+    ],
+    "argparse.ArgumentParser.add_argument_group": [],
+    "argparse.ArgumentParser.add_argument_group.add_argument": [],
+    "instaloader.get_default_stamps_filename": [],
+    "instaloader.get_default_session_filename": [],
+    "instaloadercontext.default_user_agent": [],
+    "Instaloader": [],
+    "argparse.ArgumentParser.parse_args.login.lower": [],
+    "Instaloader.close": [],
+    "setup": [
+        "setup.get_version",
+        "sys.exit",
+        "os.path.dirname",
+        "setuptools.setup",
+        "os.path.abspath",
+        "os.path.join",
+        "<builtin>.open"
+    ],
+    "setup.get_version": [
+        "re.match",
+        "os.path.join",
+        "re.match.group",
+        "<builtin>.open",
+        "<builtin>.SystemExit"
+    ],
+    "re.match.group": [],
+    "setuptools.setup": [],
+    "test\\instaloader_unittests": [
+        "unittest.main"
+    ],
+    "test\\instaloader_unittests.TestInstaloaderAnonymously.setUp": [
+        "<builtin>.print",
+        "tempfile.mkdtemp",
+        "os.chdir",
+        "instaloader.Instaloader"
+    ],
+    "tempfile.mkdtemp": [],
+    "test\\instaloader_unittests.TestInstaloaderAnonymously.tearDown": [
+        "os.chdir",
+        "<builtin>.print",
+        "shutil.rmtree",
+        "instaloader.Instaloader.close"
+    ],
+    "instaloader.Instaloader.close": [],
+    "shutil.rmtree": [],
+    "test\\instaloader_unittests.TestInstaloaderAnonymously.post_paging_test": [
+        "unittest.TestCase.assertTrue",
+        "itertools.islice",
+        "<builtin>.print"
+    ],
+    "unittest.TestCase.assertTrue": [],
+    "unittest.skip": [],
+    "test\\instaloader_unittests.TestInstaloaderAnonymously": [
+        "unittest.skip"
+    ],
+    "test\\instaloader_unittests.TestInstaloaderAnonymously.test_public_profile_download": [
+        "instaloader.Instaloader.check_profile_id",
+        "instaloader.Instaloader.download_profiles"
+    ],
+    "instaloader.Instaloader.check_profile_id": [],
+    "instaloader.Instaloader.download_profiles": [],
+    "test\\instaloader_unittests.TestInstaloaderAnonymously.test_public_profile_paging": [
+        "structures.Profile.from_username.get_posts",
+        "structures.Profile.from_username",
+        "test\\instaloader_unittests.TestInstaloaderAnonymously.post_paging_test"
+    ],
+    "test\\instaloader_unittests.TestInstaloaderAnonymously.test_profile_pic_download": [
+        "instaloader.Instaloader.check_profile_id",
+        "instaloader.Instaloader.download_profiles"
+    ],
+    "test\\instaloader_unittests.TestInstaloaderAnonymously.test_hashtag_download": [
+        "instaloader.Instaloader.download_hashtag"
+    ],
+    "instaloader.Instaloader.download_hashtag": [],
+    "test\\instaloader_unittests.TestInstaloaderAnonymously.test_hashtag_paging": [
+        "structures.Hashtag.from_name",
+        "<builtin>.enumerate",
+        "<builtin>.print",
+        "structures.Hashtag.from_name.get_all_posts"
+    ],
+    "structures.Hashtag.from_name.get_all_posts": [],
+    "test\\instaloader_unittests.TestInstaloaderAnonymously.test_get_id_by_username": [
+        "structures.Profile.from_username",
+        "unittest.TestCase.assertEqual"
+    ],
+    "unittest.TestCase.assertEqual": [],
+    "test\\instaloader_unittests.TestInstaloaderAnonymously.test_get_username_by_id_private": [
+        "unittest.TestCase.assertEqual",
+        "structures.Profile.from_id"
+    ],
+    "test\\instaloader_unittests.TestInstaloaderAnonymously.test_get_username_by_id_public": [
+        "unittest.TestCase.assertEqual",
+        "structures.Profile.from_id"
+    ],
+    "test\\instaloader_unittests.TestInstaloaderAnonymously.test_get_username_by_id_empty": [
+        "unittest.TestCase.assertEqual",
+        "structures.Profile.from_id"
+    ],
+    "test\\instaloader_unittests.TestInstaloaderAnonymously.test_get_username_by_name_empty": [
+        "structures.Profile.from_username",
+        "unittest.TestCase.assertEqual"
+    ],
+    "test\\instaloader_unittests.TestInstaloaderAnonymously.test_post_from_mediaid": [
+        "structures.Profile.from_username.get_posts",
+        "structures.Post.from_mediaid",
+        "structures.Profile.from_username",
+        "unittest.TestCase.assertEqual"
+    ],
+    "structures.Post.from_mediaid": [],
+    "test\\instaloader_unittests.TestInstaloaderAnonymously.test_public_profile_tagged_paging": [
+        "itertools.islice",
+        "structures.Profile.from_username",
+        "<builtin>.print",
+        "structures.Profile.from_username.get_tagged_posts"
+    ],
+    "test\\instaloader_unittests.TestInstaloaderAnonymously.test_public_profile_igtv": [
+        "structures.Profile.from_username.get_igtv_posts",
+        "structures.Profile.from_username",
+        "<builtin>.print",
+        "itertools.islice"
+    ],
+    "structures.Profile.from_username.get_igtv_posts": [],
+    "test\\instaloader_unittests.TestInstaloaderLoggedIn.setUp": [
+        "<builtin>.super",
+        "instaloader.Instaloader.load_session_from_file"
+    ],
+    "test\\instaloader_unittests.TestInstaloaderLoggedIn": [
+        "unittest.skip"
+    ],
+    "test\\instaloader_unittests.TestInstaloaderLoggedIn.test_stories_download": [
+        "instaloader.Instaloader.download_stories"
+    ],
+    "instaloader.Instaloader.download_stories": [],
+    "test\\instaloader_unittests.TestInstaloaderLoggedIn.test_private_profile_download": [
+        "instaloader.Instaloader.check_profile_id",
+        "instaloader.Instaloader.download_profiles"
+    ],
+    "test\\instaloader_unittests.TestInstaloaderLoggedIn.test_stories_paging": [
+        "instaloader.Instaloader.get_stories.get_items",
+        "<builtin>.print",
+        "instaloader.Instaloader.get_stories"
+    ],
+    "instaloader.Instaloader.get_stories": [],
+    "instaloader.Instaloader.get_stories.get_items": [],
+    "test\\instaloader_unittests.TestInstaloaderLoggedIn.test_highlights_paging": [
+        "instaloader.Instaloader.get_highlights",
+        "instaloader.Instaloader.get_highlights.get_items",
+        "<builtin>.print"
+    ],
+    "instaloader.Instaloader.get_highlights": [],
+    "instaloader.Instaloader.get_highlights.get_items": [],
+    "test\\instaloader_unittests.TestInstaloaderLoggedIn.test_private_profile_paging": [
+        "structures.Profile.from_username.get_posts",
+        "structures.Profile.from_username",
+        "test\\instaloader_unittests.TestInstaloaderAnonymously.post_paging_test"
+    ],
+    "test\\instaloader_unittests.TestInstaloaderLoggedIn.test_feed_download": [
+        "instaloader.Instaloader.download_feed_posts"
+    ],
+    "instaloader.Instaloader.download_feed_posts": [],
+    "test\\instaloader_unittests.TestInstaloaderLoggedIn.test_feed_paging": [
+        "instaloader.Instaloader.get_feed_posts",
+        "<builtin>.enumerate",
+        "<builtin>.print"
+    ],
+    "instaloader.Instaloader.get_feed_posts": [],
+    "test\\instaloader_unittests.TestInstaloaderLoggedIn.test_saved_download": [
+        "instaloader.Instaloader.download_saved_posts"
+    ],
+    "instaloader.Instaloader.download_saved_posts": [],
+    "test\\instaloader_unittests.TestInstaloaderLoggedIn.test_saved_paging": [
+        "<builtin>.enumerate",
+        "structures.Profile.from_username.get_saved_posts",
+        "structures.Profile.from_username",
+        "<builtin>.print"
+    ],
+    "structures.Profile.from_username.get_saved_posts": [],
+    "test\\instaloader_unittests.TestInstaloaderLoggedIn.test_test_login": [
+        "unittest.TestCase.assertEqual",
+        "instaloader.Instaloader.test_login"
+    ],
+    "test\\instaloader_unittests.TestInstaloaderLoggedIn.test_followees_and_stories": [
+        "instaloader.Instaloader.download_profiles",
+        "structures.Profile.from_username.get_followees",
+        "structures.Profile.from_username",
+        "itertools.islice",
+        "<builtin>.set"
+    ],
+    "structures.Profile.from_username.get_followees": [],
+    "test\\instaloader_unittests.TestInstaloaderLoggedIn.test_get_followees": [
+        "structures.Profile.from_username.get_followees",
+        "structures.Profile.from_username",
+        "<builtin>.print"
+    ],
+    "test\\instaloader_unittests.TestInstaloaderLoggedIn.test_get_followers": [
+        "structures.Profile.from_username.get_followers",
+        "structures.Profile.from_username",
+        "<builtin>.print"
+    ],
+    "test\\instaloader_unittests.TestInstaloaderLoggedIn.test_get_similar_accounts": [
+        "structures.Profile.from_username.get_similar_accounts",
+        "structures.Profile.from_username",
+        "<builtin>.print"
+    ],
+    "structures.Profile.from_username.get_similar_accounts": [],
+    "test\\instaloader_unittests.TestInstaloaderLoggedIn.test_get_likes": [
+        "structures.Profile.from_username.get_posts.get_likes",
+        "structures.Profile.from_username.get_posts",
+        "structures.Profile.from_username",
+        "<builtin>.print"
+    ],
+    "test\\instaloader_unittests.TestInstaloaderLoggedIn.test_explore_paging": [
+        "<builtin>.enumerate",
+        "<builtin>.print",
+        "instaloader.Instaloader.get_explore_posts"
+    ],
+    "instaloader.Instaloader.get_explore_posts": [],
+    "test\\instaloader_unittests.TestInstaloaderLoggedIn.test_location_download": [
+        "instaloader.Instaloader.download_location"
+    ],
+    "instaloader.Instaloader.download_location": [],
+    "test\\instaloader_unittests.TestInstaloaderLoggedIn.test_location_paging": [
+        "<builtin>.enumerate",
+        "<builtin>.print",
+        "instaloader.Instaloader.get_location_posts"
+    ],
+    "instaloader.Instaloader.get_location_posts": [],
+    "unittest.main": []
+}
