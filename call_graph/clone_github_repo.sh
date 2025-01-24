@@ -5,7 +5,7 @@ show_help() {
     echo 
     echo "Syntax: bash clone_github_repo.sh ONLINE_REPO_PATH"
     echo "Arguments:"
-    echo "  ONLINE_REPO_PATH-- URL to Git Repository"
+    echo "  ONLINE_REPO_PATH -- URL to Git Repository"
     echo "Options:"
     echo "  -c, --code-folder   Location of Code Folder. Default: ./libraries"
 }

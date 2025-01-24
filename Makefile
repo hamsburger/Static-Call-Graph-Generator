@@ -12,7 +12,7 @@
 #  REQUIRED_VARS = FILTER ONLINE_REPO_PATH
 #  OPTIONAL_VARS = BASE_DIR CODE_FOLDER JSON_FOLDER HTML_FOLDER REPO_NAME OUTPUT_JSON_NAME
 #	
-#  Optional Vars can be set if needed but they have default values or values that are derived 
+#  Optional Vars can be set if needed. bY default, these values are derived 
 #  from ONLINE_REPO_PATH.
 #
 #  Note: May be easier to specify REPO_NAME instead of ONLINE_REPO_PATH when removing repo
