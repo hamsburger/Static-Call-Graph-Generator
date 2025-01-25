@@ -1768,15 +1768,19 @@ test = ["cffi", "hypothesis", "pandas", "pytest", "pytz"]
 
 [[package]]
 name = "pycg"
-version = "0.0.6"
-description = "Practical Python Call Graphs"
+version = "0.0.8"
+description = "PyCG - Practical Python Call Graphs"
 optional = false
 python-versions = ">=3.4"
 groups = ["main"]
 markers = "python_version <= \"3.11\" or python_version >= \"3.12\""
 files = [
-    {file = "pycg-0.0.6.tar.gz", hash = "sha256:1fdc1c809de0a0c2358e115c7c67a5db1be1802a932b5e9e77ced3ae04edbac1"},
+    {file = "pycg-0.0.8-py3-none-any.whl", hash = "sha256:90109b8b787d4496c2198576b0bb08ee5872e1a9a1d1ca557cb856c6798ec0da"},
+    {file = "pycg-0.0.8.tar.gz", hash = "sha256:644b4df4346b393ca29450223da12598a6e6ad51fcfb1c218330b774f643a6c1"},
 ]
+
+[package.extras]
+dev = ["black (>=22.12.0)", "flake8 (>=6.0.0)", "isort (>=5.12.0)", "mock"]
 
 [[package]]
 name = "pycparser"
@@ -2586,4 +2590,4 @@ test = ["big-O", "importlib-resources", "jaraco.functools", "jaraco.itertools", 
 [metadata]
 lock-version = "2.1"
 python-versions = "^3.10"
-content-hash = "399f0ae29f9b8f6315f988ce47c7f4054ec26746525a3aceb2eb9c6f5d5ae9c0"
+content-hash = "c827332633822ed31fe9b99722f8dec0123d3284c043540a72d32adb8a17a3fb"

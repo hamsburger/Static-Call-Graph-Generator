@@ -10,10 +10,12 @@ show_help() {
     echo "  OUTPUT_JSON_PATH -- Path to store output JSON"
     echo 
     echo "Options:"
-    echo "  -h, --help          Help Script"
-    echo "  -c, --code-folder   Location of Code Folder"
-    echo "  -e, --env           Location of Environment File"
-    echo "  -j, --json-folder   Location of JSON files"
+    echo "  -h, --help             Help Script"
+    echo "  -c, --code-folder      Location of Code Folder"
+    echo "  -e, --env              Location of Environment File"
+    echo "  -j, --json-folder      Location of JSON files"
+    echo "  -s, --entry-points     Quoted string controlling python directories/file paths"
+    echo "                         to include for call graph generation"
 }
 
 die() {
@@ -62,6 +64,10 @@ while [ "$#" -gt 0 ]; do
             shift 2
         fi
     ;;
+    -s|--string-directories)
+        STRING_DIRECTORIES=$2
+        shift 2
+    ;;
     *)
        position_args+=("$1")
        shift 1
@@ -83,9 +89,26 @@ else
     OUTPUT_JSON_PATH="$JSON_FOLDER/${position_args[1]}"
 fi
 
+if [ ! $STRING_DIRECTORIES ]; then
+    ENTRY_POINTS=$(find $INPUT_REPO_PATH -name '*.py')
+else
+    IFS=" "
+    ENTRY_POINTS=()
+    for dir in $STRING_DIRECTORIES; do
+        path="$INPUT_REPO_PATH/${position_args[0]}/$dir"
+        while read -r file; do
+            ENTRY_POINTS+=("$file")
+        done < <(find "$path" -name "*.py")
+    done
+fi
+
+
 echo "INPUT PATH: $INPUT_REPO_PATH"
-echo "OUTPUT PATH: $(find $INPUT_REPO_PATH -name '*.py')"
-if python -m pycg --package $INPUT_REPO_PATH $(find $INPUT_REPO_PATH -name "*.py") -o $OUTPUT_JSON_PATH; then
+echo "OUTPUT JSON PATH: $OUTPUT_JSON_PATH"
+echo "ENTRY_POINTS: $ENTRY_POINTS"
+
+# echo "OUTPUT PATH: $(find $INPUT_REPO_PATH -name '*.py')"
+if python -m pycg --package $INPUT_REPO_PATH ${ENTRY_POINTS[@]} -o $OUTPUT_JSON_PATH; then
     echo ""
     echo "pycg graph was generated successfully and stored at $OUTPUT_JSON_PATH"
 fi 

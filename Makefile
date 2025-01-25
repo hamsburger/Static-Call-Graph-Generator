@@ -11,6 +11,7 @@
 #
 #  REQUIRED_VARS = FILTER ONLINE_REPO_PATH
 #  OPTIONAL_VARS = BASE_DIR CODE_FOLDER JSON_FOLDER HTML_FOLDER REPO_NAME OUTPUT_JSON_NAME
+#                  STRING_DIRECTORIES
 #	
 #  Optional Vars can be set if needed. bY default, these values are derived 
 #  from ONLINE_REPO_PATH.
@@ -24,21 +25,26 @@ BASE_DIR ?= ./call_graph
 CODE_FOLDER ?= ./libraries
 JSON_FOLDER ?= ./cg_jsons
 HTML_FOLDER ?= ./cg_htmls
+STRING_DIRECTORIES ?= ""
 REPO_NAME := $(shell basename -s \.git "$$ONLINE_REPO_PATH") # A second $ sign escapes special character $ in Makefile
 OUTPUT_JSON_NAME ?= $(shell echo "$(REPO_NAME)" | sed 's/ *$$//')
 
 # Default Makefile executes the first command, so we make our first command 'all'
 all: clone_repo generate_cg_json generate_call_graph
+all_no_clone: generate_cg_json generate_call_graph
 clone_repo:
 	@bash $(BASE_DIR)/clone_github_repo.sh $(ONLINE_REPO_PATH) -c $(CODE_FOLDER)
 
 generate_cg_json:
-	@bash $(BASE_DIR)/generate_cg_json.sh $(REPO_NAME) $(OUTPUT_JSON_NAME).json -c $(CODE_FOLDER) -j $(JSON_FOLDER)
+	@bash $(BASE_DIR)/generate_cg_json.sh $(OUTPUT_JSON_NAME) $(OUTPUT_JSON_NAME).json \
+		  -c $(CODE_FOLDER) \
+		  -j $(JSON_FOLDER) \
+		  -s $(STRING_DIRECTORIES)
 
 # Multiline Bash Commands: https://stackoverflow.com/questions/10121182/multi-line-bash-commands-in-makefile
 generate_call_graph:
 	{ \
-	set -e ;\
+	set -e ; \
 	python $(BASE_DIR)/generate_call_graph.py \
 		-i $(OUTPUT_JSON_NAME).json \
 		-o $(OUTPUT_JSON_NAME).html \
