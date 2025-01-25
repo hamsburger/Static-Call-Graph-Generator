@@ -1,0 +1,7 @@
+*.code-workspace
+.env
+cg_htmls/*
+cg_jsons/*
+libraries/*
+weebster_sounds.wav
+Dockerfile

@@ -14,12 +14,12 @@ Run `poetry init` to initialize the virtual environment, then you can run the gr
 # Steps to Generate Call Graph
 ```mermaid
    graph TD;
-    A -->|Stores GitHub Repository Folder in ./libraries (Default Folder)| B
-    B -->|Stores JSON-format Call Graph in ./cg_jsons (Default Folder)| C
-    C -->|Stores HTML-Format Pyvis Call Graph in ./cg_htmls| D["Pipeline End"]
-    A[call_graph/clone_github_repo.sh:<br />Clones Repository] 
-    B[call_graph/generate_cg_json.sh:<br />Generate Static Call Graph JSON]
-    C[call/graph/generate_call_graph.py<br />Produces Call Graph HTML] 
+    A -->|"Stores GitHub Repository Folder in ./libraries (Default Folder)"| B
+    B -->|"Stores JSON-format Call Graph in ./cg_jsons (Default Folder)"| C
+    C -->|"Stores HTML-Format Pyvis Call Graph in ./cg_htmls"| D["Pipeline End"]
+    A["call_graph/clone_github_repo.sh:<br />Clones Repository"] 
+    B["call_graph/generate_cg_json.sh:<br />Generate Static Call Graph JSON"]
+    C["call/graph/generate_call_graph.py<br />Produces Call Graph HTML"] 
 ```
 Default Folder paths can be modified in the Makefile script. For example:
 ```
