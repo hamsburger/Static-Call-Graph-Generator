@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 show_help() {
-    ## Generate Help Description
+    # Generate Help Description
     echo "Clone github repo into a specified code-folder, or root directory by default"
     echo 
     echo "Syntax: bash clone_github_repo.sh ONLINE_REPO_PATH"
@@ -11,14 +11,14 @@ show_help() {
 }
 
 die() {
-    ## Fail Code
+    # Fail Code
     printf '%s\n' "$1" >&2 
     exit 1
 }
 
 position_args=()
 
-## Default Code Folder is Current Directory
+# Default code folder is current directory
 CODE_FOLDER="./libraries" 
 
 
@@ -28,7 +28,7 @@ while [ "$#" -gt 0 ]; do
         show_help
         exit
     ;;
-    ## Get Code Folder
+    # Get Code Folder
     -c|--code-folder)
         if [ ! $2 ]; then
             die "Code Folder name is empty"

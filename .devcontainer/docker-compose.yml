@@ -1,0 +1,33 @@
+services:
+  backend:
+    build: ../backend
+    ports:
+      - "5000:5000"
+    environment:
+      - FLASK_ENV=development
+      - FLASK_APP=app.py
+    volumes:
+      - ../backend:/app
+    networks:
+      - app-network
+    command: sleep infinity
+
+  frontend:
+    build: ../frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - REACT_APP_API_URL=http://localhost:5000
+    volumes:
+      - ../frontend:/app
+      - /app/node_modules
+    networks:
+      - app-network
+    depends_on:
+      - backend
+    # Overrides default command so things don't shut down after the process ends.
+    command: sleep infinity
+
+networks:
+  app-network:
+    driver: bridge

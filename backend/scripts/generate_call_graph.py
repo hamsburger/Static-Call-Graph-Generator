@@ -16,7 +16,7 @@ import re
 import networkx as nx
 import json
 import os
-from call_graph_functions import CallGraphCleaner
+from backend.scripts.call_graph_functions import CallGraphCleaner
 from pyvis.network import Network
 
 

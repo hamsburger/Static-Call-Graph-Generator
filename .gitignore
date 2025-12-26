@@ -1,7 +1,8 @@
 *.code-workspace
 .env
-cg_htmls/*
-cg_jsons/*
+__pycache__
+backend/output/*
 libraries/*
 weebster_sounds.wav
 Dockerfile
+node_modules

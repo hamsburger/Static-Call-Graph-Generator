@@ -10,6 +10,9 @@
 ############################################################################################
 #
 #  REQUIRED_VARS = FILTER ONLINE_REPO_PATH
+#		FILTER -- Regex filter for file paths you want from repo
+#       ONLINE_REPO_PATH -- Path to repo. Should have .git extension in path.
+# 
 #  OPTIONAL_VARS = BASE_DIR CODE_FOLDER JSON_FOLDER HTML_FOLDER REPO_NAME OUTPUT_JSON_NAME
 #                  STRING_DIRECTORIES
 #	
@@ -21,10 +24,10 @@
 ############################################################################################
 
 AWS_BUCKET_PATH ?= s3://graphbucket222/
-BASE_DIR ?= ./call_graph
-CODE_FOLDER ?= ./libraries
-JSON_FOLDER ?= ./cg_jsons
-HTML_FOLDER ?= ./cg_htmls
+BASE_DIR ?= ./scripts
+CODE_FOLDER ?= ./output/libraries
+JSON_FOLDER ?= ./output/cg_jsons
+HTML_FOLDER ?= ./output/cg_htmls
 STRING_DIRECTORIES ?= ""
 REPO_NAME := $(shell basename -s \.git "$$ONLINE_REPO_PATH") # A second $ sign escapes special character $ in Makefile
 OUTPUT_JSON_NAME ?= $(shell echo "$(REPO_NAME)" | sed 's/ *$$//')
@@ -50,7 +53,7 @@ generate_call_graph:
 		-o $(OUTPUT_JSON_NAME).html \
 		--input_folder $(JSON_FOLDER) \
 		--output_folder $(HTML_FOLDER) \
-		--filter $(FILTER); \
+		--filter "$$FILTER"; \
 	}
 
 remove_repo:
