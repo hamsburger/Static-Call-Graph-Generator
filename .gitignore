@@ -3,6 +3,7 @@
 __pycache__
 backend/output/*
 libraries/*
+secrets/
 weebster_sounds.wav
 Dockerfile
 node_modules
